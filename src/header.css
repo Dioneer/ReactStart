@@ -1,0 +1,149 @@
+.header{
+	background-color: rgb(241, 166, 38);
+	padding: 0.8% 0px;
+	display: flex;
+	align-items: center;
+}
+.container__header{
+	flex: 1 1 100%;
+	display: flex;
+	max-width: 1700px;
+	padding: 0px 10px;
+	margin: 0 auto;
+	align-items: center;
+}
+
+.header__burger{
+	display: inline-block;
+	position: relative;
+	z-index: 4;
+	width: 30px;
+	height: 20px;
+}
+
+.header__burger span,.header__burger:before,.header__burger::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: #333;
+	transition: all 0.3s 0s;
+}
+.header__burger:before{
+	top:0;
+}
+.header__burger:after{
+	bottom: 0;
+}
+.header__burger span{
+	top: 9px;
+}
+.header__burger.active:before{
+	transform: rotate(45deg);
+	top: 9px;
+}
+.header__burger.active:after{
+	transform: rotate(-45deg);
+	bottom: 9px;
+}
+.header__burger span.active{
+	transform: scale(0);
+}
+
+.header__main{
+	flex: 1 1 auto;
+	padding: 0px 7%;
+}
+.header__list{
+	display: flex;
+	padding: 0;
+	margin: 0px 0px 0px 10px;
+	justify-content: space-between;
+}
+.header__list:last-child{
+	margin: 0;
+}
+.header__list li{
+	list-style-type: none;
+	margin: 0px 0px 0px 10px;
+}
+.header__link{
+	color: #333;
+	display: inline-block;
+	text-transform: uppercase;
+	text-decoration: none;
+	letter-spacing: 1px;
+	line-height: 28px;
+	position: relative;
+}
+.header__link:before{
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 1px;
+	background-color: #333;
+	transition: all 0.3s 0s;
+}
+.header__link:hover::before{
+	left: 0%;
+	width: 100%;
+}
+.header__search{
+	position: relative;
+	z-index: 4;
+}
+.header__loupe svg{
+	width: 30px;
+	height: 30px;
+}
+body.active{
+	overflow: hidden;
+}
+@media (max-width: 767.98px){
+	.header{
+		padding: 3% 0px;
+	}
+	.header__main{
+		display: block;
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 200px;
+		height: 100%;
+		background-color: rgb(241, 166, 38);
+		transition: all 0.3s 0s;
+		padding: 0px 20px;
+	}
+	.header__list{
+		display: block;
+		padding: 80px 0px 0px 0px;
+		margin: 0px 0px 20px 0px;
+	}
+	.header__list li{
+		margin: 0px 0px 20px 0px;
+	}
+	.header__link{
+		font-weight: 700;
+		font-size: 24px;
+	}
+	.container__header{
+		justify-content: space-between;
+	}
+	.header.active:before{
+		content:'';
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		min-height: 60px;
+		z-index: 3;
+		background-color: rgb(241, 166, 38);
+		transition: all 0.3s 0s;
+	}
+	.header.active .header__main{
+		left: 0;
+	}
+}

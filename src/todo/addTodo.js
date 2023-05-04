@@ -2,26 +2,49 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function AddToDo({ onCreate }) {
-	let [value, setValue] = React.useState('Add Todo')
+	let [dataValue, setDataValue] = React.useState('');
+	let [value, setValue] = React.useState('Add Todo');
+	let [classes, setClasses] = React.useState([]);
 
 	function submitHandler(e) {
 		e.preventDefault();
-		console.log(e)
-		if (value.trim()) {
-			onCreate(value);
+		if (dataValue.trim()) {
+			onCreate(dataValue);
 			setValue(value = 'Add Todo');
+			setDataValue(dataValue = '');
 		}
 	}
 	function focus() {
-		setValue(value = '')
+		classes.push('active');
+		setValue(value = '');
 	}
 
+	function blur() {
+		setValue(value = 'Add Todo');
+		setClasses(classes = [])
+	}
 	return (
-		<form className='form' action="#" method="POST" onSubmit={submitHandler}>
-			<input type="text" value={value} data-error="ошибка" autoComplete="off" name="name" className="input" onFocus={() => { focus() }} onChange={(e) => { setValue(e.target.value) }} />
+		<form
+			className='form'
+			action="#"
+			method="POST"
+			onSubmit={submitHandler}>
+			<input
+				type="text"
+				data-value={dataValue}
+				value={value || ''}
+				data-error="ошибка"
+				autoComplete="off"
+				name="name"
+				className={["input", classes[0]].join(' ')}
+				onFocus={() => focus()}
+				onBlur={() => blur()}
+				onChange={(e) => { setValue(e.target.value); setDataValue(e.target.value) }} />
 
-			<button className='button button_big' type="submit" ><span>Send</span></button>
-		</form>
+			<button className='button button_big' type="submit" >
+				<span>Send</span>
+			</button>
+		</form >
 	)
 }
 
