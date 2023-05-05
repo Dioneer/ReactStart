@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function ToDoLi({ text, index, changeInputLi, removeLi }) {
+function ToDoLi({ text, index, changeInputLi, removeLi, submit }) {
 	const classes = [];
 	if (text.completed) {
 		classes.push('active')
@@ -26,7 +26,7 @@ function ToDoLi({ text, index, changeInputLi, removeLi }) {
 			<button
 				className="button"
 				type="submit"
-				onClick={() => { removeLi(text.id) }}>X
+				onClick={(e) => { removeLi(text.id); submit(e) }}>X
 			</button>
 		</li>
 	)

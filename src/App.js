@@ -1,11 +1,12 @@
-import TodoList from './todo/todoUl.js';
 import Context from './context.js';
 import React from "react";
-import AddToDo from './todo/addTodo.js';
 import Header from './header/header.js';
+import MainBlock from './mainblock/mainBlock.js';
 
 function App() {
 	const [textContent, setTodo] = React.useState([])
+	let [classes, setClasses] = React.useState('')
+
 	function toggle(id) {
 		setTodo(textContent.map((text) => {
 			if (text.id === id) {
@@ -23,22 +24,21 @@ function App() {
 	function addTodo(value) {
 		setTodo(textContent.concat([{ id: Date.now(), completed: false, title: value }]))
 	}
+
+	function changeBurger(e) {
+		if (e.target.closest('.header__burger')) {
+			classes ? setClasses(classes = '') : setClasses(classes = 'active')
+		}
+		if (window.matchMedia("(max-width: 767.98px)").matches) {
+			document.body.classList.toggle('active');
+		}
+	}
+
 	return (
-		<Context.Provider value={{ textContent, toggle, remove }} >
+		<Context.Provider value={{ textContent, toggle, remove, addTodo, changeBurger, classes }} >
 			<div className="wrapper">
 				<Header></Header>
-				<div className='page'>
-					<div className='container'>
-						<aside className="aside">
-							<div className="page__title title">opportunity</div>
-						</aside>
-						<div className="content">
-							<h1 className="page__title title">today</h1>
-							<AddToDo onCreate={addTodo}></AddToDo>
-							{(textContent.length) ? <TodoList></TodoList> : <div className='lazy'>Congratulations! You have no TODO</div>}
-						</div>
-					</div>
-				</div>
+				<MainBlock></MainBlock>
 			</div>
 		</Context.Provider >
 	);

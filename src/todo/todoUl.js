@@ -5,6 +5,10 @@ import Context from '../context.js';
 
 function ToDoList() {
 	const { textContent, toggle, remove } = useContext(Context);
+
+	function submitHandler(e) {
+		e.preventDefault();
+	}
 	return (
 		<ul className="page__list">
 			{textContent.map((text, i) => {
@@ -12,7 +16,8 @@ function ToDoList() {
 					key={text.id}
 					index={i}
 					changeInputLi={toggle}
-					removeLi={remove}>
+					removeLi={remove}
+					submit={submitHandler}>
 				</ToDoLi>
 			})}
 

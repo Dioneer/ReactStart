@@ -28,10 +28,13 @@ code {
 	display: flex;
 }
 .container{
-	flex: 1 1 100%;
-	display: flex;
 	max-width: 1700px;
+	width: 100%;
 	margin: 0 auto;
+}
+.page__container{
+	display: flex;
+	min-height: 100%;
 }
 .aside{
 	background-color: #999;
@@ -41,6 +44,7 @@ code {
 	flex: 1 1 auto;
 	background: rgb(236, 235, 235);
 	padding:3%;
+	overflow: auto;
 }
 .title{
 	font-size: 24px;
@@ -72,16 +76,17 @@ code {
 .checkbox:before{
 	content: '';
 	position: absolute;
+	display: block;
 	top: 50%;
 	left: 65px;
-	width: 93%;
+	width:68%;
 	height: 1px;
 	background: #333;
-	transform: translate(0, -50%) scale(0);
+	transform: translate( 0, -50%) scale(0);
 	transition: all 0.3s 0s;
 }
 .checkbox.active:before{
-	transform: translate(0, -50%) scale(1);
+	transform: translate( 0, -50%) scale(1);
 }
 .checkbox__input{
 	opacity: 0;
@@ -157,6 +162,7 @@ code {
 	color: #333;
 	letter-spacing: 2px;
 	font-weight: 700;
+	padding: 0px 80px 0px 0px;
 }
 .input{
 	flex: 1 1 auto;
@@ -181,9 +187,27 @@ code {
 }	
 
 @media (max-width: 767.98px){
+	.page__container{
+		justify-content: flex-end;
+	}
 	.aside{
 		display: none;
 	}
-	.content{
+	.content.active{
+		animation: width 0.4s ease 0s forwards;
+	}
+}
+@media (max-width: 479.98px){
+	.content.active{
+		max-width: 100%;
+		animation: none;
+	}
+}
+@keyframes width {
+	0% {
+		max-width: 100%;
+	}
+	100% {
+		max-width: calc((100%*0.75) - var(--width-content, 60px));
 	}
 }
