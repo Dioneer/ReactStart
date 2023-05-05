@@ -4,8 +4,9 @@ import Header from './header/header.js';
 import MainBlock from './mainblock/mainBlock.js';
 
 function App() {
-	const [textContent, setTodo] = React.useState([])
-	let [classes, setClasses] = React.useState('')
+	const [textContent, setTodo] = React.useState([]);
+	let [classes, setClasses] = React.useState('');
+	let [show, setShow] = React.useState('');
 
 	function toggle(id) {
 		setTodo(textContent.map((text) => {
@@ -25,17 +26,17 @@ function App() {
 		setTodo(textContent.concat([{ id: Date.now(), completed: false, title: value }]))
 	}
 
-	function changeBurger(e) {
+	function changeClass(e) {
 		if (e.target.closest('.header__burger')) {
 			classes ? setClasses(classes = '') : setClasses(classes = 'active')
 		}
-		if (window.matchMedia("(max-width: 767.98px)").matches) {
-			document.body.classList.toggle('active');
+		if (e.target.closest('.header__loupe')) {
+			show ? setShow(show = '') : setShow(show = 'active')
 		}
 	}
 
 	return (
-		<Context.Provider value={{ textContent, toggle, remove, addTodo, changeBurger, classes }} >
+		<Context.Provider value={{ textContent, toggle, remove, addTodo, changeClass, classes, show }} >
 			<div className="wrapper">
 				<Header></Header>
 				<MainBlock></MainBlock>
