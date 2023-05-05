@@ -5,6 +5,7 @@ import Context from '../context.js';
 
 function MainBlock() {
 	const { textContent, addTodo, classes } = useContext(Context);
+
 	return (
 		<div className='page'>
 			<div className='container page__container'>

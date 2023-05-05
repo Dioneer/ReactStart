@@ -10,6 +10,6 @@ function HeaderLi({ text }) {
 }
 
 HeaderLi.propTypes = {
-	text: PropTypes.arrayOf(PropTypes.string).isRequired,
+	text: PropTypes.string.isRequired,
 }
 export default HeaderLi;

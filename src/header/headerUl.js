@@ -7,7 +7,7 @@ function HeaderUl() {
 	return (
 		<ul className="header__list">
 			{list.map((li, i) => {
-				return <HeaderLi text={[li]}
+				return <HeaderLi text={li}
 					key={i}>
 				</HeaderLi>
 			})}

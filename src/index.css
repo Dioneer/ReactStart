@@ -44,6 +44,7 @@ code {
 	flex: 1 1 auto;
 	background: rgb(236, 235, 235);
 	padding:3%;
+	max-width:100%;
 	overflow: auto;
 }
 .title{
@@ -175,6 +176,9 @@ code {
 	border-radius: 10px;
 	margin: 0px 10px 0px 0px;
 }
+.input__search{
+	background: rgb(244, 227, 198);
+}
 .input.active{
 	color: #333;
 	border:1px solid rgb(241, 166, 38);
@@ -193,7 +197,12 @@ code {
 	.aside{
 		display: none;
 	}
+	.content{
+		max-width: 100%;
+		animation: backwidth 0.3s ease-in 0s forwards;
+	}
 	.content.active{
+		max-width: calc(100%*0.667);
 		animation: width 0.4s ease 0s forwards;
 	}
 }
@@ -208,6 +217,14 @@ code {
 		max-width: 100%;
 	}
 	100% {
-		max-width: calc((100%*0.75) - var(--width-content, 60px));
+		max-width: calc(100%*0.667);
+	}
+}
+@keyframes backwidth {
+	0% {
+		max-width: calc(100%*0.667);
+	}
+	100% {
+		max-width: 100%;
 	}
 }
