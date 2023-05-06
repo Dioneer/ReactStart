@@ -1,0 +1,13 @@
+.aside__list{
+	padding: 20% 0px 0px 0px;
+}
+.aside__list li{
+	margin: 0px 0px 20% 0px;
+}
+
+.aside__list li a{
+	text-transform: uppercase;
+	color: #333;
+	font-weight: 700;
+	font-size: 20px;
+}

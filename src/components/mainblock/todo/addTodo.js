@@ -25,7 +25,7 @@ function AddToDo({ onCreate }) {
 	}
 	return (
 		<form
-			className='form'
+			className='form form__addToDo'
 			action="#"
 			method="POST"
 			onSubmit={submitHandler}>
@@ -41,7 +41,7 @@ function AddToDo({ onCreate }) {
 				onBlur={() => blur()}
 				onChange={(e) => { setValue(e.target.value); setDataValue(e.target.value) }} />
 
-			<button className='button button_big' type="submit" >
+			<button className='button button__big' type="submit" >
 				<span>Send</span>
 			</button>
 		</form >

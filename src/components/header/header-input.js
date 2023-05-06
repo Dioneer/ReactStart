@@ -5,7 +5,7 @@ import Context from '../context.js';
 function HeaderInput() {
 	const { show } = useContext(Context);
 	let [value, setValue] = React.useState('Search');
-	let [searchClass, setSearchClass] = React.useState([]);
+	let [searchClass, setSearchClass] = React.useState('');
 	let [active, setActive] = React.useState('');
 
 	function submitHandler(e) {
@@ -41,7 +41,7 @@ function HeaderInput() {
 				onBlur={() => blur()}
 				onChange={(e) => { setValue(e.target.value); setSearchClass(e.target.value) }} />
 
-			<button className='button button_big' type="submit" >
+			<button className='button button__search' type="submit" >
 				<span>Search</span>
 			</button>
 		</form >

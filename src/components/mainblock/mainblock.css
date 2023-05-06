@@ -1,0 +1,27 @@
+.page{
+	flex: 1 1 auto;
+	display: flex;
+}
+.aside{
+	background-color: #999;
+	padding:3%;
+}
+.content{
+	flex: 1 1 auto;
+	background: rgb(236, 235, 235);
+	padding:3%;
+	max-width:100%;
+	overflow: auto;
+}
+.content__title{
+	text-align: center;
+}
+.lazy{
+	font-size: 16px;
+	text-transform: uppercase;
+	color: #333;
+	letter-spacing: 2px;
+	font-weight: 700;
+	margin: 40px 0px 0px 0px;
+	padding: 0px 80px 0px 0px;
+}

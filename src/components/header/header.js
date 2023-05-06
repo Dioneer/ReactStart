@@ -1,27 +1,25 @@
 import React, { useContext } from "react";
 import HeaderUl from "./headerUl";
-import HeaderSearch from "./header-saerch.js"
+import HeaderSearch from "./header-search.js"
 import Context from '../context.js';
 import HeaderInput from "./header-input";
+import logo from '../img/skunk.jpg';
+import './header.css';
+import Burger from "./headerBurger";
 
 function Header() {
-	const { changeClass, classes } = useContext(Context);
+	const { classes } = useContext(Context);
 
 	return (
 		<header
 			className={['header', classes].join(' ')}>
-			<div className='container container__header'>
-				<div
-					className={["header__burger", classes].join(' ')}
-					onClick={(e) => { changeClass(e) }}>
-					<span className={classes || ''}></span>
-				</div>
+			<div className='container__header'>
+				<a className='header__image' href="./"><img alt='logo' src={logo}></img></a>
+				<Burger></Burger>
 				<div className={["header__main", classes].join(' ')}>
 					<HeaderUl></HeaderUl>
 				</div>
-				<div className="header__search">
-					<HeaderSearch></HeaderSearch>
-				</div>
+				<HeaderSearch></HeaderSearch>
 			</div>
 			<HeaderInput></HeaderInput>
 		</header >

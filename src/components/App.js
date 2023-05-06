@@ -36,10 +36,12 @@ function App() {
 	}
 
 	return (
-		<Context.Provider value={{ textContent, toggle, remove, addTodo, changeClass, classes, show }} >
+		<Context.Provider value={{ textContent, toggle, remove, addTodo, changeClass, classes, show, setTodo }} >
 			<div className="wrapper">
 				<Header></Header>
-				<MainBlock></MainBlock>
+				<div className='container'>
+					<MainBlock></MainBlock>
+				</div>
 			</div>
 		</Context.Provider >
 	);

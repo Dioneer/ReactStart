@@ -1,6 +1,6 @@
 import ToDoLi from "./todoLi";
 import React, { useContext } from "react";
-import Context from '../context.js';
+import Context from '../../context.js';
 
 
 function ToDoList() {

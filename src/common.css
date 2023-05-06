@@ -1,0 +1,231 @@
+.wrapper{
+	min-height: 100%;
+	width: 100%;
+	display: flex;
+	overflow: auto;
+	flex-direction: column;
+	background-color: #333;
+	position: relative;
+}
+.container{
+	flex: 1 1 auto;
+	max-width: 1700px;
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+/* Title */
+.title{
+	font-size: 24px;
+	line-height: 46px;
+	color: #333;
+	font-family: Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 3px;
+	margin: 0;
+}
+/* button */
+.button {
+	display: flex;
+	padding: 10px 20px;
+	justify-content: center;
+	align-items: center;
+	font-size: 1rem;
+	color: #666;
+	text-transform: uppercase;
+	margin:0 5px 0 0;
+	border-radius: 30px;
+	line-height: 24px;
+	background-color: rgb(241, 166, 38);
+}
+.button:hover{
+	top: -3px;
+	box-shadow: 0 0 3px #333;
+}
+@media (max-width: 767.98px){
+	.button{font-size: 0.9rem;}
+}
+@media (max-width: 479.98px){
+	.button{font-size: 0.8rem;}
+}
+/* input */
+.input{
+	flex: 1 1 auto;
+	display: flex;
+	align-items: center;
+	padding: 5px;
+	font-size: 14px;
+	color: #999;
+	border: 1px solid #333;
+	border-radius: 10px;
+	margin: 0px 10px 0px 0px;
+}
+.input.active{
+	color: #333;
+	border:1px solid rgb(241, 166, 38);
+}
+/* form */
+.form{
+	display: flex;
+}
+/* checkbox */
+.checkbox{
+	flex: 1 1 auto;
+	display: flex;
+	position: relative;
+}
+.checkbox:before{
+	content: '';
+	position: absolute;
+	display: block;
+	top: 50%;
+	left: 65px;
+	width:68%;
+	height: 1px;
+	background: #333;
+	transform: translate( 0, -50%) scale(0);
+	transition: all 0.3s 0s;
+}
+.checkbox.active:before{
+	transform: translate( 0, -50%) scale(1);
+}
+.checkbox__input{
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 0;
+}
+.checkbox__lable{
+	display: block;
+	width: 100%;
+	position: relative;
+	transition: all 0.3s 0s;
+}
+.checkbox__lable::after{
+	content: '';
+	position: absolute;
+	top: -5px;
+	left: -2px;
+	width: 30px;
+	height: 30px;
+	background-color: rgb(176, 167, 167);
+	border-radius: 50%;
+	box-shadow: 0 0 3px rgba(0,0,0,.3);
+	transition: all 0.3s 0s;
+}
+.checkbox__lable::before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50px;
+	height: 20px;
+	border-radius: 20px;
+	background-color: rgb(176, 167, 167);
+	box-shadow: 0 0 3px rgba(0,0,0,.3);
+}
+
+.checkbox__lable.active::after{
+	left: 30px;
+	background-color: rgb(241, 166, 38);
+}
+.checkbox__lable.active::before{
+	background-color: rgb(241, 166, 38);
+}
+.checkbox__lable span{
+	margin: 0 10px 0 70px;
+	color: #666;
+}
+/* loader */
+.loader {
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	height: 80px;
+	left: 50%;
+	transform: translate(-50% ,0);
+}
+.loader div {
+	animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+	transform-origin: 40px 40px;
+}
+.loader div:after {
+	content: " ";
+	display: block;
+	position: absolute;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: #fff;
+	margin: -4px 0 0 -4px;
+}
+.loader div:nth-child(1) {
+	animation-delay: -0.036s;
+}
+.loader div:nth-child(1):after {
+	top: 63px;
+	left: 63px;
+}
+.loader div:nth-child(2) {
+	animation-delay: -0.072s;
+}
+.loader div:nth-child(2):after {
+	top: 68px;
+	left: 56px;
+}
+.loader div:nth-child(3) {
+	animation-delay: -0.108s;
+}
+.loader div:nth-child(3):after {
+	top: 71px;
+	left: 48px;
+}
+.loader div:nth-child(4) {
+	animation-delay: -0.144s;
+}
+.loader div:nth-child(4):after {
+	top: 72px;
+	left: 40px;
+}
+.loader div:nth-child(5) {
+	animation-delay: -0.18s;
+}
+.loader div:nth-child(5):after {
+	top: 71px;
+	left: 32px;
+}
+.loader div:nth-child(6) {
+	animation-delay: -0.216s;
+}
+.loader div:nth-child(6):after {
+	top: 68px;
+	left: 24px;
+}
+.loader div:nth-child(7) {
+	animation-delay: -0.252s;
+}
+.loader div:nth-child(7):after {
+	top: 63px;
+	left: 17px;
+}
+.loader div:nth-child(8) {
+	animation-delay: -0.288s;
+}
+.loader div:nth-child(8):after {
+	top: 56px;
+	left: 12px;
+}
+	 @keyframes lds-roller {
+		0% {
+		  transform: rotate(0deg);
+		}
+		100% {
+		  transform: rotate(360deg);
+		}
+	 }
+	 
