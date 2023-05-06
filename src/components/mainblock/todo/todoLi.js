@@ -1,11 +1,16 @@
 import PropTypes from "prop-types";
 
-function ToDoLi({ text, index, changeInputLi, removeLi, submit }) {
+function ToDoLi({ text, index, changeInputLi, removeLi }) {
 	const classes = [];
 	if (text.completed) {
 		classes.push('active')
 		classes.push(true)
 	}
+
+	async function submitHandler(e) {
+		e.preventDefault();
+	}
+
 	return (
 		<li>
 			<div className={["checkbox", classes[0]].join(' ')} >
@@ -24,9 +29,9 @@ function ToDoLi({ text, index, changeInputLi, removeLi, submit }) {
 					value={''} />
 			</div>
 			<button
-				className="button"
-				type="submit"
-				onClick={(e) => { removeLi(text.id); submit(e) }}>X
+				className="button button__li"
+				type="button"
+				onClick={(e) => { removeLi(text.id); submitHandler(e) }}>X
 			</button>
 		</li>
 	)

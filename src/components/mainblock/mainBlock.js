@@ -3,7 +3,8 @@ import TodoList from './todo/todoUl.js';
 import Context from '../context.js';
 import OppurtUl from "./opportunity/opporUl.js";
 import TodoVriables from "./todo/todoVar.js";
-import TodoLoader from "./todo/todoLoader.js";
+import TodoLoader from "../loader/loader.js";
+import Modal from "../modal/modal.js";
 import './mainblock.css';
 import './todo/todo.css';
 import './opportunity/opportunity.css';
@@ -13,6 +14,7 @@ import './opportunity/opportunity.css';
 function MainBlock() {
 	const { textContent, classes, setTodo } = useContext(Context);
 	let [loading, setLoading] = React.useState(true);
+	let [title, setTitle] = React.useState('Wright or draw ToD');
 
 	useEffect(() => {
 		fetch('https://jsonplaceholder.typicode.com/todos?_limit=6')
@@ -24,6 +26,11 @@ function MainBlock() {
 				}, 2000))
 	})
 
+	useEffect(() => {
+		if (window.matchMedia("(max-width: 767.98px)").matches) {
+			setTitle(title = 'Wright ToDo')
+		}
+	})
 
 	function removeLoad() {
 		setLoading((textContent.length) ? loading = false : null);
@@ -36,7 +43,10 @@ function MainBlock() {
 				<OppurtUl></OppurtUl>
 			</aside>
 			<div className={["content", classes].join(' ')}>
-				<h1 className="content__title title"> Wright or draw ToDo</h1>
+				<div className="content__container">
+					<h1 className="content__title title">{title}</h1>
+					<Modal></Modal>
+				</div>
 				<TodoVriables></TodoVriables>
 				<h1 className="page__title title">today</h1>
 				{loading && <TodoLoader></TodoLoader>}

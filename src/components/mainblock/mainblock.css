@@ -13,8 +13,11 @@
 	max-width:100%;
 	overflow: auto;
 }
-.content__title{
-	text-align: center;
+.content__container{
+	display: grid;
+	grid-template: 1fr / 1fr auto;
+	align-items: center;
+	justify-items: center;
 }
 .lazy{
 	font-size: 16px;

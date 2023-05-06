@@ -1,6 +1,6 @@
 import React, { useContext, Suspense, lazy } from "react";
 import Context from '../../context.js';
-import Loading from './todoLoader.js';
+import Loading from '../../loader/loader.js';
 const AddToDo = lazy(() => import('./addTodo.js'));
 
 function TodoVriables() {

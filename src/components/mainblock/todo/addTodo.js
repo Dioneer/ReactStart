@@ -14,6 +14,7 @@ function AddToDo({ onCreate }) {
 			setDataValue(dataValue = '');
 		}
 	}
+
 	function focus() {
 		classes.push('active');
 		setValue(value = '');

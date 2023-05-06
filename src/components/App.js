@@ -9,21 +9,41 @@ function App() {
 	let [show, setShow] = React.useState('');
 
 	function toggle(id) {
+		const address = 'https://jsonplaceholder.typicode.com/todos/';
 		setTodo(textContent.map((text) => {
 			if (text.id === id) {
-				text.completed = !text.completed
+				text.completed = !text.completed;
+				sendBack(text, address)
 			}
 			return text;
 		}))
 	}
 	function remove(id) {
+		const address = 'https://jsonplaceholder.typicode.com/todos/';
 		setTodo(
-			textContent.filter(text => { return text.id !== id })
+			textContent.filter(text => {
+				if (text.id === id) {
+					sendBack(text, address)
+				} return text.id !== id;
+			})
 		)
 	}
 
+	async function sendBack(value, address) {
+		const response = await fetch(address, {
+			body: JSON.stringify(value),
+			headers: { "Content-Type": "application/json" },
+			method: "POST",
+		})
+		const data = await response.json();
+		console.log(data)
+	}
+
 	function addTodo(value) {
-		setTodo(textContent.concat([{ id: Date.now(), completed: false, title: value }]))
+		const address = 'https://jsonplaceholder.typicode.com/todos/';
+		const add = [{ id: Date.now(), completed: false, title: value, status: 'addTodo' }]
+		setTodo(textContent.concat(add));
+		sendBack(add, address);
 	}
 
 	function changeClass(e) {
