@@ -7,12 +7,13 @@ function App() {
 	const [textContent, setTodo] = React.useState([]);
 	let [classes, setClasses] = React.useState('');
 	let [show, setShow] = React.useState('');
-	const backEndDate = new Date();
+	let [backEndDate, setBackEndDate] = React.useState(new Date());
 
 	function onCalendarChange(value) {
 		const address = 'https://jsonplaceholder.typicode.com/todos/';
-		const text = { 'chosenDate': value }
-		sendBack(text, address)
+		const text = { 'chosenDay': value.getDate(), 'chosenMonth': value.getMonth(), "chosenYear": value.getFullYear() }
+		sendBack(text, address);
+		setBackEndDate(backEndDate = value)
 	}
 
 	function toggle(id) {

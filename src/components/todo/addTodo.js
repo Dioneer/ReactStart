@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Canvas from '../canvas/canvas.js';
 
 function AddToDo({ onCreate }) {
 	let [dataValue, setDataValue] = React.useState('');
@@ -30,7 +31,7 @@ function AddToDo({ onCreate }) {
 			action="#"
 			method="POST"
 			onSubmit={submitHandler}>
-			<div className='form__addText'>
+			<div className='form__addText canvas__prim'>
 				<input
 					type="text"
 					data-value={dataValue}
@@ -47,7 +48,8 @@ function AddToDo({ onCreate }) {
 					<span>Send</span>
 				</button>
 			</div>
-			<div className='form__addText canvas'>
+			<div className='form__addText canvas__add'>
+				<Canvas></Canvas>
 				<button className='button button__big' type="submit" >
 					<span>Send</span>
 				</button>

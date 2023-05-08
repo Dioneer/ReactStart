@@ -29,12 +29,13 @@
 }
 .form__addToDo{
 	display: flex;
-	margin: 3% 0px;
+	margin: 3% -10px;
+
 }
 .form__addText{
 	flex: 1 1 50%;
 	display: flex;
-
+	padding: 0px 10px;
 }	
 
 @media (max-width: 767.98px){
@@ -52,7 +53,7 @@
 		max-width: calc(100%*0.667);
 		animation: width 0.4s ease 0s forwards;
 	}
-	.canvas{
+	.canvas__add{
 		display: none;
 	}
 }

@@ -41,7 +41,6 @@ function getStartOn(date) {
 	return dayOfWeek - 1;
 }
 export function equal(a, b) {
-	console.log(`'sd' ${a.getDate()}`, `'sd' ${b.getDate()}`)
 	if (!a || !b) {
 		return false;
 	} return (

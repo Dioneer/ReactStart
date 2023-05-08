@@ -6,7 +6,6 @@ import './todo.css';
 
 function ToDoList() {
 	const { textContent, toggle, remove } = useContext(Context);
-	console.log(textContent)
 	return (
 		<ul className="page__list">
 			{textContent.map((text, i) => {

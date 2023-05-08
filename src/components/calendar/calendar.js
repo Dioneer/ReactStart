@@ -140,14 +140,12 @@ function Calendar() {
 		setSelectedOptionM(selectedOptionM = dateCheck.getMonth());
 		setSelectedOptionY(selectedOptionY = dateCheck.getFullYear());
 		setDateMain(dateMain = dateCheck);
-		onCalendarChange(dateCheck);
 	}
 	function nextButton() {
 		const dateCheck = new Date(dateMain.getFullYear(), dateMain.getMonth() + 1);
 		setSelectedOptionM(selectedOptionM = dateCheck.getMonth());
 		setSelectedOptionY(selectedOptionY = dateCheck.getFullYear());
 		setDateMain(dateMain = dateCheck);
-		onCalendarChange(dateCheck);
 	}
 
 	function selectChange(value) {
