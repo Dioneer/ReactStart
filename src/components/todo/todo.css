@@ -28,8 +28,14 @@
 	background: rgb(244, 227, 198);
 }
 .form__addToDo{
+	display: flex;
 	margin: 3% 0px;
-	max-width: 550px;}	
+}
+.form__addText{
+	flex: 1 1 50%;
+	display: flex;
+
+}	
 
 @media (max-width: 767.98px){
 	.page{
@@ -45,6 +51,9 @@
 	.content.active{
 		max-width: calc(100%*0.667);
 		animation: width 0.4s ease 0s forwards;
+	}
+	.canvas{
+		display: none;
 	}
 }
 @media (max-width: 479.98px){

@@ -1,11 +1,12 @@
 import ToDoLi from "./todoLi";
 import React, { useContext } from "react";
-import Context from '../../context.js';
+import Context from '../context.js';
+import './todo.css';
 
 
 function ToDoList() {
 	const { textContent, toggle, remove } = useContext(Context);
-
+	console.log(textContent)
 	return (
 		<ul className="page__list">
 			{textContent.map((text, i) => {

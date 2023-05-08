@@ -1,11 +1,12 @@
 import React from "react";
 import './modal.css';
+import Calendar from '../calendar/calendar.js';
 
 export default class Modal extends React.Component {
 	state = {
 		isOpen: '',
-
 	}
+
 	render() {
 		return (
 			<React.Fragment>
@@ -21,8 +22,7 @@ export default class Modal extends React.Component {
 							<a href="./"
 								className="popup__close"
 								onClick={(e) => { e.preventDefault(); this.setState({ isOpen: '' }) }}></a>
-							<div className="popup__title">Lorem, ipsum dolor</div>
-							<div className="popup__text">Fill the required fields</div>
+							<Calendar></Calendar>
 						</div>
 					</div>
 				</div>

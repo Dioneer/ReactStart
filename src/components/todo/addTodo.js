@@ -30,21 +30,28 @@ function AddToDo({ onCreate }) {
 			action="#"
 			method="POST"
 			onSubmit={submitHandler}>
-			<input
-				type="text"
-				data-value={dataValue}
-				value={value || ''}
-				data-error="ошибка"
-				autoComplete="off"
-				name="name"
-				className={["input", classes[0]].join(' ')}
-				onFocus={() => focus()}
-				onBlur={() => blur()}
-				onChange={(e) => { setValue(e.target.value); setDataValue(e.target.value) }} />
+			<div className='form__addText'>
+				<input
+					type="text"
+					data-value={dataValue}
+					value={value || ''}
+					data-error="ошибка"
+					autoComplete="off"
+					name="name"
+					className={["input", classes[0]].join(' ')}
+					onFocus={() => focus()}
+					onBlur={() => blur()}
+					onChange={(e) => { setValue(e.target.value); setDataValue(e.target.value) }} />
 
-			<button className='button button__big' type="submit" >
-				<span>Send</span>
-			</button>
+				<button className='button button__big' type="submit" >
+					<span>Send</span>
+				</button>
+			</div>
+			<div className='form__addText canvas'>
+				<button className='button button__big' type="submit" >
+					<span>Send</span>
+				</button>
+			</div>
 		</form >
 	)
 }

@@ -1,30 +1,29 @@
 import React, { useContext, useEffect } from "react";
-import TodoList from './todo/todoUl.js';
+import TodoList from '../todo/todoUl.js';
 import Context from '../context.js';
-import OppurtUl from "./opportunity/opporUl.js";
-import TodoVriables from "./todo/todoVar.js";
+import OppurtUl from "../opportunity/opporUl.js";
+import TodoVriables from "../todo/todoVar.js";
 import TodoLoader from "../loader/loader.js";
 import Modal from "../modal/modal.js";
 import './mainblock.css';
-import './todo/todo.css';
-import './opportunity/opportunity.css';
+import '../opportunity/opportunity.css';
 
 
 
 function MainBlock() {
-	const { textContent, classes, setTodo } = useContext(Context);
+	const { textContent, classes } = useContext(Context);
 	let [loading, setLoading] = React.useState(true);
 	let [title, setTitle] = React.useState('Wright or draw ToD');
 
-	useEffect(() => {
-		fetch('https://jsonplaceholder.typicode.com/todos?_limit=6')
-			.then(response => response.json())
-			.then(data =>
-				setTimeout(() => {
-					setTodo(data);
-					removeLoad();
-				}, 2000))
-	})
+	// useEffect(() => {
+	// 	fetch('https://jsonplaceholder.typicode.com/todos?_limit=6')
+	// 		.then(response => response.json())
+	// 		.then(data =>
+	// 			setTimeout(() => {
+	// 				setTodo(data);
+	// 				removeLoad();
+	// 			}, 2000))
+	// })
 
 	useEffect(() => {
 		if (window.matchMedia("(max-width: 767.98px)").matches) {

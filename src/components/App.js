@@ -7,6 +7,13 @@ function App() {
 	const [textContent, setTodo] = React.useState([]);
 	let [classes, setClasses] = React.useState('');
 	let [show, setShow] = React.useState('');
+	const backEndDate = new Date();
+
+	function onCalendarChange(value) {
+		const address = 'https://jsonplaceholder.typicode.com/todos/';
+		const text = { 'chosenDate': value }
+		sendBack(text, address)
+	}
 
 	function toggle(id) {
 		const address = 'https://jsonplaceholder.typicode.com/todos/';
@@ -56,7 +63,7 @@ function App() {
 	}
 
 	return (
-		<Context.Provider value={{ textContent, toggle, remove, addTodo, changeClass, classes, show, setTodo }} >
+		<Context.Provider value={{ textContent, toggle, remove, addTodo, changeClass, classes, show, setTodo, backEndDate, onCalendarChange }} >
 			<div className="wrapper">
 				<Header></Header>
 				<div className='container'>

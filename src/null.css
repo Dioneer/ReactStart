@@ -76,3 +76,20 @@ h6 {
 	font-size: inherit;
 	font-weight: 400;
 }
+* {
+	scrollbar-width: thin;
+	scrollbar-color: #666 rgba(241, 167, 38, 0.727) ;
+ }
+
+ *::-webkit-scrollbar {
+	height: 5px;
+	width: 5px;
+ }
+ *::-webkit-scrollbar-track {
+	background: #666;
+ }
+ *::-webkit-scrollbar-thumb {
+	background-color: rgba(241, 167, 38, 0.727) ;
+	border-radius: 5px;
+	border: none;
+ }
