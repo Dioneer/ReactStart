@@ -8,12 +8,17 @@ function App() {
 	let [classes, setClasses] = React.useState('');
 	let [show, setShow] = React.useState('');
 	let [backEndDate, setBackEndDate] = React.useState(new Date());
+	let [images, setImages] = React.useState([]);
 
 	function onCalendarChange(value) {
 		const address = 'https://jsonplaceholder.typicode.com/todos/';
 		const text = { 'chosenDay': value.getDate(), 'chosenMonth': value.getMonth(), "chosenYear": value.getFullYear() }
 		sendBack(text, address);
 		setBackEndDate(backEndDate = value)
+	}
+
+	function changeImages(value) {
+		setImages(images.concat(value))
 	}
 
 	function toggle(id) {
@@ -64,7 +69,7 @@ function App() {
 	}
 
 	return (
-		<Context.Provider value={{ textContent, toggle, remove, addTodo, changeClass, classes, show, setTodo, backEndDate, onCalendarChange }} >
+		<Context.Provider value={{ textContent, toggle, remove, addTodo, changeClass, classes, show, setTodo, backEndDate, onCalendarChange, changeImages, images }} >
 			<div className="wrapper">
 				<Header></Header>
 				<div className='container'>

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Canvas from '../canvas/canvas.js';
+import classnames from "classnames";
 
 function AddToDo({ onCreate }) {
 	let [dataValue, setDataValue] = React.useState('');
@@ -25,6 +26,7 @@ function AddToDo({ onCreate }) {
 		setValue(value = 'Add Todo');
 		setClasses(classes = [])
 	}
+
 	return (
 		<form
 			className='form form__addToDo'
@@ -39,7 +41,7 @@ function AddToDo({ onCreate }) {
 					data-error="ошибка"
 					autoComplete="off"
 					name="name"
-					className={["input", classes[0]].join(' ')}
+					className={classnames("input", { active: classes[0] })}
 					onFocus={() => focus()}
 					onBlur={() => blur()}
 					onChange={(e) => { setValue(e.target.value); setDataValue(e.target.value) }} />
@@ -48,11 +50,9 @@ function AddToDo({ onCreate }) {
 					<span>Send</span>
 				</button>
 			</div>
-			<div className='form__addText canvas__add'>
-				<Canvas></Canvas>
-				<button className='button button__big' type="submit" >
-					<span>Send</span>
-				</button>
+			<div
+				className='form__addText canvas__add'>
+				<Canvas />
 			</div>
 		</form >
 	)
