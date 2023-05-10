@@ -1,10 +1,20 @@
+import React from "react";
 import PropTypes from "prop-types";
+import classnames from 'classnames';
+import Label from "./label";
+import Image from './image.js'
 
 function ToDoLi({ text, index, changeInputLi, removeLi }) {
 	const classes = [];
+	let [lineThrought, setLineThrought] = React.useState('');
 	if (text.completed) {
-		classes.push('active')
 		classes.push(true)
+	}
+
+	function addclass() {
+		if (!lineThrought) {
+			setLineThrought(lineThrought = '')
+		} else setLineThrought(lineThrought = 'active')
 	}
 
 	async function submitHandler(e) {
@@ -13,15 +23,11 @@ function ToDoLi({ text, index, changeInputLi, removeLi }) {
 
 	return (
 		<li>
-			<div className={["checkbox", classes[0]].join(' ')} >
-				<label
-					htmlFor={['formcheck', text.id].join("-")}
-					className={["checkbox__lable", classes[0]].join(' ')}
-					onClick={() => { changeInputLi(text.id); }}>
-					<span>{index + 1}</span>{text.title}
-				</label>
+			<div className={classnames("checkbox", { active: lineThrought })} >
+				{!text.img ?
+					<Label text={text} index={index} changeInputLi={changeInputLi} ></Label> : <Image text={text} index={index} changeInputLi={changeInputLi} chCl={addclass}></Image>}
 				<input
-					defaultChecked={classes[1] || false}
+					defaultChecked={classes[0] || false}
 					type="checkbox"
 					name={['checkexe', text.id].join('_')}
 					id={['formcheck', text.id].join("-")}

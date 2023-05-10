@@ -16,7 +16,6 @@ function ToDoList() {
 					removeLi={remove}>
 				</ToDoLi>
 			})}
-
 		</ul>
 	)
 }

@@ -64,12 +64,13 @@
 		display: none;
 	}
 }
-@media (max-width: 479.98px){
+@media (max-width: 620px){
 	.content.active{
 		max-width: 100%;
 		animation: none;
 	}
 }
+
 @keyframes width {
 	0% {
 		max-width: 100%;

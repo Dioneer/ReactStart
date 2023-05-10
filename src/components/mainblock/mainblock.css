@@ -2,6 +2,21 @@
 	flex: 1 1 auto;
 	display: flex;
 }
+.page__title{
+	margin: 0px 10px;
+}
+.page__controll{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.page__controll span{
+	font-size: 36px;
+	color: #333;
+}
+.page__controll span:hover{
+	transform: scale(1.2);
+}
 .aside{
 	background-color: #999;
 	padding:3%;
@@ -15,9 +30,14 @@
 }
 .content__container{
 	display: grid;
-	grid-template: 1fr / 1fr auto;
+	grid-template: 1fr / 1fr auto auto;
 	align-items: center;
 	justify-items: center;
+}
+.content__title{
+	font-size: 16px;
+	letter-spacing: 1px;
+	margin: 0;
 }
 .lazy{
 	font-size: 16px;
@@ -27,4 +47,18 @@
 	font-weight: 700;
 	margin: 40px 0px 0px 0px;
 	padding: 0px 80px 0px 0px;
+}
+
+.button__popup{
+	justify-self: end;
+	margin: 0px 0px 0px 5px;
+}
+
+.button-canvas{
+	display: none;
+}
+@media(max-width:767.98px){
+	.button-canvas{
+		display: block;
+	}
 }

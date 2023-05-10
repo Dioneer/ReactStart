@@ -2,7 +2,7 @@ import React from "react";
 import './modal.css';
 import Calendar from '../calendar/calendar.js';
 
-export default class Modal extends React.Component {
+export default class ModalCalendar extends React.Component {
 	state = {
 		isOpen: '',
 	}

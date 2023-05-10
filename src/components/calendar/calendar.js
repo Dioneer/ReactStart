@@ -187,7 +187,9 @@ function Calendar() {
 				</Select>
 				<div
 					className='calendar__toggle calendar__toggle_r'
-					onClick={nextButton}><span>{'>'}</span></div>
+					onClick={nextButton}>
+					<span>{'>'}</span>
+				</div>
 			</div>
 			<div className='calendar__table'>
 				<table>

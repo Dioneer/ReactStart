@@ -54,7 +54,7 @@ function App() {
 
 	function addTodo(value) {
 		const address = 'https://jsonplaceholder.typicode.com/todos/';
-		const add = [{ id: Date.now(), completed: false, title: value, status: 'addTodo' }]
+		const add = [{ id: Date.now(), completed: false, title: value, status: 'addTodo', img: null }]
 		setTodo(textContent.concat(add));
 		sendBack(add, address);
 	}

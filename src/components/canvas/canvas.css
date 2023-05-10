@@ -14,9 +14,23 @@ canvas.active{
 @media (max-width:992.98px) {
 	canvas{
 		height: 44px;
-		width: 100%;
 	}
 	.canvas__add{
 		margin: 10px 0px 0px 0px !important;
+	}
+}
+@media(max-width:767.98px){
+	canvas{
+		margin: 0;
+		height: 100px;
+	}
+	canvas.active{
+		height: 500px;
+		border: 1px solid rgb(241, 166, 38);
+	}
+	.button-popup-canvas{
+		text-align: right;
+		margin: 5px;
+		justify-self: end;
 	}
 }

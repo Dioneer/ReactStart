@@ -9,15 +9,15 @@ function Canvas() {
 	const canvasRef = React.useRef(null);
 	const contextRef = React.useRef(null);
 	let [drawing, setDrawing] = React.useState(false);
+	let [big, setBig] = React.useState('');
 
 	useEffect(() => {
 		const canvas = canvasRef.current;
-		let rect = canvas.getBoundingClientRect();
-		const context = canvas.getContext('2d');
+		let rect = canvasRef.current.getBoundingClientRect();
+		const context = canvasRef.current.getContext('2d');
 		contextRef.current = context;
-
-		canvas.width = rect.width;
-		canvas.height = 50;
+		canvasRef.current.width = rect.width;
+		canvasRef.current.height = rect.height;
 
 		context.scale(1, 1);
 		context.lineCap = 'round'
@@ -25,11 +25,15 @@ function Canvas() {
 		context.lineWidth = 1
 
 		const onClick = (e) => {
-			if (!canvas) return;
+			if (canvas.contains(e.target)) setClasses(classes = 'active');
 			if (!canvas.contains(e.target)) {
-				canvas.height = 50;
 				setClasses(classes = '')
 			}
+		}
+
+		if (window.matchMedia("(max-width: 767.98px)").matches) { setBig(big = ' active_big') }
+		else {
+			setBig(big = '')
 		}
 
 		document.addEventListener('click', onClick);
@@ -40,9 +44,10 @@ function Canvas() {
 	}, [])
 
 	const startDrawing = (e) => {
-		canvasRef.current.height = 100;
-		setClasses(classes = 'active')
 		let rect = e.target.getBoundingClientRect();
+		if (big) {
+			canvasRef.current.height = 500;
+		} else { canvasRef.current.height = 100 }
 		clearCanvas(rect.width, rect.height);
 		const { offsetX, offsetY } = e.nativeEvent;
 		if (offsetX && offsetY) {
@@ -88,12 +93,14 @@ function Canvas() {
 	}
 
 	const saveImageToLocal = (event) => {
+		let rect = canvasRef.current.getBoundingClientRect();
 		const id = new Date();
 		let link = event.currentTarget;
 		link.setAttribute('download', id);
 		let image = canvasRef.current.toDataURL('image/png');
 		link.setAttribute('href', image);
-		changeImages(image)
+		changeImages(image);
+		clearCanvas(rect.width, rect.height);
 	};
 
 	return (
@@ -110,7 +117,7 @@ function Canvas() {
 				ref={canvasRef}>
 			</canvas>
 			<button
-				className='button button__big'
+				className='button button__big button-popup-canvas'
 				type="submit"
 				onClick={saveImageToLocal}>
 				<span>Send</span>
