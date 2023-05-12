@@ -46,44 +46,7 @@
 }
 
 @media (max-width: 767.98px){
-	.page{
-		justify-content: flex-end;
-	}
-	.aside{
+		.canvas__add{
 		display: none;
-	}
-	.content{
-		max-width: 100%;
-		animation: backwidth 0.3s ease-in 0s forwards;
-	}
-	.content.active{
-		max-width: calc(100%*0.667);
-		animation: width 0.4s ease 0s forwards;
-	}
-	.canvas__add{
-		display: none;
-	}
-}
-@media (max-width: 620px){
-	.content.active{
-		max-width: 100%;
-		animation: none;
-	}
-}
-
-@keyframes width {
-	0% {
-		max-width: 100%;
-	}
-	100% {
-		max-width: calc(100%*0.667);
-	}
-}
-@keyframes backwidth {
-	0% {
-		max-width: calc(100%*0.667);
-	}
-	100% {
-		max-width: 100%;
 	}
 }

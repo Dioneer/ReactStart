@@ -5,7 +5,6 @@ import classnames from 'classnames'
 function HeaderInput({ show }) {
 	let [value, setValue] = useState('Search');
 	let [searchClass, setSearchClass] = useState('');
-	let [active, setActive] = useState('');
 
 	function submitHandler(e) {
 		e.preventDefault();
@@ -16,16 +15,14 @@ function HeaderInput({ show }) {
 	}
 
 	function focus() {
-		setActive('active');
 		setValue(value = '');
 	}
 
 	function blur() {
 		setValue(value = 'Search');
-		setActive(active = '')
 	}
 	return (
-		<div className={classnames('header__showSearch relative max-w-full w-100 m-center right-[110%] h-0 rotate-0 ransition-burg duration-500 delay-0 ease-linear', { 'active right-0 h-100': show })}>
+		<div className={classnames('header__showSearch relative max-w-full w-100 m-center right-[110%] h-0 rotate-0 ransition-burg duration-500 delay-0 ease-linear', { 'active': show })}>
 			<form
 				className='form form__search mt-3 max-w-100'
 				action="#"
@@ -37,7 +34,7 @@ function HeaderInput({ show }) {
 					value={value || ''}
 					autoComplete="off"
 					name="search"
-					className={classnames(["input", "input__search"], { active: active })}
+					className={classnames(["input", "input__search"], { active: show })}
 					onFocus={() => focus()}
 					onBlur={() => blur()}
 					onChange={(e) => { setValue(e.target.value); setSearchClass(e.target.value) }} />

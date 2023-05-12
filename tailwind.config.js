@@ -17,6 +17,9 @@ module.exports = {
 				'full': '106.25rem',
 				'100': '100%',
 			},
+			gridTemplateColumns: {
+				'cc': '1fr repeat(2, auto)',
+			},
 			transitionTimingFunction: {
 				'ease-out-cur': 'cubic-bezier(.9,.76,.76,1.32)',
 			},
@@ -24,7 +27,7 @@ module.exports = {
 				'burg': 'all',
 			},
 			animation: {
-				'drug': 'drug 1s ease 0s infinite',
+				'drug': 'drug 1s ease 0s',
 			},
 			keyframes: {
 				drug: {
@@ -32,7 +35,7 @@ module.exports = {
 						transform: 'rotate(0deg)'
 					},
 					'50%': {
-						transform: 'rotate(30deg)'
+						transform: 'rotate(50deg)'
 					},
 
 					'100%': {

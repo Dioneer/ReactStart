@@ -141,10 +141,10 @@
 	margin: 14px 0px 0px 0px;
 	max-width: 100%;
 } */
-/* .header__showSearch.active{
+.header__showSearch.active{
 	right: 0%;
 	height: 100%;
-} */
+}
 @media (max-width: 767.98px){
 	.header{
 		padding: 2% 10px;

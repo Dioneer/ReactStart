@@ -17,29 +17,29 @@
 /* .page__controll span:hover{
 	transform: scale(1.2);
 } */
-.aside{
+/* .aside{
 	background-color: #999;
 	padding:3%;
-}
-.content{
+} */
+/* .content{
 	flex: 1 1 auto;
 	background: rgb(236, 235, 235);
 	padding:3%;
 	max-width:100%;
 	overflow: auto;
-}
-.content__container{
+} */
+/* .content__container{
 	display: grid;
 	grid-template: 1fr / 1fr auto auto;
 	align-items: center;
 	justify-items: center;
-}
-.content__title{
+} */
+/* .content__title{
 	font-size: 16px;
 	letter-spacing: 1px;
 	margin: 0;
-}
-.lazy{
+} */
+/* .lazy{
 	font-size: 16px;
 	text-transform: uppercase;
 	color: #333;
@@ -47,18 +47,46 @@
 	font-weight: 700;
 	margin: 40px 0px 0px 0px;
 	padding: 0px 80px 0px 0px;
-}
+} */
 
-.button__popup{
-	justify-self: end;
-	margin: 0px 0px 0px 5px;
-}
-
-.button-canvas{
-	display: none;
-}
 @media(max-width:767.98px){
 	.button-canvas{
 		display: block;
+	}
+	.page{
+		justify-content: flex-end;
+	}
+	.aside{
+		display: none;
+	}
+	.content{
+		max-width: 100%;
+		animation: backwidth 0.3s ease-in 0s forwards;
+	}
+	.content.active{
+		max-width: calc(100%*0.667);
+		animation: width 0.4s ease 0s forwards;
+	}
+}
+@media (max-width: 620px){
+	.content.active{
+		max-width: 100%;
+		animation: none;
+	}
+}
+@keyframes width {
+	0% {
+		max-width: 100%;
+	}
+	100% {
+		max-width: calc(100%*0.667);
+	}
+}
+@keyframes backwidth {
+	0% {
+		max-width: calc(100%*0.667);
+	}
+	100% {
+		max-width: 100%;
 	}
 }

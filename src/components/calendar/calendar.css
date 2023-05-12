@@ -1,51 +1,52 @@
-.calendar{
+/* .calendar{
 	background-color: #666;
 	padding: 0px 10px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-}
-.calendar__header{
+} */
+/* .calendar__header{
 	display: flex;
 	padding: 20px 0px;
 	align-items: center;
 	justify-content: space-between;
-}
-.calendar__toggle_l{
+} */
+/* .calendar__toggle_l{
 	margin: 0px 10px 0px 0px;
 	cursor: pointer;
-}
-.calendar__toggle_r{
+} */
+/* .calendar__toggle_r{
 	margin: 0px 0px 0px 10px;
 	cursor: pointer;
-}
-.calendar__toggle{
+} */
+/* .calendar__toggle{
 	color: hsl(0, 0%, 80%);
-}
-.calendar__toggle span{
+} */
+/* .calendar__toggle span{
 	font-size:42px;
-}
-.calendar__month{
+} */
+/* .calendar__month{
 	margin: 0px 10px 0px 0px;
-}
-.calendar__table{
+} */
+/* .calendar__table{
 	color: hsl(0, 0%, 80%);
 	text-align: center;
-}
-.calendar__head tr th{
+} */
+/* .calendar__head tr th{
 	text-align: center;
 	padding: 0px 5px;
-}
+} */
 
-.calendar__day{
+/* .calendar__day{
 	padding: 3px 0px;
-}
+} */
 .calendar__day.active{
-	background-color: rgba(241, 167, 38);
+	background-color: rgba(245, 159, 11, 0.6);
 	color: #333;
 }
 .calendar__day.selected{
-	border: 1px solid rgb(241, 167, 38);
+	color: #333;
+	background-color: rgba(245, 159, 11, 1);
 }
 .calendar__day:hover{
 	color: #666;
@@ -55,7 +56,7 @@
 .custom-select__control{
 	background: transparent !important;
 	color: #999 !important;
-	border-bottom: 1px solid rgb(241, 166, 38) !important;
+	border-bottom: 1px solid rgb(245 158 11) !important;
 	border-top: none !important;
 	border-left: none !important;
 	border-right: none !important;

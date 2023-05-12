@@ -68,9 +68,18 @@
 .popup__close:after{
 	transform: rotate(-45deg) scale(1);
 }
-
+.button__popup{
+	justify-self: end;
+	margin: 0px 0px 0px 5px;
+}
+.button__popup-canvas{
+	display: none;
+}
 @media(max-width:767.98px){
 .popup__content-canvas{
 	min-width: calc(100%/1.2);
+}
+.button__popup-canvas{
+	display: block;
 }
 }

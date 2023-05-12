@@ -4,8 +4,9 @@ import Context from '../context.js';
 import OppurtUl from "../opportunity/opporUl.js";
 import TodoVriables from "../todo/todoVar.js";
 import TodoLoader from "../loader/loader.js";
-import ModalCalendar from "../modal/modalCalendar.js";
-import ModalCanvas from "../modal/modalCanvas.js";
+import Calendar from '../calendar/calendar.js';
+import Canvas from '../canvas/canvas.js';
+import Modal from '../modal/modal.js';
 import './mainblock.css';
 import '../opportunity/opportunity.css';
 import * as functions from '../calendar/utilitFunctions.js';
@@ -57,16 +58,16 @@ function MainBlock() {
 	}
 	return (
 		<div className='page flex-auto flex'>
-			<aside className="aside">
+			<aside className="aside bg-stone-400 p-[3%]">
 				<div className="aside__title title mx-2.5">opportunity</div>
 				<OppurtUl></OppurtUl>
 			</aside>
-			<div className={classNames("content", { active: commonClasses })}>
-				<div className="content__container">
+			<div className={classNames("content flex-auto bg-stone-200 p-[3%] max-w-100 overflow-auto", { active: commonClasses })}>
+				<div className="content__container grid grid-rows-1 grid-cols-cc items-center justify-center">
 					<h1
-						className="content__title title">{title}</h1>
-					<ModalCanvas></ModalCanvas>
-					<ModalCalendar></ModalCalendar>
+						className="content__title title text-base tracking-[1px] m-0">{title}</h1>
+					<Modal title={'canvas'}><Canvas></Canvas></Modal>
+					<Modal title={'calendar'}><Calendar></Calendar></Modal>
 				</div>
 				<TodoVriables></TodoVriables>
 				<div className="page__controll flex items-center justify-between">
@@ -79,7 +80,7 @@ function MainBlock() {
 						onClick={cahngeDayOfToDoPrev}>{'>'}</span>
 				</div>
 				{loading && <TodoLoader></TodoLoader>}
-				{(textContent.length) ? < TodoList ></ TodoList> : loading ? null : <div className='lazy'>Congratulations! You have no TODO</div>}
+				{(textContent.length) ? < TodoList ></ TodoList> : loading ? null : <div className='lazy text-base uppercase text-zinc-800  tracking-[2px] font-bold mt-10 pb-20'>Congratulations! You have no TODO</div>}
 			</div >
 		</div >
 	)
