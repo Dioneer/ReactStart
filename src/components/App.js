@@ -1,14 +1,13 @@
 import Context from './context.js';
-import React from "react";
+import { useState } from "react";
 import Header from './header/header.js';
 import MainBlock from './mainblock/mainBlock.js';
 
 function App() {
-	const [textContent, setTodo] = React.useState([]);
-	let [classes, setClasses] = React.useState('');
-	let [show, setShow] = React.useState('');
-	let [backEndDate, setBackEndDate] = React.useState(new Date());
-	let [images, setImages] = React.useState([]);
+	const [textContent, setTodo] = useState([]);
+	let [commonClasses, setCommonClasses] = useState(false);
+	let [backEndDate, setBackEndDate] = useState(new Date());
+	let [images, setImages] = useState([]);
 
 	function onCalendarChange(value) {
 		const address = 'https://jsonplaceholder.typicode.com/todos/';
@@ -59,17 +58,8 @@ function App() {
 		sendBack(add, address);
 	}
 
-	function changeClass(e) {
-		if (e.target.closest('.header__burger')) {
-			classes ? setClasses(classes = '') : setClasses(classes = 'active')
-		}
-		if (e.target.closest('.header__loupe')) {
-			show ? setShow(show = '') : setShow(show = 'active')
-		}
-	}
-
 	return (
-		<Context.Provider value={{ textContent, toggle, remove, addTodo, changeClass, classes, show, setTodo, backEndDate, onCalendarChange, changeImages, images }} >
+		<Context.Provider value={{ textContent, toggle, remove, addTodo, setTodo, backEndDate, onCalendarChange, changeImages, images, commonClasses, setCommonClasses }} >
 			<div className="wrapper">
 				<Header></Header>
 				<div className='container'>

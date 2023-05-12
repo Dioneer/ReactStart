@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
-import Context from '../context.js';
+import { useState } from "react";
+import PropTypes from "prop-types";
+import classnames from 'classnames'
 
-
-function HeaderInput() {
-	const { show } = useContext(Context);
-	let [value, setValue] = React.useState('Search');
-	let [searchClass, setSearchClass] = React.useState('');
-	let [active, setActive] = React.useState('');
+function HeaderInput({ show }) {
+	let [value, setValue] = useState('Search');
+	let [searchClass, setSearchClass] = useState('');
+	let [active, setActive] = useState('');
 
 	function submitHandler(e) {
 		e.preventDefault();
@@ -15,6 +14,7 @@ function HeaderInput() {
 			setSearchClass(setSearchClass = '');
 		}
 	}
+
 	function focus() {
 		setActive('active');
 		setValue(value = '');
@@ -24,28 +24,32 @@ function HeaderInput() {
 		setValue(value = 'Search');
 		setActive(active = '')
 	}
-	return (<div className={['header__showSearch', show].join(' ')}>
-		<form
-			className='form form__search'
-			action="#"
-			method="POST"
-			onSubmit={submitHandler}>
-			<input
-				type="text"
-				data-value={searchClass}
-				value={value || ''}
-				autoComplete="off"
-				name="search"
-				className={["input", "input__search", active].join(' ')}
-				onFocus={() => focus()}
-				onBlur={() => blur()}
-				onChange={(e) => { setValue(e.target.value); setSearchClass(e.target.value) }} />
+	return (
+		<div className={classnames('header__showSearch relative max-w-full w-100 m-center right-[110%] h-0 rotate-0 ransition-burg duration-500 delay-0 ease-linear', { 'active right-0 h-100': show })}>
+			<form
+				className='form form__search mt-3 max-w-100'
+				action="#"
+				method="POST"
+				onSubmit={submitHandler}>
+				<input
+					type="text"
+					data-value={searchClass}
+					value={value || ''}
+					autoComplete="off"
+					name="search"
+					className={classnames(["input", "input__search"], { active: active })}
+					onFocus={() => focus()}
+					onBlur={() => blur()}
+					onChange={(e) => { setValue(e.target.value); setSearchClass(e.target.value) }} />
 
-			<button className='button button__search' type="submit" >
-				<span>Search</span>
-			</button>
-		</form >
-	</div>)
+				<button className='button button__search' type="submit" >
+					<span>Search</span>
+				</button>
+			</form >
+		</div>)
 }
 
+HeaderInput.propTypes = {
+	show: PropTypes.bool.isRequired
+}
 export default HeaderInput;

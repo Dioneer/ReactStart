@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import TodoList from '../todo/todoUl.js';
 import Context from '../context.js';
 import OppurtUl from "../opportunity/opporUl.js";
@@ -9,12 +9,13 @@ import ModalCanvas from "../modal/modalCanvas.js";
 import './mainblock.css';
 import '../opportunity/opportunity.css';
 import * as functions from '../calendar/utilitFunctions.js';
+import classNames from "classnames";
 
 function MainBlock() {
-	const { textContent, classes, backEndDate, onCalendarChange } = useContext(Context);
-	let [loading, setLoading] = React.useState(true);
-	let [title, setTitle] = React.useState('Wright or draw ToDo');
-	let [newDate, setNewDate] = React.useState(backEndDate);
+	const { textContent, backEndDate, onCalendarChange, commonClasses } = useContext(Context);
+	let [loading, setLoading] = useState(true);
+	let [title, setTitle] = useState('Wright or draw ToDo');
+	let [newDate, setNewDate] = useState(backEndDate);
 
 	// useEffect(() => {
 	// 	fetch('https://jsonplaceholder.typicode.com/todos?_limit=6')
@@ -55,12 +56,12 @@ function MainBlock() {
 		onCalendarChange(newDate);
 	}
 	return (
-		<div className='page'>
+		<div className='page flex-auto flex'>
 			<aside className="aside">
-				<div className="aside__title title">opportunity</div>
+				<div className="aside__title title mx-2.5">opportunity</div>
 				<OppurtUl></OppurtUl>
 			</aside>
-			<div className={["content", classes].join(' ')}>
+			<div className={classNames("content", { active: commonClasses })}>
 				<div className="content__container">
 					<h1
 						className="content__title title">{title}</h1>
@@ -68,11 +69,13 @@ function MainBlock() {
 					<ModalCalendar></ModalCalendar>
 				</div>
 				<TodoVriables></TodoVriables>
-				<div className="page__controll">
+				<div className="page__controll flex items-center justify-between">
 					<span
+						className="text-4xl text-zinc-800 hover:scale-125"
 						onClick={cahngeDayOfToDoNext}>{'<'}</span>
 					<h1 className="page__title title">{subtitle(backEndDate)}</h1>
 					<span
+						className="text-4xl text-zinc-800 hover:scale-125"
 						onClick={cahngeDayOfToDoPrev}>{'>'}</span>
 				</div>
 				{loading && <TodoLoader></TodoLoader>}

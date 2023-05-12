@@ -1,22 +1,22 @@
-.page{
+/* .page{
 	flex: 1 1 auto;
 	display: flex;
-}
-.page__title{
+} */
+/* .page__title{
 	margin: 0px 10px;
-}
-.page__controll{
+} */
+/* .page__controll{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-}
-.page__controll span{
+} */
+/* .page__controll span{
 	font-size: 36px;
 	color: #333;
-}
-.page__controll span:hover{
+} */
+/* .page__controll span:hover{
 	transform: scale(1.2);
-}
+} */
 .aside{
 	background-color: #999;
 	padding:3%;
