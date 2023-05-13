@@ -1,4 +1,4 @@
-import React, { useContext, Suspense, lazy } from "react";
+import { useContext, Suspense, lazy } from "react";
 import Context from '../context.js';
 import Loading from '../loader/loader.js';
 

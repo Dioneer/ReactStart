@@ -1,12 +1,12 @@
-import React from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import Canvas from '../canvas/canvas.js';
 import classnames from "classnames";
 
 function AddToDo({ onCreate }) {
-	let [dataValue, setDataValue] = React.useState('');
-	let [value, setValue] = React.useState('Add Todo');
-	let [classes, setClasses] = React.useState([]);
+	let [dataValue, setDataValue] = useState('');
+	let [value, setValue] = useState('Add Todo');
+	let [classes, setClasses] = useState([]);
 
 	function submitHandler(e) {
 		e.preventDefault();

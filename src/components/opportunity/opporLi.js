@@ -1,10 +1,8 @@
-import React from "react";
-
 function OpportLi({ text }) {
 	return (
-		<li>
-			<a href='./'>
-				<span>{text}</span>
+		<li className="mb-[20%]">
+			<a href='./' className=" uppercase text-zinc-800 font-bold text-xl">
+				<span className="tracking-wide">{text}</span>
 			</a>
 		</li>
 	)

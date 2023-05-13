@@ -1,14 +1,14 @@
-canvas{
+/* canvas{
 	height: 50px;
 	width: 100%;
 	background-color: #fff;
 	border: 1px solid #333;
 	border-radius: 10px;
 	margin: 0px 10px 0px 0px;
-} 
+}  */
 canvas.active{
 	height: 100px;
-	border: 1px solid rgb(241, 166, 38);
+	border: 1px solid rgb(245 158 11);
 }
 
 @media (max-width:992.98px) {
@@ -26,7 +26,7 @@ canvas.active{
 	}
 	canvas.active{
 		height: 500px;
-		border: 1px solid rgb(241, 166, 38);
+		border: 1px solid rgb(245 158 11);
 	}
 	.button-popup-canvas{
 		text-align: right;

@@ -8,7 +8,6 @@ import Calendar from '../calendar/calendar.js';
 import Canvas from '../canvas/canvas.js';
 import Modal from '../modal/modal.js';
 import './mainblock.css';
-import '../opportunity/opportunity.css';
 import * as functions from '../calendar/utilitFunctions.js';
 import classNames from "classnames";
 

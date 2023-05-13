@@ -1,5 +1,5 @@
 import ToDoLi from "./todoLi";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import Context from '../context.js';
 import './todo.css';
 

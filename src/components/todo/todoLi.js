@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import classnames from 'classnames';
 import Label from "./label";
@@ -6,7 +6,7 @@ import Image from './image.js'
 
 function ToDoLi({ text, index, changeInputLi, removeLi }) {
 	const classes = [];
-	let [lineThrought, setLineThrought] = React.useState('');
+	let [lineThrought, setLineThrought] = useState('');
 	if (text.completed) {
 		classes.push(true)
 	}
