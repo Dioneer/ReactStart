@@ -1,3 +1,9 @@
+.aside__list li{
+	@apply mb-[20%];
+}
+.aside__list li a{
+	@apply uppercase text-zinc-800 font-bold text-xl;
+}
 /* .aside__list{
 	padding: 20% 0px 0px 0px;
 } */

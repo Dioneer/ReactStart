@@ -56,20 +56,20 @@ function MainBlock() {
 		onCalendarChange(newDate);
 	}
 	return (
-		<div className='page flex-auto flex'>
-			<aside className="aside bg-stone-400 p-[3%]">
+		<div className='page'>
+			<aside className="aside">
 				<div className="aside__title title mx-2.5">opportunity</div>
 				<OppurtUl></OppurtUl>
 			</aside>
-			<div className={classNames("content flex-auto bg-stone-200 p-[3%] max-w-100 overflow-auto", { active: commonClasses })}>
-				<div className="content__container grid grid-rows-1 grid-cols-cc items-center justify-center">
+			<div className={classNames("content", { active: commonClasses })}>
+				<div className="content__container">
 					<h1
-						className="content__title title text-base tracking-[1px] m-0">{title}</h1>
+						className="content__title title">{title}</h1>
 					<Modal title={'canvas'}><Canvas></Canvas></Modal>
 					<Modal title={'calendar'}><Calendar></Calendar></Modal>
 				</div>
 				<TodoVriables></TodoVriables>
-				<div className="page__controll flex items-center justify-between">
+				<div className="page__controll">
 					<span
 						className="text-4xl text-zinc-800 hover:scale-125"
 						onClick={cahngeDayOfToDoNext}>{'<'}</span>
@@ -79,7 +79,7 @@ function MainBlock() {
 						onClick={cahngeDayOfToDoPrev}>{'>'}</span>
 				</div>
 				{loading && <TodoLoader></TodoLoader>}
-				{(textContent.length) ? < TodoList ></ TodoList> : loading ? null : <div className='lazy text-base uppercase text-zinc-800  tracking-[2px] font-bold mt-10 pb-20'>Congratulations! You have no TODO</div>}
+				{(textContent.length) ? < TodoList ></ TodoList> : loading ? null : <div className='lazy'>Congratulations! You have no TODO</div>}
 			</div >
 		</div >
 	)

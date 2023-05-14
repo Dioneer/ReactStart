@@ -1,3 +1,16 @@
+.page{
+	@apply flex-auto flex;
+}
+.aside{
+	@apply bg-stone-400 p-[3%];
+}
+.content{
+	@apply flex-auto bg-stone-200 p-[3%] max-w-100 overflow-auto;
+}
+.content__container {@apply grid grid-rows-1 grid-cols-cc items-center justify-center;}
+.content__title{@apply text-base tracking-[1px] m-0;}
+.page__controll{@apply flex items-center justify-between;}
+.lazy{@apply text-base uppercase text-zinc-800  tracking-[2px] font-bold mt-10 pb-20;}
 /* .page{
 	flex: 1 1 auto;
 	display: flex;

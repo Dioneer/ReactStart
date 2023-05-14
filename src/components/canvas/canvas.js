@@ -8,7 +8,7 @@ function Canvas() {
 	return (
 		<React.Fragment>
 			<canvas
-				className={classnames('canvas h-[3.125rem] w-100 bg-white border border-solid border-zinc-800 rounded-xl mr-2.5', { active: classes })}
+				className={classnames('canvas', { active: classes })}
 				onMouseDown={startDrawing}
 				onMouseUp={finishDrawing}
 				onMouseMove={onMouseMove}

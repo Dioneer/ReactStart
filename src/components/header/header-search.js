@@ -7,7 +7,7 @@ function HeaderSearch({ changeShow, show }) {
 
 	return (
 		<div
-			className={classnames("header__loupe hover:animate-drug relative z-[4] w-[30px] h-[30px]", { active: show })}
+			className={classnames("header__loupe", { active: show })}
 			onClick={(e) => { changeShow(e) }}>
 			<div>
 				<Svg ></Svg>

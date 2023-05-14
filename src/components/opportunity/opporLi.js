@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 function OpportLi({ text }) {
 
 	return (
-		<li className="mb-[20%]">
-			<a href='./' className=" uppercase text-zinc-800 font-bold text-xl">
+		<li>
+			<a href='./'>
 				<span className="tracking-wide">{text}</span>
 			</a>
 		</li>

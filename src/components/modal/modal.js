@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './modal.css';
+import './modal.scss'
 import classnames from 'classnames';
 
 
@@ -20,7 +20,7 @@ function Modal({ children, title }) {
 				onClick={() => { setIsOpen(isOpen = !isOpen); }}>
 				<span>{title}</span>
 			</button>
-			<div className={classnames("popup", { popup_show: isOpen })} >
+			<div className={classnames("popup", { popup_show: isOpen })}>
 				<div className="popup__body"
 					onClick={(e) => { missClick(e) }}>
 					<div className={["popup__content", 'popup__content-' + title].join(' ')}>

@@ -11,10 +11,10 @@ function Calendar() {
 	const { setValueM, setValueY, focus, blur, prevButton, nextButton, selectChange, dayClick, currentDate, selectedDay, date, classes } = useCalendar();
 
 	return (
-		<div className='calendar bg-neutral-500 px-2.5 py-0 flex-col items-center' >
-			<div className='calendar__header flex py-5 px-0 items-center justify-between'>
+		<div className='calendar' >
+			<div className='calendar__header'>
 				<div
-					className='calendar__toggle text-neutral-100 calendar__toggle_l cursor-pointer mr-2.5'
+					className='calendar__toggle calendar__toggle_l'
 					onClick={prevButton}>
 					<span className='text-5xl'>{'<'}</span></div>
 				<Select
@@ -39,7 +39,7 @@ function Calendar() {
 					onBlur={() => blur()}>
 				</Select>
 				<div
-					className='calendar__toggle calendar__toggle_r text-neutral-100 calendar__toggle_l cursor-pointer ml-2.5'
+					className='calendar__toggle calendar__toggle_r'
 					onClick={nextButton}>
 					<span className='text-5xl'>{'>'}</span>
 				</div>

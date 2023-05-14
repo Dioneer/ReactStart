@@ -1,3 +1,19 @@
+.calendar{
+	@apply bg-neutral-500 px-2.5 py-0 flex-col items-center;
+}
+.calendar__header{
+	@apply flex py-5 px-0 items-center justify-between;
+}
+.calendar__toggle{
+	@apply text-neutral-100;
+}
+.calendar__toggle.calendar__toggle_l{ @apply cursor-pointer mr-2.5}
+
+.calendar__toggle.calendar__toggle_r{
+	@apply  text-neutral-100;
+}
+.calendar__table{@apply text-neutral-100 text-center}
+.calendar__head {@apply text-center py-0 px-1.5}
 /* .calendar{
 	background-color: #666;
 	padding: 0px 10px;

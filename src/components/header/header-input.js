@@ -22,9 +22,9 @@ function HeaderInput({ show }) {
 		setValue(value = 'Search');
 	}
 	return (
-		<div className={classnames('header__showSearch relative max-w-full w-100 m-center right-[110%] h-0 rotate-0 ransition-burg duration-500 delay-0 ease-linear', { 'active': show })}>
+		<div className={classnames('header__showSearch', { 'active': show })}>
 			<form
-				className='form form__search mt-3 max-w-100'
+				className='form form__search'
 				action="#"
 				method="POST"
 				onSubmit={submitHandler}>
