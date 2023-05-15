@@ -5,6 +5,7 @@ export function useApp() {
 	let [commonClasses, setCommonClasses] = useState(false);
 	let [backEndDate, setBackEndDate] = useState(new Date());
 	let [images, setImages] = useState([]);
+	let [error, setError] = useState(false);
 
 	function onCalendarChange(value) {
 		const address = 'https://jsonplaceholder.typicode.com/todos/';
@@ -39,13 +40,18 @@ export function useApp() {
 	}
 
 	async function sendBack(value, address) {
-		const response = await fetch(address, {
-			body: JSON.stringify(value),
-			headers: { "Content-Type": "application/json" },
-			method: "POST",
-		})
-		const data = await response.json();
-		console.log(data)
+		try {
+			setError(error = false)
+			const response = await fetch(address, {
+				body: JSON.stringify(value),
+				headers: { "Content-Type": "application/json" },
+				method: "POST",
+			})
+			const data = await response.json();
+			console.log(data)
+		} catch (e) {
+			setError(error = e.message);
+		}
 	}
 
 	function addTodo(value) {
@@ -54,5 +60,10 @@ export function useApp() {
 		setTodo(textContent.concat(add));
 		sendBack(add, address);
 	}
-	return { textContent, toggle, remove, addTodo, setTodo, backEndDate, onCalendarChange, changeImages, images, commonClasses, setCommonClasses }
+
+	// useEffect(() => {
+	// для функции на прием
+	// })
+
+	return { textContent, toggle, remove, addTodo, backEndDate, onCalendarChange, changeImages, images, commonClasses, setCommonClasses, error }
 }

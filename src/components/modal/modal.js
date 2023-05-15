@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import './modal.scss'
 import classnames from 'classnames';
 
-
 function Modal({ children, title }) {
 	let [isOpen, setIsOpen] = useState(false)
 

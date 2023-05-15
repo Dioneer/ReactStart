@@ -4,9 +4,9 @@ import MainBlock from './mainblock/mainBlock.js';
 import { useApp } from './useApp.js';
 
 function App() {
-	const { textContent, toggle, remove, addTodo, setTodo, backEndDate, onCalendarChange, changeImages, images, commonClasses, setCommonClasses } = useApp()
+	const { textContent, toggle, remove, addTodo, backEndDate, onCalendarChange, changeImages, images, commonClasses, setCommonClasses, error } = useApp()
 	return (
-		<Context.Provider value={{ textContent, toggle, remove, addTodo, setTodo, backEndDate, onCalendarChange, changeImages, images, commonClasses, setCommonClasses }} >
+		<Context.Provider value={{ textContent, toggle, remove, addTodo, backEndDate, onCalendarChange, changeImages, images, commonClasses, setCommonClasses, error }} >
 			<div className="wrapper">
 				<Header></Header>
 				<div className='container'>

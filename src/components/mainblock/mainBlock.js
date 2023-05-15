@@ -12,7 +12,7 @@ import * as functions from '../calendar/utilitFunctions.js';
 import classNames from "classnames";
 
 function MainBlock() {
-	const { textContent, backEndDate, onCalendarChange, commonClasses } = useContext(Context);
+	const { textContent, backEndDate, onCalendarChange, commonClasses, error } = useContext(Context);
 	let [loading, setLoading] = useState(true);
 	let [title, setTitle] = useState('Wright or draw ToDo');
 	let [newDate, setNewDate] = useState(backEndDate);
@@ -55,6 +55,7 @@ function MainBlock() {
 		setNewDate(newDate = new Date(newDate.getFullYear(), newDate.getMonth(), newDate.getDate() - 1));
 		onCalendarChange(newDate);
 	}
+
 	return (
 		<div className='page'>
 			<aside className="aside">
@@ -79,7 +80,8 @@ function MainBlock() {
 						onClick={cahngeDayOfToDoPrev}>{'>'}</span>
 				</div>
 				{loading && <TodoLoader></TodoLoader>}
-				{(textContent.length) ? < TodoList ></ TodoList> : loading ? null : <div className='lazy'>Congratulations! You have no TODO</div>}
+				{error ? <div className=" text-center text-red-700 font-bold">{error}</div> : null}
+				{(textContent.length && !error) ? < TodoList ></ TodoList> : loading || error ? null : <div className='lazy'>Congratulations! You have no TODO</div>}
 			</div >
 		</div >
 	)
