@@ -12,9 +12,13 @@ function ToDoLi({ text, index, changeInputLi, removeLi }) {
 	}
 
 	function addclass() {
-		if (!lineThrought) {
+		if (lineThrought) {
+			console.log(1)
 			setLineThrought(lineThrought = '')
-		} else setLineThrought(lineThrought = 'active')
+		} else {
+			console.log(2);
+			setLineThrought(lineThrought = 'active')
+		}
 	}
 
 	async function submitHandler(e) {
@@ -24,7 +28,7 @@ function ToDoLi({ text, index, changeInputLi, removeLi }) {
 	return (
 		<li>
 			<div className={classnames("checkbox", { active: lineThrought })} >
-				{!text.img ?
+				{text.img === null ?
 					<Label text={text} index={index} changeInputLi={changeInputLi} ></Label> : <Image text={text} index={index} changeInputLi={changeInputLi} chCl={addclass}></Image>}
 				<input
 					defaultChecked={classes[0] || false}

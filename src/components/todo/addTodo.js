@@ -44,7 +44,9 @@ function AddToDo({ onCreate }) {
 					className={classnames("input", { active: classes[0] })}
 					onFocus={() => focus()}
 					onBlur={() => blur()}
-					onChange={(e) => { setValue(e.target.value); setDataValue(e.target.value) }} />
+					onChange={(e) => { setValue(e.target.value); setDataValue(e.target.value) }}
+					onKeyUp={(e) => { if (e.key === "Enter") { setValue(value = ''); setDataValue(dataValue = ''); } }}
+				/>
 
 				<button className='button button__big' type="submit" >
 					<span>Send</span>

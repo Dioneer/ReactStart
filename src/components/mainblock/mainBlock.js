@@ -10,6 +10,7 @@ import Modal from '../modal/modal.js';
 import './mainblock.css';
 import * as functions from '../calendar/utilitFunctions.js';
 import classNames from "classnames";
+import Error from '../error/error.js';
 
 function MainBlock() {
 	const { textContent, backEndDate, onCalendarChange, commonClasses, error } = useContext(Context);
@@ -80,7 +81,7 @@ function MainBlock() {
 						onClick={cahngeDayOfToDoPrev}>{'>'}</span>
 				</div>
 				{loading && <TodoLoader></TodoLoader>}
-				{error ? <div className=" text-center text-red-700 font-bold">{error}</div> : null}
+				{error && <Error error={error}></Error>}
 				{(textContent.length && !error) ? < TodoList ></ TodoList> : loading || error ? null : <div className='lazy'>Congratulations! You have no TODO</div>}
 			</div >
 		</div >

@@ -6,7 +6,7 @@ export function useApp() {
 	let [backEndDate, setBackEndDate] = useState(new Date());
 	let [images, setImages] = useState([]);
 	let [error, setError] = useState(false);
-
+	console.log(images)
 	function onCalendarChange(value) {
 		const address = 'https://jsonplaceholder.typicode.com/todos/';
 		const text = { 'chosenDay': value.getDate(), 'chosenMonth': value.getMonth(), "chosenYear": value.getFullYear() }
@@ -15,7 +15,16 @@ export function useApp() {
 	}
 
 	function changeImages(value) {
-		setImages(images.concat(value))
+		try {
+			const address = 'https://jsonplaceholder.typicode.com/todos/';
+			setImages(images.concat(value))
+			const add = [{ id: Date.now(), completed: false, title: value, status: 'addImage', img: images.length }]
+			sendBack(add, address);
+			localStorage.setItem("item", JSON.stringify(add))
+			setTodo(textContent.concat(add));
+		} catch (e) {
+			setError(error = e.message);
+		}
 	}
 
 	function toggle(id) {
@@ -59,6 +68,7 @@ export function useApp() {
 		const add = [{ id: Date.now(), completed: false, title: value, status: 'addTodo', img: null }]
 		setTodo(textContent.concat(add));
 		sendBack(add, address);
+		localStorage.setItem("item", JSON.stringify(add))
 	}
 
 	// useEffect(() => {

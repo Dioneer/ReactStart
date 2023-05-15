@@ -83,15 +83,20 @@
 	display: flex;
 	position: relative;
 }
+.checkbox>span{
+	display:flex;
+	align-items:center;
+}
 .checkbox:before{
 	content: '';
 	position: absolute;
 	display: block;
 	top: 50%;
-	left: 65px;
-	width:68%;
+	left: 0;
+	width:98%;
 	height: 1px;
-	background: #333;
+	background: rgb(241, 166, 38);
+	z-index:50;
 	transform: translate( 0, -50%) scale(0);
 	transition: all 0.3s 0s;
 }
