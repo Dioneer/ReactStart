@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 function HeaderLi({ text }) {
 	return (
-		<li className="m-l last:m-0 ">
+		<li>
 			<a href="./" className="header__link">{text}</a>
 		</li>
 	)

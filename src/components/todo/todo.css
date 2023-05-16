@@ -26,25 +26,23 @@
 .input__search{
 	background: rgb(244, 227, 198);
 }
+.form{
+	display: flex;
+}
 .form__addToDo{
 	display: flex;
 	margin: 3% -10px;
 
 }
 .form__addText{
-	flex: 1 1 50%;
+	flex: 1 1 100%;
 	display: flex;
 	padding: 0px 10px;
 }
-@media (max-width:992.98px) {
-	.form__addToDo{
-		display: block;
-	}
 
+.form__image{
+ @apply pb-28 relative w-100;
 }
-
-@media (max-width: 767.98px){
-		.canvas__add{
-		display: none;
-	}
+.form__image img{
+	@apply absolute top-0 left-0 w-100 h-100 object-contain object-center;
 }

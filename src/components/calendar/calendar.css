@@ -7,13 +7,27 @@
 .calendar__toggle{
 	@apply text-neutral-100;
 }
-.calendar__toggle.calendar__toggle_l{ @apply cursor-pointer mr-2.5}
-
-.calendar__toggle.calendar__toggle_r{
-	@apply  text-neutral-100;
+.calendar__toggle.calendar__toggle_l{ 
+	@apply cursor-pointer mr-2.5
 }
-.calendar__table{@apply text-neutral-100 text-center}
-.calendar__head {@apply text-center py-0 px-1.5}
+.calendar__toggle.calendar__toggle_r{
+	@apply text-neutral-100;
+}
+.calendar__table{
+	@apply text-neutral-100 text-center
+}
+.calendar__head{
+	@apply text-center py-0 px-1.5
+}
+.calendar__day.active{
+	@apply bg-amber-500/60 text-zinc-800;
+}
+.calendar__day.selected{
+	@apply bg-amber-500 text-zinc-800;
+}
+.calendar__day:hover{
+	@apply text-stone-500 bg-gray-300;
+}
 /* .calendar{
 	background-color: #666;
 	padding: 0px 10px;
@@ -56,18 +70,7 @@
 /* .calendar__day{
 	padding: 3px 0px;
 } */
-.calendar__day.active{
-	background-color: rgba(245, 159, 11, 0.6);
-	color: #333;
-}
-.calendar__day.selected{
-	color: #333;
-	background-color: rgba(245, 159, 11, 1);
-}
-.calendar__day:hover{
-	color: #666;
-	background-color: hsl(0, 0%, 80%);
-}
+
 /* select */
 .custom-select__control{
 	background: transparent !important;

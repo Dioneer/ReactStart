@@ -7,11 +7,9 @@ function useCanvas() {
 	const canvasRef = useRef(null);
 	const contextRef = useRef(null);
 	let [drawing, setDrawing] = useState(false);
-	let [big, setBig] = useState('');
 
 	useEffect(() => {
 		const canvas = canvasRef.current;
-		let rect = canvasRef.current.getBoundingClientRect();
 		const context = canvasRef.current.getContext('2d');
 
 		context.scale(2, 2);
@@ -20,32 +18,21 @@ function useCanvas() {
 		context.lineWidth = 1
 
 		contextRef.current = context;
-		canvasRef.current.height = rect.height;
+		canvasRef.current.width = parseInt(getComputedStyle(canvas).width)
+		canvasRef.current.height = parseInt(getComputedStyle(canvas).height)
 
 		const onClick = (e) => {
 			if (canvas.contains(e.target)) {
 				setClasses(classes = 'active');
-				canvasRef.current.width = parseInt(getComputedStyle(canvas).width)
 			}
 			if (!canvas.contains(e.target)) {
 				setClasses(classes = '')
 			}
 		}
-
-		if (window.matchMedia("(max-width: 767.98px)").matches) { setBig(big = 'active_big') }
-		else {
-			setBig(big = '')
-		}
-
-		if (big) {
-			canvasRef.current.height = 500;
-		} else { canvasRef.current.height = 100 }
-
 		document.addEventListener('click', onClick);
 		return () => {
 			document.removeEventListener('click', onClick);
 		}
-
 	}, [])
 
 	const startDrawing = (e) => {

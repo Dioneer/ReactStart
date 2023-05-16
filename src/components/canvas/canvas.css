@@ -1,39 +1,9 @@
 .canvas{
-	@apply h-[3.125rem] w-100 bg-white border border-solid border-zinc-800 rounded-xl mr-2.5;
+	@apply h-[500px] min-w-[200px] w-100 bg-white border border-solid border-zinc-800 rounded-xl;
 }
-/* canvas{
-	height: 50px;
-	width: 100%;
-	background-color: #fff;
-	border: 1px solid #333;
-	border-radius: 10px;
-	margin: 0px 10px 0px 0px;
-}  */
 .canvas.active{
-	height: 100px;
-	border: 1px solid rgb(245 158 11);
+	@apply border-r border-solid border-amber-500;
 }
-
-@media (max-width:992.98px) {
-	.canvas{
-		height: 44px;
-	}
-	.canvas__add{
-		margin: 10px 0px 0px 0px !important;
-	}
-}
-@media(max-width:767.98px){
-	.canvas{
-		margin: 0;
-		height: 100px;
-	}
-	.canvas.active{
-		height: 500px;
-		border: 1px solid rgb(245 158 11);
-	}
-	.button-popup-canvas{
-		text-align: right;
-		margin: 5px;
-		justify-self: end;
-	}
+.button-popup-canvas{
+	@apply text-right m-1.5 justify-self-end;
 }

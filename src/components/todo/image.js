@@ -10,12 +10,14 @@ function Image({ text, index, changeInputLi, chCl }) {
 	return (
 		<React.Fragment>
 			<span>{index + 1}</span>
-			<img
-				src={text.title.replace(/['"]+/g, '')}
-				alt='canvac_image'
-				className={classnames("image", { active: classes[0] })}
-				onClick={() => { changeInputLi(text.id); chCl() }}>
-			</img>
+			<div className="form__image">
+				<img
+					src={text.title.replace(/['"]+/g, '')}
+					alt='canvac_image'
+					className={classnames("image", { active: classes[0] })}
+					onClick={() => { changeInputLi(text.id); chCl() }}>
+				</img>
+			</div>
 		</React.Fragment>
 	)
 }

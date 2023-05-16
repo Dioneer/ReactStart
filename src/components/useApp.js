@@ -6,7 +6,7 @@ export function useApp() {
 	let [backEndDate, setBackEndDate] = useState(new Date());
 	let [images, setImages] = useState([]);
 	let [error, setError] = useState(false);
-	console.log(images)
+
 	function onCalendarChange(value) {
 		const address = 'https://jsonplaceholder.typicode.com/todos/';
 		const text = { 'chosenDay': value.getDate(), 'chosenMonth': value.getMonth(), "chosenYear": value.getFullYear() }

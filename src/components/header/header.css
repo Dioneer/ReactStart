@@ -8,9 +8,10 @@
 	@apply flex items-center  m-center w-100 max-w-full;
 }
 .header__image {
-	@apply inline-block h-12 w-16 relative hover:animate-drug;}
+	@apply inline-block h-12 w-16 relative hover:animate-drug;
+}
 .header__link{
-	@apply inline-block text-zinc-800 uppercase tracking-wide leading-7 relative;
+	@apply block text-zinc-800 uppercase tracking-wide leading-7 relative;
 }
 .header__link{
 	@apply before:absolute before:bottom-0 before:left-[50%] before:w-0 before:h-px before:bg-zinc-800 before:transition-burg before:duration-300 before:ease-in before:delay-0 hover:before:left-0 hover:before:w-100;
@@ -31,7 +32,7 @@
 	@apply scale-0;
 }
 .header__list{
-	@apply flex p-0 m-l justify-between items-center;
+	@apply flex p-0 justify-between items-center;
 }
 .header__showSearch {
 	@apply relative max-w-full w-100 m-center right-[110%] h-0 rotate-0 transition-burg duration-500 delay-0 ease-linear
@@ -41,6 +42,53 @@
 }
 .header__loupe{
 	@apply  hover:animate-drug relative z-[4] w-[30px] h-[30px];
+}
+.header__showSearch.active{
+	@apply right-0 h-100;
+  }
+.header__addOpport{
+ @apply hidden;
+}
+@media (max-width: 767.98px){
+	.header{
+		@apply px-2.5 px-[2%];
+	}
+	.container__header{
+		@apply block;
+	}
+	.header__image{
+		@apply hidden;
+	}
+	.header__burger{
+		@apply w-[1.875rem] h-5 left-2.5 top-[15px] inline-block absolute z-[4];
+	}
+	.header__main{
+		@apply block fixed top-0 left-[-100%] w-[calc(100%/3)] h-100 bg-amber-500 py-0 px-2.5 overflow-auto z-[2];
+	}
+	.header__list{
+		@apply block pt-14 mb-5;
+	}
+	.header__list li{
+		@apply mb-5;
+	}
+	.header__link{
+		@apply font-bold text-xl;
+	}
+	.container__header{
+		@apply justify-between;
+	}
+	.header__main.active{
+		@apply left-0;
+	}
+	.header__loupe{
+		@apply absolute right-2.5 w-[1.875rem] h-[1.875rem] top-2.5;
+	}
+	.header__showSearch{
+		@apply mt-[1.875rem];
+	}
+	.header__addOpport{
+		@apply inline-block;
+	}
 }
 /* .header{
 	background-color: rgb(241, 166, 38);
@@ -185,13 +233,7 @@
 	margin: 14px 0px 0px 0px;
 	max-width: 100%;
 } */
-.header__showSearch.active{
- @apply right-0 h-100;
-}
-.header__addOpport{
-	display:none
-}
-@media (max-width: 767.98px){
+/* @media (max-width: 767.98px){
 	.header{
 		padding: 2% 10px;
 	}
@@ -203,7 +245,7 @@
 	}
 	.header__burger{
 		display: inline-block;
-		position: fixed;
+		position: absolute;
 		z-index: 4;
 		width: 30px;
 		height: 20px;
@@ -241,7 +283,7 @@
 		left: 0;
 	}
 	.header__loupe{
-		position: fixed;
+		position: absolute;
 		right: 10px;
 		width: 30px;
 		height: 30px;
@@ -253,7 +295,7 @@
 	.header__addOpport{
 		display:inline-block;
 	}
-}
+} */
 /* @keyframes drug {
 0% {
 	transform: rotate(0deg);

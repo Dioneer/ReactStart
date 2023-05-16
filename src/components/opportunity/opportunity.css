@@ -4,6 +4,11 @@
 .aside__list li a{
 	@apply uppercase text-zinc-800 font-bold text-xl;
 }
+@media(max-width:767.98px){
+	.aside__list{
+		@apply p-0;
+	}
+}
 /* .aside__list{
 	padding: 20% 0px 0px 0px;
 } */
@@ -17,8 +22,3 @@
 	font-weight: 700;
 	font-size: 20px;
 } */
-@media(max-width:767.98px){
-	.aside__list{
-		padding: 0;
-	}
-}

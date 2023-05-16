@@ -6,9 +6,15 @@ function Modal({ children, title }) {
 	let [isOpen, setIsOpen] = useState(false)
 
 	function missClick(e) {
-		if (!e.target.closest('.calendar') && !e.target.closest('.canvas')) {
+		if (!e.target.closest('.calendar') && !e.target.closest('.canvas') && !e.target.closest('.button-popup-canvas')) {
 			setIsOpen(isOpen = !isOpen);
+			document.body.classList.remove('lock')
 		}
+	}
+
+	function isOpenPopup() {
+		setIsOpen(isOpen = !isOpen);
+		document.body.classList.add('lock')
 	}
 
 	return (
@@ -16,7 +22,7 @@ function Modal({ children, title }) {
 			<button
 				className={["button button__popup", "button__popup-" + title].join(' ')}
 				type="button"
-				onClick={() => { setIsOpen(isOpen = !isOpen); }}>
+				onClick={isOpenPopup}>
 				<span>{title}</span>
 			</button>
 			<div className={classnames("popup", { popup_show: isOpen })}>

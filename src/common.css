@@ -73,10 +73,6 @@
 	color: #333;
 	border:1px solid rgb(241, 166, 38);
 }
-/* form */
-.form{
-	display: flex;
-}
 /* checkbox */
 .checkbox{
 	flex: 1 1 auto;
@@ -156,4 +152,8 @@
 .checkbox__lable span{
 	margin: 0 10px 0 70px;
 	color: #666;
+}
+/* body */
+body.lock{
+	overflow:hidden;
 }

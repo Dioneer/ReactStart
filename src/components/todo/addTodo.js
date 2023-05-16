@@ -1,6 +1,5 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import Canvas from '../canvas/canvas.js';
 import classnames from "classnames";
 
 function AddToDo({ onCreate }) {
@@ -51,10 +50,6 @@ function AddToDo({ onCreate }) {
 				<button className='button button__big' type="submit" >
 					<span>Send</span>
 				</button>
-			</div>
-			<div
-				className='form__addText canvas__add'>
-				<Canvas />
 			</div>
 		</form >
 	)

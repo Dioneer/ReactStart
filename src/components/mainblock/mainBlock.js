@@ -42,6 +42,7 @@ function MainBlock() {
 		if (textContent.length) {
 			removeLoad()
 		}
+		console.log(1)
 	})
 
 	function removeLoad() {
