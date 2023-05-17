@@ -1,22 +1,22 @@
 import './header.css';
-import { useState, useContext } from "react";
+import { useState } from "react";
 import HeaderUl from "./headerUl";
 import HeaderSearch from "./header-search.js"
 import HeaderInput from "./header-input";
 import logo from '../img/skunk.jpg';
 import Burger from "./headerBurger";
 import classnames from 'classnames';
-import Context from '../context.js';
+import { useHeaderContext } from '../context.js';
 
 function Header() {
-	let { commonClasses, setCommonClasses } = useContext(Context);
+	let { setCommonClasses } = useHeaderContext();
 	let [classes, setClasses] = useState(false);
 	let [show, setShow] = useState(false);
 
 	function changeShow(e) {
 		if (e.target.closest('.header__burger')) {
 			setClasses(classes => !classes)
-			if (!classes) { setCommonClasses(commonClasses = true) } else { setCommonClasses(commonClasses = false) }
+			if (!classes) { setCommonClasses(true) } else { setCommonClasses(false) }
 		}
 		if (e.target.closest('.header__loupe')) {
 			setShow(show => !show)

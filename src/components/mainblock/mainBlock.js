@@ -1,6 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import TodoList from '../todo/todoUl.js';
-import Context from '../context.js';
+import { useAppContext, useCalendarContext, useHeaderContext } from '../context.js';
 import OppurtUl from "../opportunity/opporUl.js";
 import TodoVriables from "../todo/todoVar.js";
 import TodoLoader from "../loader/loader.js";
@@ -11,12 +11,16 @@ import './mainblock.css';
 import * as functions from '../calendar/utilitFunctions.js';
 import classNames from "classnames";
 import Error from '../error/error.js';
+import { useTranslation } from "react-i18next";
 
 function MainBlock() {
-	const { textContent, backEndDate, onCalendarChange, commonClasses, error } = useContext(Context);
+	const { textContent, error } = useAppContext();
+	const { commonClasses } = useHeaderContext();
+	const { backEndDate, onCalendarChange } = useCalendarContext();
 	let [loading, setLoading] = useState(true);
 	let [title, setTitle] = useState('Wright or draw ToDo');
 	let [newDate, setNewDate] = useState(backEndDate);
+	// const { t } = useTranslation();
 
 	// useEffect(() => {
 	// 	fetch('https://jsonplaceholder.typicode.com/todos?_limit=6')
@@ -34,15 +38,15 @@ function MainBlock() {
 	}
 
 	useEffect(() => {
-		if (window.matchMedia("(max-width: 767.98px)").matches) { setTitle(title = 'Wright ToDo') }
+		if (window.matchMedia("(max-width: 767.98px)").matches) { setTitle('Wright ToDo') }
 		else {
-			setTitle(title = 'Wright or draw ToDo')
+			setTitle('Wright or draw ToDo')
 		}
-
+	}, [])
+	useEffect(() => {
 		if (textContent.length) {
 			removeLoad()
 		}
-		console.log(1)
 	})
 
 	function removeLoad() {
@@ -61,7 +65,7 @@ function MainBlock() {
 	return (
 		<div className='page'>
 			<aside className="aside">
-				<div className="aside__title title mx-2.5">opportunity</div>
+				<div className="aside__title title mx-2.5">{"opportunity"}</div>
 				<OppurtUl></OppurtUl>
 			</aside>
 			<div className={classNames("content", { active: commonClasses })}>

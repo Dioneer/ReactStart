@@ -1,8 +1,8 @@
-import { useEffect, useContext, useState, useRef } from "react";
-import Context from '../context.js';
+import { useEffect, useState, useRef } from "react";
+import { useAppContext } from '../context.js';
 
 function useCanvas() {
-	const { changeImages } = useContext(Context);
+	const { changeImages } = useAppContext();
 	let [classes, setClasses] = useState('');
 	const canvasRef = useRef(null);
 	const contextRef = useRef(null);
@@ -23,10 +23,10 @@ function useCanvas() {
 
 		const onClick = (e) => {
 			if (canvas.contains(e.target)) {
-				setClasses(classes = 'active');
+				setClasses('active');
 			}
 			if (!canvas.contains(e.target)) {
-				setClasses(classes = '')
+				setClasses('')
 			}
 		}
 		document.addEventListener('click', onClick);
@@ -43,13 +43,13 @@ function useCanvas() {
 		if (offsetX && offsetY && !e.targetTouches) {
 			contextRef.current.beginPath();
 			contextRef.current.moveTo(offsetX, offsetY);
-			setDrawing(drawing = true);
+			setDrawing(true);
 		} else {
 			let touchX = e.targetTouches[0].pageX - rect.left;
 			let touchY = e.targetTouches[0].pageY - rect.top;
 			contextRef.current.beginPath();
 			contextRef.current.moveTo(touchX, touchY);
-			setDrawing(drawing = true);
+			setDrawing(true);
 		}
 	}
 
@@ -59,7 +59,7 @@ function useCanvas() {
 
 	const finishDrawing = () => {
 		contextRef.current.closePath();
-		setDrawing(drawing = false);
+		setDrawing(false);
 	}
 
 	const onMouseMove = (e) => {

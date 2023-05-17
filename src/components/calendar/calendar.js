@@ -16,10 +16,10 @@ function Calendar() {
 				<div
 					className='calendar__toggle calendar__toggle_l'
 					onClick={prevButton}>
-					<span className='text-5xl'>{'<'}</span></div>
+					<span>{'<'}</span></div>
 				<Select
 					classNamePrefix='custom-select'
-					className={classnames("calendar__month mr-2.5", { active: classes })}
+					className={classnames("calendar__month", { active: classes })}
 					value={setValueM()}
 					onChange={(e) => selectChange(e.value)}
 					options={functions.month}
@@ -41,18 +41,18 @@ function Calendar() {
 				<div
 					className='calendar__toggle calendar__toggle_r'
 					onClick={nextButton}>
-					<span className='text-5xl'>{'>'}</span>
+					<span>{'>'}</span>
 				</div>
 			</div>
 			<div className='calendar__table text-neutral-100 text-center'>
 				<table>
-					<thead className='calendar__head text-center py-0 px-1.5'>
+					<thead className='calendar__head text-center'>
 						<tr className='text-center py-0 px-1.5'>{functions.weekDay.map((name, i) => <th className='text-center py-0 px-1.5'
 							key={i}>{name}</th>)}</tr>
 					</thead>
 					<tbody>{date.map((week, i) => <tr key={i} className='calendar__week'>{week.map((day, i) => day ?
 						<td
-							className={classnames('calendar__day py-1 px-0', {
+							className={classnames('calendar__day', {
 								'active': functions.equal(day, currentDate),
 								'selected': functions.equal(day, selectedDay)
 							})}

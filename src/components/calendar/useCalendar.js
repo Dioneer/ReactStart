@@ -1,9 +1,9 @@
-import { useContext, useState } from 'react';
-import Context from '../context.js';
+import { useState } from 'react';
+import { useCalendarContext } from '../context.js';
 import * as functions from './utilitFunctions.js';
 
 export function useCalendar() {
-	const { onCalendarChange, backEndDate } = useContext(Context);
+	const { onCalendarChange, backEndDate } = useCalendarContext();
 	let [dateMain, setDateMain] = useState(backEndDate);
 	let [selectedOptionM, setSelectedOptionM] = useState(dateMain.getMonth());
 	let [selectedOptionY, setSelectedOptionY] = useState(dateMain.getFullYear());
@@ -29,25 +29,27 @@ export function useCalendar() {
 
 	function prevButton() {
 		const dateCheck = new Date(dateMain.getFullYear(), dateMain.getMonth() - 1);
-		setSelectedOptionM(selectedOptionM = dateCheck.getMonth());
-		setSelectedOptionY(selectedOptionY = dateCheck.getFullYear());
-		setDateMain(dateMain = dateCheck);
+		setSelectedOptionM(dateCheck.getMonth());
+		setSelectedOptionY(dateCheck.getFullYear());
+		setDateMain(dateCheck);
+		console.log(1)
 	}
 	function nextButton() {
 		const dateCheck = new Date(dateMain.getFullYear(), dateMain.getMonth() + 1);
-		setSelectedOptionM(selectedOptionM = dateCheck.getMonth());
-		setSelectedOptionY(selectedOptionY = dateCheck.getFullYear());
-		setDateMain(dateMain = dateCheck);
+		setSelectedOptionM(dateCheck.getMonth());
+		setSelectedOptionY(dateCheck.getFullYear());
+		setDateMain(dateCheck);
+		console.log(2)
 	}
 
 	function selectChange(value) {
 		(value <= 12 && value > -1) ? setSelectedOptionM(selectedOptionM = value) : setSelectedOptionY(selectedOptionY = value);
 		const dateCheck = new Date(selectedOptionY, selectedOptionM);
-		setSelectedOptionM(selectedOptionM = dateCheck.getMonth());
-		setSelectedOptionY(selectedOptionY = dateCheck.getFullYear());
-		setDateMain(dateMain = dateCheck);
+		setSelectedOptionM(dateCheck.getMonth());
+		setSelectedOptionY(dateCheck.getFullYear());
+		setDateMain(dateCheck);
 		onCalendarChange(dateCheck);
 	}
-	function dayClick(date) { setDateMain(dateMain = date); onCalendarChange(date) }
+	function dayClick(date) { setDateMain(date); onCalendarChange(date) }
 	return { setValueM, setValueY, focus, blur, prevButton, nextButton, selectChange, dayClick, currentDate, selectedDay, date, classes }
 }

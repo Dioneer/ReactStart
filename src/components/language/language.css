@@ -1,0 +1,20 @@
+.changeLanguage {
+@apply flex items-center mr-2;
+}
+.changeLanguage li {
+@apply flex items-center p-2 bg-neutral-300 mx-0.5 rounded-lg transition-burg ease-linear duration-300;
+}
+.changeLanguage li span{
+@apply text-xs font-bold text-zinc-800 uppercase;
+}
+.changeLanguage li.active {
+@apply bg-neutral-600
+}
+.changeLanguage>li.active span{
+@apply text-xs font-bold text-neutral-300
+}
+@media (max-width: 767.98px){
+	.changeLanguage{
+	@apply mr-10;
+	}
+}

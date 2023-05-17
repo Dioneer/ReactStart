@@ -1,5 +1,5 @@
 .calendar{
-	@apply bg-neutral-500 px-2.5 py-0 flex-col items-center;
+	@apply bg-neutral-500 px-2.5 py-0 flex flex-col items-center;
 }
 .calendar__header{
 	@apply flex py-5 px-0 items-center justify-between;
@@ -8,16 +8,25 @@
 	@apply text-neutral-100;
 }
 .calendar__toggle.calendar__toggle_l{ 
-	@apply cursor-pointer mr-2.5
+	@apply cursor-pointer mr-2.5;
 }
-.calendar__toggle.calendar__toggle_r{
-	@apply text-neutral-100;
+.calendar__toggle.calendar__toggle_r{ 
+	@apply cursor-pointer ml-2.5;
+}
+.calendar__toggle_l span{ 
+	@apply text-5xl;
+}
+.calendar__toggle_r span{ 
+	@apply text-5xl;
 }
 .calendar__table{
-	@apply text-neutral-100 text-center
+	@apply text-neutral-100 text-center;
 }
 .calendar__head{
-	@apply text-center py-0 px-1.5
+	@apply text-center py-0 px-1.5;
+}
+.calendar__day{
+	@apply py-1 px-0;
 }
 .calendar__day.active{
 	@apply bg-amber-500/60 text-zinc-800;
@@ -27,6 +36,51 @@
 }
 .calendar__day:hover{
 	@apply text-stone-500 bg-gray-300;
+}
+.calendar__month{
+	@apply mr-2.5;
+}
+/* select */
+.custom-select__control{
+@apply !bg-transparent !text-gray-300 !border-b !border-solid !border-amber-500 !border-t-0 !border-l-0 !border-r-0 !shadow-none;
+}
+.custom-select__value-container{
+	@apply !cursor-text;
+}
+.custom-select__single-value {
+	@apply !text-gray-300 !tracking-wider !uppercase;
+}
+.custom-select__indicator-separator{
+	@apply !hidden;
+}
+.custom-select__indicators{
+	@apply !p-0;
+}
+.custom-select__dropdown-indicator{
+	@apply !p-0 !text-gray-400;
+}
+.custom-select__dropdown-indicator:hover{
+	@apply !text-gray-300;
+}
+.custom-select__menu{
+	@apply !bg-neutral-500 !text-gray-300 !animate-scale !origin-top;
+}
+.custom-select__option{
+@apply !cursor-pointer py-1 pl-1;
+}
+.custom-select__option--is-selected{
+	@apply !bg-orange-50 !text-neutral-500;
+}
+.custom-select__option--is-focused{
+	@apply !bg-orange-50 !text-neutral-500;
+}
+@media (max-width: 479.98px){
+	.custom-select__input-container{
+		@apply !text-xs;
+	}
+	.calendar__toggle span{
+		@apply !text-3xl;
+	}
 }
 /* .calendar{
 	background-color: #666;
@@ -72,7 +126,7 @@
 } */
 
 /* select */
-.custom-select__control{
+/*.custom-select__control{
 	background: transparent !important;
 	color: #999 !important;
 	border-bottom: 1px solid rgb(245 158 11) !important;
@@ -140,4 +194,4 @@ transform: scale(1, 0);
 	.calendar__toggle span{
 		font-size:28px;
 	}
-}
+}*/

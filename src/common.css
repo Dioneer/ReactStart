@@ -1,4 +1,4 @@
-.wrapper{
+/* .wrapper{
 	min-height: 100%;
 	width: 100%;
 	display: flex;
@@ -6,17 +6,17 @@
 	flex-direction: column;
 	background-color: #333;
 	position: relative;
-}
-.container{
+} */
+/* .container{
 	flex: 1 1 auto;
 	max-width: 1700px;
 	width: 100%;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
-}
+} */
 /* Title */
-.title{
+/* .title{
 	font-size: 23px;
 	line-height: 46px;
 	color: #333;
@@ -30,7 +30,7 @@
 	.title{	
 		font-size: 20px;
 		line-height: 26px;}
-}
+} */
 /* button */
 .button {
 	display: flex;

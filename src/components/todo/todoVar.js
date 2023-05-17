@@ -1,11 +1,11 @@
-import { useContext, Suspense, lazy } from "react";
-import Context from '../context.js';
+import { Suspense, lazy } from "react";
+import { useAppContext } from '../context.js';
 import Loading from '../loader/loader.js';
 
 const AddToDo = lazy(() => import('./addTodo.js'));
 
 function TodoVriables() {
-	const { addTodo } = useContext(Context);
+	const { addTodo } = useAppContext();
 
 	return (
 		<div className={"content__add"}>

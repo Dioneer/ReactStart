@@ -7,10 +7,41 @@
 .content{
 	@apply flex-auto bg-stone-200 p-[3%] max-w-100 overflow-auto;
 }
-.content__container {@apply grid grid-rows-1 grid-cols-cc items-center justify-center;}
-.content__title{@apply text-base tracking-[1px] m-0;}
-.page__controll{@apply flex items-center justify-between;}
-.lazy{@apply text-base uppercase text-zinc-800  tracking-[2px] font-bold mt-10 pb-20;}
+.content__container {
+	@apply grid grid-rows-1 grid-cols-cc items-center justify-center;
+}
+.content__title{
+	@apply text-base tracking-[1px] m-0;
+}
+.page__controll{
+	@apply flex items-center justify-between;
+}
+.lazy{
+	@apply text-base uppercase text-zinc-800  tracking-[2px] font-bold mt-10 pb-20;
+}
+
+@media(max-width:767.98px){
+	.button-canvas{
+		@apply block;
+	}
+	.page{
+		@apply justify-end;
+	}
+	.aside{
+		@apply hidden;
+	}
+	.content{
+		@apply max-w-100 animate-backwidth;
+	}
+	.content.active{
+		@apply max-w-[calc(100%*0.667)] animate-width;
+	}
+}
+@media (max-width: 620px){
+	.content.active{
+		@apply max-w-100 animate-none;
+	}
+}
 /* .page{
 	flex: 1 1 auto;
 	display: flex;
@@ -62,7 +93,7 @@
 	padding: 0px 80px 0px 0px;
 } */
 
-@media(max-width:767.98px){
+/* @media(max-width:767.98px){
 	.button-canvas{
 		display: block;
 	}
@@ -86,8 +117,8 @@
 		max-width: 100%;
 		animation: none;
 	}
-}
-@keyframes width {
+} */
+/* @keyframes width {
 	0% {
 		max-width: 100%;
 	}
@@ -102,4 +133,4 @@
 	100% {
 		max-width: 100%;
 	}
-}
+} */

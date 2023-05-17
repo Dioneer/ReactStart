@@ -1,8 +1,13 @@
 /** @type {import('tailwindcss').Config} */
+import plugin from 'tailwindcss/plugin';
+
 module.exports = {
 	content: ["./src/**/*.{html,js, scss}"],
 	theme: {
 		extend: {
+			flex: {
+				100: '1 1 100%'
+			},
 			margin: {
 				'center': '0 auto',
 				'l': '10px',
@@ -28,6 +33,9 @@ module.exports = {
 			},
 			animation: {
 				'drug': 'drug 1s ease 0s',
+				'width': 'width 0.4s ease 0s forwards',
+				'backwidth': '0.3s ease-in 0s forwards',
+				'scale': '0.4s ease-in-out 0s',
 			},
 			keyframes: {
 				drug: {
@@ -41,6 +49,35 @@ module.exports = {
 					'100%': {
 						transform: 'rotate(0deg)'
 					}
+				},
+				width: {
+					'0%': {
+						'max-width': '100%'
+					},
+					'100%': {
+						'max-width': 'calc(100% * 0.667)'
+					}
+				},
+				backwidth: {
+					'0%': {
+						'max-width': 'calc(100%*0.667)'
+					},
+					'100%': {
+						'max-width': '100%'
+					}
+				},
+				scale: {
+					'0%': {
+						opacity: '0',
+						transform: ' scale(1, 0)',
+					},
+					'50%': {
+						opacity: '0.3'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'scale(1, 1)'
+					}
 				}
 			},
 		},
@@ -48,5 +85,42 @@ module.exports = {
 	plugins: [
 		require('tailwindcss'),
 		require('autoprefixer'),
+		plugin(({ addComponents }) => {
+			addComponents({
+				'.wrapper': {
+					'min-height': '100%',
+					'width': '100%',
+					'display': 'flex',
+					'overflow': 'auto',
+					'flex-direction': 'column',
+					'background-color': '#333',
+					'position': 'relative',
+				},
+				'.container': {
+					'flex': '1 1 auto',
+					'max-width': '1700px',
+					'width': '100%',
+					'margin': '0 auto',
+					'display': 'flex',
+					'flex-direction': 'column',
+				},
+				".title": {
+					'font-size': '23px',
+					'line-height': '46px',
+					'color': '#333',
+					'font-family': 'Arial, Helvetica, sans-serif',
+					'text-transform': 'uppercase',
+					'font-weight': '700',
+					'letter-spacing': '3px',
+					'margin': '0px 10px 0px 0px',
+					'@media(max-width: 767.98px)':
+					{
+						'font-size': '20px',
+						'line-height': '26px',
+					}
+				},
+
+			})
+		})
 	],
 }

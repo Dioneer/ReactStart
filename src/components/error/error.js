@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
+import './error.css';
 
 function Error({ error }) {
 	return (
-		<div className=" text-center text-red-700 font-bold">{error}</div>
+		<div className="error">{error}</div>
 	)
 }
 Error.propTypes = {

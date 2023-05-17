@@ -32,7 +32,7 @@ function AddToDo({ onCreate }) {
 			action="#"
 			method="POST"
 			onSubmit={submitHandler}>
-			<div className='form__addText canvas__prim'>
+			<div className='form__addText'>
 				<input
 					type="text"
 					data-value={dataValue}
@@ -46,7 +46,6 @@ function AddToDo({ onCreate }) {
 					onChange={(e) => { setValue(e.target.value); setDataValue(e.target.value) }}
 					onKeyUp={(e) => { if (e.key === "Enter") { setValue(value = ''); setDataValue(dataValue = ''); } }}
 				/>
-
 				<button className='button button__big' type="submit" >
 					<span>Send</span>
 				</button>

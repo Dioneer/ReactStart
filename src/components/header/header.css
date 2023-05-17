@@ -49,6 +49,9 @@
 .header__addOpport{
  @apply hidden;
 }
+.header__templ{
+@apply flex
+}
 @media (max-width: 767.98px){
 	.header{
 		@apply px-2.5 px-[2%];
@@ -83,12 +86,15 @@
 	.header__loupe{
 		@apply absolute right-2.5 w-[1.875rem] h-[1.875rem] top-2.5;
 	}
-	.header__showSearch{
+	/*.header__showSearch{
 		@apply mt-[1.875rem];
-	}
+	}*/
 	.header__addOpport{
 		@apply inline-block;
 	}
+	.header__templ{
+@apply justify-end;
+}
 }
 /* .header{
 	background-color: rgb(241, 166, 38);
