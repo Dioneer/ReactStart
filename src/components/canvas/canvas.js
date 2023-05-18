@@ -2,9 +2,12 @@ import React from "react";
 import './canvas.css';
 import classnames from "classnames";
 import useCanvas from "./useCanvas";
+import { useTranslation } from "react-i18next";
 
 function Canvas() {
 	const { classes, canvasRef, startDrawing, finishDrawing, onMouseMove, saveImageToLocal } = useCanvas();
+	const { t } = useTranslation();
+
 	return (
 		<React.Fragment>
 			<canvas
@@ -22,7 +25,7 @@ function Canvas() {
 				className='button button__big button-popup-canvas'
 				type="submit"
 				onClick={saveImageToLocal}>
-				<span>Send</span>
+				<span>{t("main.send")}</span>
 			</button>
 		</React.Fragment>
 	)

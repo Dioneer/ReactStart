@@ -1,12 +1,13 @@
 import HeaderLi from "./headerLi";
 import OpportUl from "../opportunity/opporUl.js";
+import { useTranslation } from "react-i18next";
 
 function HeaderUl() {
-	const list = ["First", "Second", "third", "forth"];
+	const { t } = useTranslation();
 
 	return (
 		<ul className="header__list">
-			{list.map((li, i) => {
+			{t('main.headerList', { returnObjects: true }).map((li, i) => {
 				return <HeaderLi text={li}
 					key={i}>
 				</HeaderLi>

@@ -25,6 +25,9 @@
 .calendar__head{
 	@apply text-center py-0 px-1.5;
 }
+.calendar__head tr{
+	@apply py-0 px-1.5;
+}
 .calendar__day{
 	@apply py-1 px-0;
 }
@@ -72,6 +75,9 @@
 	@apply !bg-orange-50 !text-neutral-500;
 }
 .custom-select__option--is-focused{
+	@apply !bg-transparent;
+}
+.custom-select__option--is-focused:hover{
 	@apply !bg-orange-50 !text-neutral-500;
 }
 @media (max-width: 479.98px){

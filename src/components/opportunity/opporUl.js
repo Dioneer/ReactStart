@@ -1,12 +1,14 @@
 import OpportLi from './opporLi.js';
 import '../opportunity/opportunity.css';
+import { useTranslation } from "react-i18next";
 
 function OppurtUl() {
+	const { t } = useTranslation();
 
 	return (
-		< ul className="aside__list pt-[20%]" >
+		< ul className="aside__list" >
 			{
-				["archive", 'second', 'third'].map((li, i) => {
+				t('main.opportunityList', { returnObjects: true }).map((li, i) => {
 					return <OpportLi
 						key={i}
 						text={li}

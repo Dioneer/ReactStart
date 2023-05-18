@@ -1,5 +1,5 @@
 .change-lang-link {
-@apply flex items-center mr-2;
+@apply flex items-center mr-2 relative z-[4];
 }
 .change-lang-link li {
 @apply flex items-center p-2 bg-neutral-300 mx-0.5 rounded-lg transition-burg ease-linear duration-300;

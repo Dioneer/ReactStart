@@ -1,17 +1,19 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
+import { useTranslation } from "react-i18next";
 
 function AddToDo({ onCreate }) {
 	let [dataValue, setDataValue] = useState('');
-	let [value, setValue] = useState('Add Todo');
+	let [value, setValue] = useState('main.addTodo');
 	let [classes, setClasses] = useState([]);
+	const { t } = useTranslation();
 
 	function submitHandler(e) {
 		e.preventDefault();
 		if (dataValue.trim()) {
 			onCreate(dataValue);
-			setValue(value = 'Add Todo');
+			setValue(value = 'main.addTodo');
 			setDataValue(dataValue = '');
 		}
 	}
@@ -22,7 +24,7 @@ function AddToDo({ onCreate }) {
 	}
 
 	function blur() {
-		setValue(value = 'Add Todo');
+		setValue(value = 'main.addTodo');
 		setClasses(classes = [])
 	}
 
@@ -36,7 +38,7 @@ function AddToDo({ onCreate }) {
 				<input
 					type="text"
 					data-value={dataValue}
-					value={value || ''}
+					value={t(value) || ''}
 					data-error="ошибка"
 					autoComplete="off"
 					name="name"
@@ -47,7 +49,7 @@ function AddToDo({ onCreate }) {
 					onKeyUp={(e) => { if (e.key === "Enter") { setValue(value = ''); setDataValue(dataValue = ''); } }}
 				/>
 				<button className='button button__big' type="submit" >
-					<span>Send</span>
+					<span>{t("main.send")}</span>
 				</button>
 			</div>
 		</form >

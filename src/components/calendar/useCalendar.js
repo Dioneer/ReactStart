@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useCalendarContext } from '../context.js';
 import * as functions from './utilitFunctions.js';
+import { useTranslation } from "react-i18next";
 
 export function useCalendar() {
 	const { onCalendarChange, backEndDate } = useCalendarContext();
@@ -11,9 +12,10 @@ export function useCalendar() {
 	const currentDate = new Date();
 	const selectedDay = dateMain;
 	const date = functions.getMonthDater(selectedOptionY, selectedOptionM);
+	const { t } = useTranslation();
 
 	function setValueM() {
-		return functions.month.find(curr => curr.value === selectedOptionM);
+		return t('main.month', { returnObjects: true }).find(curr => curr.value === selectedOptionM);
 	}
 	function setValueY() {
 		return functions.year.find(curr => curr.value === selectedOptionY);

@@ -22,6 +22,7 @@ export function useApp() {
 			sendBack(add, address);
 			localStorage.setItem("item", JSON.stringify(add))
 			setTodo(textContent.concat(add));
+			console.log(1)
 		} catch (e) {
 			setError(error = e.message);
 		}

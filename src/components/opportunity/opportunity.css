@@ -1,3 +1,6 @@
+.aside__list{
+	@apply pt-[20%];
+}
 .aside__list li{
 	@apply mb-[20%];
 }
