@@ -18,7 +18,7 @@ function Language() {
 
 	return (
 		<Suspense fallback={<TodoLoader></TodoLoader>}>
-			<ul className="changeLanguage" ref={languageRef}>
+			<ul className="change-lang-link" ref={languageRef}>
 				<li className='active'
 					onClick={(e) => { changeLanguage("ru", e) }}>
 					<span>ru</span>
@@ -27,7 +27,7 @@ function Language() {
 					onClick={(e) => { changeLanguage("en", e) }}>
 					<span>en</span>
 				</li>
-				<div className="aside__title title mx-2.5">{t("main.opportunitytr")}</div>
+				<div className="aside__title title mx-2.5">{t("opportunitytr")}</div>
 			</ul>
 		</Suspense >
 	)

@@ -13,6 +13,7 @@ i18n
 		defaultLocale: 'en',
 		locales: ['ru', 'en'],
 		debug: true,
+		keySeparator: false,
 		ns: ['translation'],
 		defaultNS: 'translation',
 		detection: {
@@ -23,6 +24,7 @@ i18n
 			escapeValue: false, // not needed for react as it escapes by default
 		},
 		backend: {
+			loadPath: "ReactStart/locales/{{lng}}/translation.json",
 			crossDomain: true,
 			withCredentials: false,
 			overrideMimeType: false,

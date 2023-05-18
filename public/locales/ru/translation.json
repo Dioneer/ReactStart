@@ -1,22 +1,24 @@
 {
-	"opportunitytr": "возможности",
-	"canvas": "рисунок",
-	"calendar": "календарь",
-	"send": "отправить",
-	"mainBigTitle": "Напиши или нарисуй задачу",
-	"mainSmallTitle": "Напиши задачу",
-	"addTodo": "Добавить задачу",
-	"search": "Поиск",
-	"searchPlaceholder": "Поиск",
-	"opportunityList": [
-		"Архив",
-		"Затычка",
-		"Затычка"
-	],
-	"headerList": [
-		"Затычка",
-		"Затычка",
-		"Затычка",
-		"Затычка"
-	]
+	"main": {
+		"opportunitytr": "возможности",
+		"canvas": "рисунок",
+		"calendar": "календарь",
+		"send": "отправить",
+		"mainBigTitle": "Напиши или нарисуй задачу",
+		"mainSmallTitle": "Напиши задачу",
+		"addTodo": "Добавить задачу",
+		"search": "Поиск",
+		"searchPlaceholder": "Поиск",
+		"opportunityList": [
+			"Архив",
+			"Затычка",
+			"Затычка"
+		],
+		"headerList": [
+			"Затычка",
+			"Затычка",
+			"Затычка",
+			"Затычка"
+		]
+	}
 }

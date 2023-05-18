@@ -1,22 +1,24 @@
 {
-	"opportunitytr": "opportunity",
-	"canvas": "canvas",
-	"calendar": "calendar",
-	"send": "send",
-	"mainBigTitle": "Wright or draw ToDo",
-	"mainSmallTitle": "Wright ToDo",
-	"addTodo": "Add Todo",
-	"search": "Search",
-	"searchPlaceholder": "Search",
-	"opportunityList": [
-		"archive",
-		"second",
-		"third"
-	],
-	"headerList": [
-		"First",
-		"Second",
-		"third",
-		"forth"
-	]
+	"main": {
+		"opportunitytr": "opportunity",
+		"canvas": "canvas",
+		"calendar": "calendar",
+		"send": "send",
+		"mainBigTitle": "Wright or draw ToDo",
+		"mainSmallTitle": "Wright ToDo",
+		"addTodo": "Add Todo",
+		"search": "Search",
+		"searchPlaceholder": "Search",
+		"opportunityList": [
+			"archive",
+			"second",
+			"third"
+		],
+		"headerList": [
+			"First",
+			"Second",
+			"third",
+			"forth"
+		]
+	}
 }
