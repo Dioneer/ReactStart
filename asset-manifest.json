@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ReactStart/static/css/main.5b2b137f.css",
-    "main.js": "/ReactStart/static/js/main.b17b5f89.js",
+    "main.js": "/ReactStart/static/js/main.e13409e0.js",
     "static/js/126.7a00c76a.chunk.js": "/ReactStart/static/js/126.7a00c76a.chunk.js",
     "static/js/787.79290225.chunk.js": "/ReactStart/static/js/787.79290225.chunk.js",
     "static/media/skunk.jpg": "/ReactStart/static/media/skunk.a7de6a38af76f3478609.jpg",
@@ -9,12 +9,12 @@
     "index.html": "/ReactStart/index.html",
     "static/media/getFetch.cjs": "/ReactStart/static/media/getFetch.40f37ddea2378391108f.cjs",
     "main.5b2b137f.css.map": "/ReactStart/static/css/main.5b2b137f.css.map",
-    "main.b17b5f89.js.map": "/ReactStart/static/js/main.b17b5f89.js.map",
+    "main.e13409e0.js.map": "/ReactStart/static/js/main.e13409e0.js.map",
     "126.7a00c76a.chunk.js.map": "/ReactStart/static/js/126.7a00c76a.chunk.js.map",
     "787.79290225.chunk.js.map": "/ReactStart/static/js/787.79290225.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5b2b137f.css",
-    "static/js/main.b17b5f89.js"
+    "static/js/main.e13409e0.js"
   ]
 }
