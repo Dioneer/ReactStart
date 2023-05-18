@@ -3,10 +3,10 @@ import HttpApi from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
-const backend = new HttpApi({ loadPath: '/locales/{{lng}}/translation.json' })
+// const backend = new HttpApi({ loadPath: 'ReactStart/locales/{{lng}}/translation.json' })
 
 i18n
-	.use(backend)
+	.use(HttpApi)
 	.use(LanguageDetector)
 	.use(initReactI18next)
 	.init({
@@ -25,7 +25,7 @@ i18n
 			escapeValue: false, // not needed for react as it escapes by default
 		},
 		backend: {
-			loadPath: "/locales/{{lng}}/translation.json",
+			loadPath: "/ReactStart/locales/{{lng}}/translation.json",
 			crossDomain: true,
 			withCredentials: false,
 			overrideMimeType: false,
