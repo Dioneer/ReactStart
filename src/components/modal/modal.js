@@ -3,17 +3,17 @@ import './modal.scss'
 import classnames from 'classnames';
 
 function Modal({ children, title }) {
-	let [isOpen, setIsOpen] = useState(false)
+	const [isOpen, setIsOpen] = useState(false)
 
 	function missClick(e) {
 		if (!e.target.closest('.calendar') && !e.target.closest('.canvas') && !e.target.closest('.button-popup-canvas')) {
-			setIsOpen(isOpen = !isOpen);
+			setIsOpen(isOpen => !isOpen);
 			document.body.classList.remove('lock')
 		}
 	}
 
 	function isOpenPopup() {
-		setIsOpen(isOpen = !isOpen);
+		setIsOpen(isOpen => !isOpen);
 		document.body.classList.add('lock')
 	}
 

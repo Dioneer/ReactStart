@@ -3,10 +3,10 @@ import { useAppContext } from '../context.js';
 
 function useCanvas() {
 	const { changeImages } = useAppContext();
-	let [classes, setClasses] = useState('');
+	const [classes, setClasses] = useState('');
 	const canvasRef = useRef(null);
 	const contextRef = useRef(null);
-	let [drawing, setDrawing] = useState(false);
+	const [drawing, setDrawing] = useState(false);
 
 	useEffect(() => {
 		const canvas = canvasRef.current;
@@ -57,6 +57,11 @@ function useCanvas() {
 		contextRef.current.clearRect(0, 0, width, height)
 	}
 
+	function clear() {
+		let rect = canvasRef.current.getBoundingClientRect();
+		clearCanvas(rect.width, rect.height);
+	}
+
 	const finishDrawing = () => {
 		contextRef.current.closePath();
 		setDrawing(false);
@@ -88,6 +93,6 @@ function useCanvas() {
 		changeImages(image);
 		clearCanvas(rect.width, rect.height);
 	};
-	return { classes, canvasRef, startDrawing, finishDrawing, onMouseMove, saveImageToLocal }
+	return { classes, canvasRef, startDrawing, finishDrawing, onMouseMove, saveImageToLocal, clear }
 }
 export default useCanvas;

@@ -2,16 +2,16 @@ import { useState } from "react";
 
 export function useApp() {
 	const [textContent, setTodo] = useState([]);
-	let [commonClasses, setCommonClasses] = useState(false);
-	let [backEndDate, setBackEndDate] = useState(new Date());
-	let [images, setImages] = useState([]);
-	let [error, setError] = useState(false);
+	const [commonClasses, setCommonClasses] = useState(false);
+	const [backEndDate, setBackEndDate] = useState(new Date());
+	const [images, setImages] = useState([]);
+	const [error, setError] = useState(false);
 
 	function onCalendarChange(value) {
 		const address = 'https://jsonplaceholder.typicode.com/todos/';
 		const text = { 'chosenDay': value.getDate(), 'chosenMonth': value.getMonth(), "chosenYear": value.getFullYear() }
 		sendBack(text, address);
-		setBackEndDate(backEndDate = value)
+		setBackEndDate(value)
 	}
 
 	function changeImages(value) {
@@ -22,9 +22,8 @@ export function useApp() {
 			sendBack(add, address);
 			localStorage.setItem("item", JSON.stringify(add))
 			setTodo(textContent.concat(add));
-			console.log(1)
 		} catch (e) {
-			setError(error = e.message);
+			setError(e.message);
 		}
 	}
 
@@ -51,7 +50,7 @@ export function useApp() {
 
 	async function sendBack(value, address) {
 		try {
-			setError(error = false)
+			setError(false)
 			const response = await fetch(address, {
 				body: JSON.stringify(value),
 				headers: { "Content-Type": "application/json" },
@@ -60,7 +59,7 @@ export function useApp() {
 			const data = await response.json();
 			console.log(data)
 		} catch (e) {
-			setError(error = e.message);
+			setError(e.message);
 		}
 	}
 

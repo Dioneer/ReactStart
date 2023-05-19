@@ -1,32 +1,45 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 import { useTranslation } from "react-i18next";
 
 function AddToDo({ onCreate }) {
-	let [dataValue, setDataValue] = useState('');
-	let [value, setValue] = useState('main.addTodo');
-	let [classes, setClasses] = useState([]);
+	const [dataValue, setDataValue] = useState('');
+	const [value, setValue] = useState('main.addTodo');
+	const [classes, setClasses] = useState([]);
 	const { t } = useTranslation();
 
 	function submitHandler(e) {
 		e.preventDefault();
 		if (dataValue.trim()) {
 			onCreate(dataValue);
-			setValue(value = 'main.addTodo');
-			setDataValue(dataValue = '');
+			setValue('main.addTodo');
+			setDataValue('');
 		}
 	}
 
 	function focus() {
 		classes.push('active');
-		setValue(value = '');
+		setValue('');
 	}
 
 	function blur() {
-		setValue(value = 'main.addTodo');
-		setClasses(classes = [])
+		setValue('main.addTodo');
+		setClasses([]);
 	}
+
+	function clear(e) {
+		if (!e.target.closest('.button__big')) {
+			setDataValue('');
+		} else return;
+	}
+
+	useEffect(() => {
+		document.body.addEventListener('click', clear)
+		return () => {
+			document.body.removeEventListener('click', clear)
+		}
+	})
 
 	return (
 		<form
@@ -46,7 +59,7 @@ function AddToDo({ onCreate }) {
 					onFocus={() => focus()}
 					onBlur={() => blur()}
 					onChange={(e) => { setValue(e.target.value); setDataValue(e.target.value) }}
-					onKeyUp={(e) => { if (e.key === "Enter") { setValue(value = ''); setDataValue(dataValue = ''); } }}
+					onKeyUp={(e) => { if (e.key === "Enter") { setValue(''); setDataValue(''); } }}
 				/>
 				<button className='button button__big' type="submit" >
 					<span>{t("main.send")}</span>

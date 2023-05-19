@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 export const animate = makeAnimated();
 
 function Calendar() {
-	const { setValueM, setValueY, focus, blur, prevButton, nextButton, selectChange, dayClick, currentDate, selectedDay, date, classes } = useCalendar();
+	const { selectFindHolderM, selectFindHolderY, focus, blur, prevButton, nextButton, selectChange, dayClick, currentDate, selectedDay, date, classes } = useCalendar();
 	const { t } = useTranslation();
 
 	return (
@@ -22,7 +22,7 @@ function Calendar() {
 				<Select
 					classNamePrefix='custom-select'
 					className={classnames("calendar__month", { active: classes })}
-					value={setValueM()}
+					value={selectFindHolderM()}
 					onChange={(e) => selectChange(e.value)}
 					options={t('main.month', { returnObjects: true })}
 					placeholder='Month'
@@ -33,7 +33,7 @@ function Calendar() {
 				<Select
 					classNamePrefix='custom-select'
 					className={["calendar__year", classes].join(' ')}
-					value={setValueY()}
+					value={selectFindHolderY()}
 					onChange={(e) => selectChange(e.value)}
 					options={functions.year}
 					placeholder='Year'

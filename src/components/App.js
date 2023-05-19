@@ -8,16 +8,16 @@ function App() {
 	const { textContent, toggle, remove, addTodo, backEndDate, onCalendarChange, changeImages, images, commonClasses, setCommonClasses, error } = useApp()
 	return (
 		<Context.Provider value={{ textContent, toggle, remove, addTodo, changeImages, images, error }} >
-			<Calendar.Provider value={{ backEndDate, onCalendarChange }}>
-				<HeaderContext.Provider value={{ commonClasses, setCommonClasses }}>
+			<HeaderContext.Provider value={{ commonClasses, setCommonClasses }}>
+				<Calendar.Provider value={{ backEndDate, onCalendarChange }}>
 					<div className="wrapper">
 						<Header></Header>
 						<div className='container'>
 							<MainBlock></MainBlock>
 						</div>
 					</div>
-				</HeaderContext.Provider>
-			</Calendar.Provider>
+				</Calendar.Provider>
+			</HeaderContext.Provider>
 		</Context.Provider>
 	);
 }

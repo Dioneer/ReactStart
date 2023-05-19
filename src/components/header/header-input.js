@@ -4,24 +4,24 @@ import classnames from 'classnames'
 import { useTranslation } from "react-i18next";
 
 function HeaderInput({ show }) {
-	let [value, setValue] = useState('main.search');
-	let [searchClass, setSearchClass] = useState('');
+	const [value, setValue] = useState('main.search');
+	const [searchClass, setSearchClass] = useState('');
 	const { t } = useTranslation();
 
 	function submitHandler(e) {
 		e.preventDefault();
 		if (searchClass.trim()) {
-			setValue(value = 'main.search');
-			setSearchClass(setSearchClass = '');
+			setValue('main.search');
+			setSearchClass('');
 		}
 	}
 
 	function focus() {
-		setValue(value = '');
+		setValue('');
 	}
 
 	function blur() {
-		setValue(value = 'main.search');
+		setValue('main.search');
 	}
 	return (
 		<div className={classnames('header__showSearch', { 'active': show })}>

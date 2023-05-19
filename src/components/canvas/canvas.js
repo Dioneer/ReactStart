@@ -5,7 +5,7 @@ import useCanvas from "./useCanvas";
 import { useTranslation } from "react-i18next";
 
 function Canvas() {
-	const { classes, canvasRef, startDrawing, finishDrawing, onMouseMove, saveImageToLocal } = useCanvas();
+	const { classes, canvasRef, startDrawing, finishDrawing, onMouseMove, saveImageToLocal, clear } = useCanvas();
 	const { t } = useTranslation();
 
 	return (
@@ -21,12 +21,20 @@ function Canvas() {
 				onTouchMove={onMouseMove}
 				ref={canvasRef}>
 			</canvas>
-			<button
-				className='button button__big button-popup-canvas'
-				type="submit"
-				onClick={saveImageToLocal}>
-				<span>{t("main.send")}</span>
-			</button>
+			<div className="button-block">
+				<button
+					className='button button__big button-popup-canvas'
+					type="submit"
+					onClick={clear}>
+					<span>{t("main.clear")}</span>
+				</button>
+				<button
+					className='button button__big button-popup-canvas'
+					type="submit"
+					onClick={saveImageToLocal}>
+					<span>{t("main.send")}</span>
+				</button>
+			</div>
 		</React.Fragment>
 	)
 }

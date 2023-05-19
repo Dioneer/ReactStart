@@ -25,7 +25,7 @@ i18n
 			escapeValue: false, // not needed for react as it escapes by default
 		},
 		backend: {
-			loadPath: "/ReactStart/locales/{{lng}}/translation.json",
+			loadPath: "ReactStart/locales/{{lng}}/translation.json",
 			crossDomain: true,
 			withCredentials: false,
 			overrideMimeType: false,

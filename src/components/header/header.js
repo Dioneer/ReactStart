@@ -9,9 +9,9 @@ import classnames from 'classnames';
 import { useHeaderContext } from '../context.js';
 
 function Header() {
-	let { setCommonClasses } = useHeaderContext();
-	let [classes, setClasses] = useState(false);
-	let [show, setShow] = useState(false);
+	const { setCommonClasses } = useHeaderContext();
+	const [classes, setClasses] = useState(false);
+	const [show, setShow] = useState(false);
 
 	function changeShow(e) {
 		if (e.target.closest('.header__burger')) {

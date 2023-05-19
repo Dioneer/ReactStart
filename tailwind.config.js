@@ -119,7 +119,47 @@ module.exports = {
 						'line-height': '26px',
 					}
 				},
-
+				".button": {
+					'display': 'flex',
+					'padding': '10px 20px',
+					'justify-content': 'center',
+					'align-items': 'center',
+					'font-size': '1rem',
+					'color': '#666',
+					'text-transform': 'uppercase',
+					'margin': '0 5px 0 0',
+					'border-radius': '30px',
+					'line-height': '24px',
+					'background-color': 'rgb(241, 166, 38)',
+					'@media(max-width: 767.98px)': {
+						'font-size': ' 0.9rem',
+					},
+					'@media(max-width: 479.98px)': {
+						'font-size': '0.8rem',
+						'padding': '10px',
+					},
+					"&:hover": {
+						'box-shadow': '0 0 3px #333',
+					},
+				},
+				'.input': {
+					'flex': '1 1 auto',
+					'display': 'flex',
+					'align-items': ' center',
+					'padding': '5px',
+					'font-size': '14px',
+					'color': '#999',
+					'border': '1px solid #333',
+					'border-radius': '10px',
+					'margin': '0px 10px 0px 0px',
+				},
+				'.input.active': {
+					'color': '#333',
+					'border': '1px solid rgb(241, 166, 38)',
+				},
+				'body.lock': {
+					'overflow': 'hidden',
+				}
 			})
 		})
 	],

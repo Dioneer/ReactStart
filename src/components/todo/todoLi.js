@@ -6,21 +6,18 @@ import Image from './image.js'
 
 function ToDoLi({ text, index, changeInputLi, removeLi }) {
 	const classes = [];
-	let [lineThrought, setLineThrought] = useState('');
+	const [lineThrought, setLineThrought] = useState('');
 	if (text.completed) {
 		classes.push(true)
 	}
 
 	function addclass() {
 		if (lineThrought) {
-			console.log(1)
-			setLineThrought(lineThrought = '')
+			setLineThrought('')
 		} else {
-			console.log(2);
-			setLineThrought(lineThrought = 'active')
+			setLineThrought('active')
 		}
 	}
-
 	async function submitHandler(e) {
 		e.preventDefault();
 	}

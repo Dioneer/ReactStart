@@ -4,6 +4,9 @@
 .canvas.active{
 	@apply border-r border-solid border-amber-500;
 }
+.button-block{
+	@apply flex justify-end;
+}
 .button-popup-canvas{
-	@apply text-right m-1.5 justify-self-end;
+	@apply m-1.5;
 }
