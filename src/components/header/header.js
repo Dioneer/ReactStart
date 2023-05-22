@@ -2,11 +2,11 @@ import './header.css';
 import { useState } from "react";
 import HeaderUl from "./headerUl";
 import HeaderSearch from "./header-search.js"
-import HeaderInput from "./header-input";
-import logo from '../img/skunk.jpg';
+import HeaderInputSearch from "./header-input-search";
 import Burger from "./headerBurger";
 import classnames from 'classnames';
 import { useHeaderContext } from '../context.js';
+import HeaderLogo from './header-logo';
 
 function Header() {
 	const { setCommonClasses } = useHeaderContext();
@@ -27,16 +27,12 @@ function Header() {
 		<header
 			className={classnames('header', { 'active': classes })}>
 			<div className='container__header'>
-				<div className='header__image'>
-					<img alt='logo' src={logo}
-						className='absolute top-0 left-0 w-100 h-100 object-cover object-bottom rounded-md'></img></div>
+				<HeaderLogo></HeaderLogo>
 				<Burger changeShow={changeShow} classes={classes}></Burger>
-				<div className={classnames("header__main", { "active": classes })}>
-					<HeaderUl></HeaderUl>
-				</div>
+				<HeaderUl classes={classes}></HeaderUl>
 				<HeaderSearch changeShow={changeShow} show={show}></HeaderSearch>
 			</div>
-			<HeaderInput show={show}></HeaderInput>
+			<HeaderInputSearch show={show}></HeaderInputSearch>
 		</header >
 	)
 

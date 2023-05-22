@@ -22,6 +22,7 @@ function HeaderInput({ show }) {
 
 	function blur() {
 		setValue('main.search');
+		setSearchClass('');
 	}
 	return (
 		<div className={classnames('header__showSearch', { 'active': show })}>

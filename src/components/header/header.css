@@ -10,6 +10,9 @@
 .header__image {
 	@apply inline-block h-12 w-16 relative hover:animate-drug;
 }
+.header__image img{
+	@apply absolute top-0 left-0 w-100 h-100 object-cover object-bottom rounded-md;
+}
 .header__link{
 	@apply block text-zinc-800 uppercase tracking-wide leading-7 relative;
 }
