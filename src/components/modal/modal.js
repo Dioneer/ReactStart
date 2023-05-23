@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './modal.scss'
 import classnames from 'classnames';
+import { Link } from "react-router-dom";
 
 function Modal({ children, title }) {
 	const [isOpen, setIsOpen] = useState(false)
@@ -29,9 +30,9 @@ function Modal({ children, title }) {
 				<div className="popup__body"
 					onClick={(e) => { missClick(e) }}>
 					<div className={["popup__content", 'popup__content-' + title].join(' ')}>
-						<a href="./"
+						<Link to="/"
 							className="popup__close"
-							onClick={(e) => { e.preventDefault(); }}></a>
+							onClick={(e) => { e.preventDefault(); }}></Link>
 						{children}
 					</div>
 				</div>

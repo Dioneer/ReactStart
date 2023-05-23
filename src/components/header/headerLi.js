@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function HeaderLi({ text }) {
 	return (
 		<li>
-			<a href="./" className="header__link">{text}</a>
+			<Link to="/" className="header__link">{text}</Link>
 		</li>
 	)
 }

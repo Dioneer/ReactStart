@@ -1,0 +1,35 @@
+.authorization__container{
+	@apply flex flex-100 items-center justify-center;
+}
+.authorization__inputs-container{
+	@apply p-14 border border-solid border-amber-500 bg-white;
+}
+.authorization__title{
+	@apply uppercase pb-4 font-bold tracking-wide text-zinc-800 text-lg text-center;
+}
+.authorization__input{
+	@apply flex flex-col justify-center mb-4;
+}
+.authorization__text{
+	@apply text-base pr-1 text-zinc-800 font-bold mb-1;
+}
+.authorization__buttons{
+	@apply flex items-center;
+}
+.button__authorization{
+	@apply mr-0 
+}
+.authorization__link{
+	@apply mx-2 text-zinc-800 text-center;
+}
+.input-auth{
+	@apply border-b border-solid border-zinc-800 h-12 mr-0 px-3;
+}
+.input-auth.active{
+	@apply border-amber-500 text-zinc-800;
+}
+@media (max-width: 479.98px){
+	.authorization__inputs-container{
+		@apply p-3;
+	}
+}

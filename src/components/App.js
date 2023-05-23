@@ -1,18 +1,17 @@
-import Header from './header/header.js';
-import MainBlock from './mainblock/mainBlock.js';
-import { Provider } from './context.js';
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AuthorizationPage from "../pages/AuthorizationPage";
+import MainPage from "../pages/MainPage";
 
 function App() {
 	return (
-		<Provider>
+		<BrowserRouter>
 			<div className="wrapper">
-				<Header></Header>
-				<div className='container'>
-					<MainBlock></MainBlock>
-				</div>
+				<Routes>
+					<Route path={'/'} exact element={<AuthorizationPage />}></Route>
+					<Route path={'/main'} element={<MainPage />}></Route>
+				</Routes>
 			</div>
-		</Provider>
+		</BrowserRouter>
 	);
 }
 

@@ -7,6 +7,9 @@
 .container__header{
 	@apply flex items-center  m-center w-100 max-w-full;
 }
+.container__header_auth{
+	@apply justify-between;
+}
 .header__image {
 	@apply inline-block h-12 w-16 relative hover:animate-drug;
 }
