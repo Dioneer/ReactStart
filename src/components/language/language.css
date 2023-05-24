@@ -1,20 +1,36 @@
-.change-lang-link {
-@apply flex items-center mr-2 relative z-[4];
+.select-flag{
+	@apply !flex items-center;
 }
-.change-lang-link li {
-@apply flex items-center p-2 bg-neutral-300 mx-0.5 rounded-lg transition-burg ease-linear duration-300;
+.select-flag svg{
+	@apply !h-5 !w-5 mr-1;
 }
-.change-lang-link li span{
-@apply text-xs font-bold text-zinc-800 uppercase;
+.select-langLink__control{
+	@apply !bg-neutral-800;
 }
-.change-lang-link li.active {
-@apply bg-neutral-600
+.select-langLink__control--is-focused{
+	@apply !border-amber-500 !shadow-amber-500;
 }
-.change-lang-link>li.active span{
-@apply text-xs font-bold text-neutral-300
+.select-langLink__control--is-focused:hover{
+	@apply !border-amber-500 !shadow-amber-500;
 }
-@media (max-width: 767.98px){
-	.change-lang-link{
-	@apply mr-10;
-	}
+.select-langLink__indicator-separator{
+	@apply !hidden;
+}
+.select-langLink__indicator{
+	@apply !px-0;
+}
+.select-langLink__single-value{
+	@apply !text-amber-500;
+}
+.select-langLink__indicator{
+	@apply !text-amber-500;
+}
+.select-langLink__menu{
+	@apply !text-neutral-500 ;
+}
+.select-langLink__option--is-selected{
+	@apply !bg-orange-50 !text-neutral-500;
+}
+.select-langLink__option--is-focused{
+	@apply !bg-neutral-500 !text-orange-50;
 }

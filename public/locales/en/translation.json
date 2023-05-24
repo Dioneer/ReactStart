@@ -82,5 +82,15 @@
 			}
 		],
 		"clear": "clear"
+	},
+	"auth": {
+		"login": "Login",
+		"pass": "Password",
+		"invite": "Enter your login and password",
+		"registration": "Registration",
+		"enter": "Enter",
+		"forgot": "Lost password?",
+		"passerr": "Pass can't be empty",
+		"loginerr": "Login can't be empty"
 	}
 }

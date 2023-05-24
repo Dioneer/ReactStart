@@ -65,6 +65,9 @@
 	.container__header{
 		@apply block;
 	}
+	.container__header_auth{
+		@apply flex;
+	}
 	.header__image{
 		@apply hidden;
 	}

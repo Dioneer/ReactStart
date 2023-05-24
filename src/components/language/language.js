@@ -1,31 +1,35 @@
-import { useRef } from "react";
+import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
+import Select from 'react-select';
+import * as functions from "./useLang.js";
 import './language.css';
 
 function Language() {
-	const languageRef = useRef(null);
 	const { i18n } = useTranslation();
+	const [selectedLang, setSelectedLang] = useState("ru");
 
-	const changeLanguage = (language, e) => {
+	const changeLanguage = (language) => {
 		i18n.changeLanguage(language)
-		const child = languageRef.current.children;
-		for (let item of child) {
-			item.classList.remove('active');
-		}
-		e.target.closest('li').classList.add('active');
+	}
+
+	const selectHolder = useCallback(() => {
+		return functions.lang.find(curr => curr.value === selectedLang)
+	}, [selectedLang])
+
+	function selectChange(e) {
+		setSelectedLang(e.value)
+		changeLanguage(e.value, e)
 	}
 
 	return (
-		<ul className="change-lang-link" ref={languageRef}>
-			<li className='active'
-				onClick={(e) => { changeLanguage("en", e) }}>
-				<span>en</span>
-			</li>
-			<li className=''
-				onClick={(e) => { changeLanguage("ru", e) }}>
-				<span>ru</span>
-			</li>
-		</ul>
+		<Select
+			options={functions.lang}
+			classNamePrefix='select-langLink'
+			className="change-lang"
+			value={selectHolder()}
+			onChange={(e) => selectChange(e)}>
+		</Select >
 	)
 }
 export default Language;
+
