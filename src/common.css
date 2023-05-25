@@ -1,3 +1,13 @@
+.wrapper{
+	@apply bg-zinc-300 dark:bg-zinc-800;
+}
+.title{
+	@apply dark:text-neutral-300 text-zinc-800;
+}
+.button{
+	@apply bg-amber-400 dark:bg-amber-500;
+}
+
 /* checkbox */
 .checkbox{
 	flex: 1 1 auto;
@@ -34,11 +44,7 @@
 	height: 0;
 }
 .checkbox__lable{
-	display: block;
-	width: 100%;
-	position: relative;
-	transition: all 0.3s 0s;
-	line-height: 23px;
+	@apply block w-100 relative transition-burg duration-300 delay-0 leading-6 dark:text-neutral-300;
 }
 .checkbox__lable.active{
 	text-decoration: line-through;
@@ -75,6 +81,5 @@
 	background-color: rgb(241, 166, 38);
 }
 .checkbox__lable span{
-	margin: 0 10px 0 70px;
-	color: #666;
+	@apply my-0 ml-[70px] mr-2.5 text-neutral-500 dark:text-neutral-300; 
 }

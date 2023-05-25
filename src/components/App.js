@@ -7,8 +7,8 @@ function App() {
 		<BrowserRouter>
 			<div className="wrapper">
 				<Routes>
-					<Route path={'/'} exact element={<AuthorizationPage />}></Route>
-					<Route path={'/main'} element={<MainPage />}></Route>
+					<Route path={'/ReactStart'} exact element={<AuthorizationPage />}></Route>
+					<Route path={'/ReactStart/main'} element={<MainPage />}></Route>
 				</Routes>
 			</div>
 		</BrowserRouter>

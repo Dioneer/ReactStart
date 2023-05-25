@@ -3,6 +3,7 @@ import plugin from 'tailwindcss/plugin';
 
 module.exports = {
 	content: ["./src/**/*.{html,js, scss}"],
+	darkMode: 'class',
 	theme: {
 		extend: {
 			flex: {
@@ -93,7 +94,6 @@ module.exports = {
 					'display': 'flex',
 					'overflow': 'auto',
 					'flex-direction': 'column',
-					'background-color': '#333',
 					'position': 'relative',
 				},
 				'.container': {
@@ -107,7 +107,6 @@ module.exports = {
 				".title": {
 					'font-size': '23px',
 					'line-height': '46px',
-					'color': '#333',
 					'font-family': 'Arial, Helvetica, sans-serif',
 					'text-transform': 'uppercase',
 					'font-weight': '700',
@@ -130,7 +129,6 @@ module.exports = {
 					'margin': '0 5px 0 0',
 					'border-radius': '30px',
 					'line-height': '24px',
-					'background-color': 'rgb(241, 166, 38)',
 					'@media(max-width: 767.98px)': {
 						'font-size': ' 0.9rem',
 					},

@@ -1,12 +1,12 @@
 import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Select from 'react-select';
-import * as functions from "./useLang.js";
+import * as functions from "./utilitsLang.js";
 import './language.css';
 
 function Language() {
 	const { i18n } = useTranslation();
-	const [selectedLang, setSelectedLang] = useState("ru");
+	const [selectedLang, setSelectedLang] = useState(localStorage.getItem("i18nextLng"));
 
 	const changeLanguage = (language) => {
 		i18n.changeLanguage(language)

@@ -31,11 +31,11 @@ function MainBlock() {
 				<TodoVriables></TodoVriables>
 				<div className="page__controll">
 					<span
-						className="text-4xl text-zinc-800 hover:scale-125"
+						className="page__controll_button"
 						onClick={cahngeDayOfToDoNext}>{'<'}</span>
 					<h1 className="page__title title">{t(subtitle(backEndDate))}</h1>
 					<span
-						className="text-4xl text-zinc-800 hover:scale-125"
+						className="page__controll_button"
 						onClick={cahngeDayOfToDoPrev}>{'>'}</span>
 				</div>
 				{loading && <TodoLoader></TodoLoader>}

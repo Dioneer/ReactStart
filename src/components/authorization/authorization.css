@@ -2,10 +2,10 @@
 	@apply flex flex-100 items-center justify-center;
 }
 .authorization__inputs-container{
-	@apply p-14 border border-solid border-amber-500 bg-white mx-2.5;
+	@apply p-14 border border-solid border-amber-400 bg-white mx-2.5 dark:border-amber-500 dark:bg-neutral-600;
 }
 .authorization__title{
-	@apply uppercase pb-4 font-bold tracking-wide text-zinc-800 text-lg text-center;
+	@apply uppercase pb-4 font-bold tracking-wide text-zinc-800 dark:text-neutral-300 text-lg text-center;
 }
 .authorization__input{
 	@apply flex flex-col justify-center mb-4;
@@ -14,7 +14,7 @@
 	@apply border-t-0 border-l-0 border-r-0 !important;
 }
 .authorization__text{
-	@apply text-base pr-1 text-zinc-800 font-bold;
+	@apply text-base pr-1 text-zinc-800 dark:text-neutral-300 font-bold mb-1;
 }
 .authorization__pass-header{
 	@apply flex items-center;
@@ -25,6 +25,7 @@
 .eye{
 	@apply h-6 w-6;
 }
+
 .authorization__eye .eye-open{
 	@apply hidden;
 }
@@ -38,20 +39,20 @@
 	@apply flex items-center justify-between;
 }
 .button__authorization.disabled{
-	@apply bg-amber-500/40;
+	@apply bg-amber-400/40 dark:bg-amber-500/40 dark:text-neutral-300;
 }
 .button__authorization{
 	@apply mr-0 
 }
 
 .authorization__link{
-	@apply mr-4 text-zinc-800 text-center;
+	@apply mr-4 text-zinc-800 dark:text-neutral-300 text-center;
 }
 .input-auth{
-	@apply border-b border-solid border-zinc-800 h-12 mr-0 px-3;
+	@apply border-b border-solid border-zinc-800 dark:border-neutral-300 dark:bg-zinc-800 h-12 mr-0 px-3;
 }
 .input-auth.active{
-	@apply border-amber-500 text-zinc-800 text-xl;
+	@apply border-amber-400 dark:border-amber-500 text-zinc-800 dark:text-neutral-300 text-xl;
 }
 .authorization__err{
 	@apply text-red-600 mt-1;

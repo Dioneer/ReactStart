@@ -1,7 +1,7 @@
 export const lang = [{
-	value: "en", label: <div class="select-flag"><svg xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-us" viewBox="0 0 512 512">
-		<g fill-rule="evenodd">
-			<g stroke-width="1pt">
+	value: "en", label: <div className="select-flag"><svg xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-us" viewBox="0 0 512 512">
+		<g fillRule="evenodd">
+			<g strokeWidth="1pt">
 				<path fill="#bd3d44" d="M0 0h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z" transform="scale(3.9385)" />
 				<path fill="#fff" d="M0 10h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0zm0 20h247v10H0z" transform="scale(3.9385)" />
 			</g>
@@ -10,8 +10,8 @@ export const lang = [{
 		</g>
 	</svg>EN</div>
 }, {
-	value: "ru", label: <div class="select-flag"><svg xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-ru" viewBox="0 0 512 512">
-		<g fill-rule="evenodd" stroke-width="1pt">
+	value: "ru", label: <div className="select-flag"><svg xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-ru" viewBox="0 0 512 512">
+		<g fillRule="evenodd" strokeWidth="1pt">
 			<path fill="#fff" d="M0 0h512v512H0z" />
 			<path fill="#0039a6" d="M0 170.7h512V512H0z" />
 			<path fill="#d52b1e" d="M0 341.3h512V512H0z" />

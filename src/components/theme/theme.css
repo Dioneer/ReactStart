@@ -1,0 +1,9 @@
+.theme{
+	@apply flex mr-2;
+}
+.theme li{
+	@apply border border-solid border-amber-400 dark:border-amber-500 rounded-full p-1;
+}
+.theme li.active{
+	@apply border-zinc-800;
+}

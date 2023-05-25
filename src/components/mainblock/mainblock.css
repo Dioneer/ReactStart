@@ -5,7 +5,7 @@
 	@apply bg-stone-400 p-[3%];
 }
 .content{
-	@apply flex-auto bg-stone-200 p-[3%] max-w-100 overflow-auto;
+	@apply flex-auto bg-stone-200 dark:bg-neutral-600 p-[3%] max-w-100 overflow-auto;
 }
 .content__container {
 	@apply grid grid-rows-1 grid-cols-cc items-center justify-center;
@@ -16,8 +16,11 @@
 .page__controll{
 	@apply flex items-center justify-between;
 }
+.page__controll_button{
+	@apply text-4xl text-zinc-800 dark:text-neutral-300 hover:scale-125;
+}
 .lazy{
-	@apply text-base uppercase text-zinc-800  tracking-[2px] font-bold mt-10 pb-20;
+	@apply text-base uppercase text-zinc-800 dark:text-neutral-300 tracking-[2px] font-bold mt-10 pb-20;
 }
 
 @media(max-width:767.98px){
