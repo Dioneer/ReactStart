@@ -2,10 +2,10 @@
 	@apply flex flex-100 items-center justify-center;
 }
 .authorization__inputs-container{
-	@apply p-14 border border-solid border-amber-400 bg-white mx-2.5 dark:border-amber-500 dark:bg-neutral-600;
+	@apply p-14 border border-solid border-amber-400 bg-white mx-2.5 dark:border-amber-500 dark:bg-neutral-600 min-w-[438px] my-5;
 }
 @media (max-width: 479.98px){
 	.authorization__inputs-container{
-		@apply p-3;
+		@apply p-3 min-w-[306px];
 	}
 }

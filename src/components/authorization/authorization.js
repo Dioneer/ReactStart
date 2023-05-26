@@ -6,8 +6,6 @@ import Error from '../../components/error/error.js';
 import useAuthorization from './useAuthorization';
 import CenterContainer from '../centerContainer/centerContainer.js';
 
-
-
 function Authorization() {
 	const { classes, eyeclasses, validLogin, validPass, error, sawPass, blur, validHandler, submitHandler, buttonValid, passref, eyeref, loginerr, passerr, login, pass } = useAuthorization();
 	const { t } = useTranslation();
