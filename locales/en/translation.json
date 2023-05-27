@@ -91,6 +91,9 @@
 		"enter": "Enter",
 		"forgot": "Lost password?",
 		"passerr": "Pass can't be empty",
-		"loginerr": "Login can't be empty"
+		"loginerr": "Login can't be empty",
+		"registr": "Registration",
+		"email": "Email",
+		"register": "Register"
 	}
 }
