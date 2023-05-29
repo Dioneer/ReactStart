@@ -94,6 +94,14 @@
 		"loginerr": "Login can't be empty",
 		"registr": "Registration",
 		"email": "Email",
-		"register": "Register"
+		"register": "Register",
+		"logoremail": "Enter login or email",
+		"enterpass": "Enter new password",
+		"repearegtpass": "Repeat the password",
+		"repeatpass": "Repeat new password",
+		"uncoremail": "Uncorrect email",
+		"tooeasy": "Too easy pass, please, enter more than 7 simbols",
+		"notthesame": "Passes not the same",
+		"emailerr": "Email can't be empty"
 	}
 }
