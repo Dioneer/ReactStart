@@ -1,31 +1,29 @@
 import CenterContainer from '../centerContainer/centerContainer.js';
 import Error from '../error/error.js';
-import { useTranslation } from "react-i18next";
-import classnames from 'classnames';
 import useForm from './useForm.js';
 import { OpenEye, CloseEye } from './Eyes.js';
+import { useTranslation } from "react-i18next";
+import classnames from 'classnames';
 
-function Registration() {
-	const { classes, eyeclasses, validLogin, validPass, error, sawPass, blur, loginHandler, buttonRegistrValid, loginerr, passerr, login, pass, passType, focus, email, validEmail, emailerr, emailHandler, registrationHandler, passHandler, equalHandler, repeat, repeatEyeclasses, repeatPassType, equal } = useForm();
-	// console.log(buttonValid)
+function ForgottenData() {
+	const { classes, eyeclasses, validLogin, validPass, error, sawPass, blur, loginHandler, buttonforgottenValid, loginerr, passerr, login, pass, passType, focus, passHandler, equalHandler, repeat, repeatEyeclasses, repeatPassType, equal, forgottenHandler } = useForm();
 	const { t } = useTranslation();
 
 	return (
 		<CenterContainer>
 			{error && <Error error={error}></Error>}
-			<h1 className="authorization__title">{t("auth.registr")}</h1>
 			<form
 				action="#"
 				method='POST'
-				onSubmit={(e) => registrationHandler(e)}
+				onSubmit={(e) => forgottenHandler(e)}
 				className="authorization__form">
 				<div className="authorization__input">
-					<span className="authorization__text">{t("auth.login")}</span>
+					<span className="authorization__text">{t("auth.logoremail")}</span>
 					<input
 						type="text"
 						value={login}
 						autoComplete="off"
-						placeholder={t("auth.login")}
+						placeholder={t("auth.logoremail")}
 						name="login"
 						onChange={(e) => { loginHandler(e) }}
 						onBlur={blur}
@@ -34,22 +32,8 @@ function Registration() {
 					{(validLogin && loginerr) && <div className='authorization__err'>{loginerr}</div>}
 				</div>
 				<div className="authorization__input">
-					<span className="authorization__text">{t("auth.email")}</span>
-					<input
-						type="text"
-						value={email}
-						autoComplete="off"
-						placeholder={t("auth.email")}
-						name="email"
-						onBlur={blur}
-						onChange={(e) => { emailHandler(e) }}
-						className={classnames("input input-auth", { active: classes })}>
-					</input>
-					{(validEmail && emailerr) && <div className='authorization__err'>{emailerr}</div>}
-				</div>
-				<div className="authorization__input">
 					<div className="authorization__pass-header">
-						<span className="authorization__text">{t("auth.pass")}</span>
+						<span className="authorization__text">{t("auth.enterpass")}</span>
 						<span
 							className={classnames("authorization__eye pass", { active: eyeclasses })}
 							onClick={(e) => { sawPass(e); focus(e) }}>
@@ -60,7 +44,7 @@ function Registration() {
 					<input
 						type={passType}
 						value={pass}
-						placeholder={t("auth.pass")}
+						placeholder={t("auth.enterpass")}
 						autoComplete="off"
 						name="password"
 						onBlur={blur}
@@ -71,7 +55,7 @@ function Registration() {
 				</div>
 				<div className="authorization__input">
 					<div className="authorization__pass-header">
-						<span className="authorization__text">{t("auth.repearegtpass")}</span>
+						<span className="authorization__text">{t("auth.repeatpass")}</span>
 						<span
 							className={classnames("authorization__eye repeat", { active: repeatEyeclasses })}
 							onClick={(e) => { sawPass(e); focus(e) }}>
@@ -82,7 +66,7 @@ function Registration() {
 					<input
 						type={repeatPassType}
 						value={repeat}
-						placeholder={t("auth.repearegtpass")}
+						placeholder={t("auth.repeatpass")}
 						autoComplete="off"
 						name="password"
 						onBlur={blur}
@@ -92,11 +76,12 @@ function Registration() {
 					{(validPass && equal) && <div className='authorization__err'>{equal}</div>}
 				</div>
 				<button
-					className={classnames("button button__authorization", { disabled: !buttonRegistrValid })}
+					className={classnames("button button__authorization", { disabled: !buttonforgottenValid })}
 					type="submit">{t("auth.register")}
 				</button>
 			</form>
 		</CenterContainer>
 	)
 }
-export default Registration;
+
+export default ForgottenData;

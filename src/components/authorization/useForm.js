@@ -1,28 +1,37 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 function useForm() {
+	const { t } = useTranslation();
+	//for css
 	const [classes, setClasses] = useState(false);
 	const [eyeclasses, setEyeclasses] = useState(false);
+	const [repeatEyeclasses, setRepeatEyeclasses] = useState(false);
+	//fill
 	const [login, setLogin] = useState('');
 	const [pass, setPass] = useState('');
 	const [repeat, setRepeat] = useState('');
 	const [email, setEmail] = useState('');
+	//blur
 	const [validLogin, setValidLogin] = useState(false);
 	const [validEmail, setValidEmail] = useState(false);
-	const [repeatEyeclasses, setRepeatEyeclasses] = useState(false);
 	const [validPass, setValidPass] = useState(false);
-	const [passerr, setPasserr] = useState("Pass can't be empty");
-	const [loginerr, setLoginerr] = useState("err");
-	const [emailerr, setEmailerr] = useState("Pass can't be empty");
-	const [equal, setEqual] = useState("Passes not the same");
+	//text mistake
+	const [passerr, setPasserr] = useState(t("auth.passerr"));
+	const [loginerr, setLoginerr] = useState(t("auth.loginerr"));
+	const [emailerr, setEmailerr] = useState(t("auth.emailerr"));
+	const [equal, setEqual] = useState(t("auth.notthesame"));
+	//button valid
 	const [buttonLoginValid, setButtonLoginValid] = useState(false);
 	const [buttonRegistrValid, setButtonRegistrValid] = useState(false);
+	const [buttonforgottenValid, setButtonforgottenValid] = useState(false);
+	//main err
 	const [error, setError] = useState(false);
+	//change type
 	const [passType, setPassType] = useState("password");
 	const [repeatPassType, setRepeatPassType] = useState("password");
-	const passRef = useRef(null);
 
-	function submitHandler(e) {
+	function enterHandler(e) {
 		e.preventDefault();
 		if (buttonLoginValid) {
 			const address = 'https://jsonplaceholder.typicode.com/todos/';
@@ -32,9 +41,19 @@ function useForm() {
 		}
 	}
 
+	function forgottenHandler(e) {
+		e.preventDefault();
+		if (buttonLoginValid) {
+			const address = 'https://jsonplaceholder.typicode.com/todos/';
+			const logger = [{ login: login, pass: pass, forgottenData: true }]
+			sendBack(logger, address);
+			clear();
+		}
+	}
+
 	function registrationHandler(e) {
 		e.preventDefault();
-		if (buttonRegistrValid) {
+		if (buttonforgottenValid) {
 			const address = 'https://jsonplaceholder.typicode.com/todos/';
 			const logger = [{ login: login, pass: pass, email: email, registration: true }]
 			sendBack(logger, address);
@@ -61,13 +80,13 @@ function useForm() {
 		setEmail(e.target.value)
 		const watch = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 		if (!watch.test(String(e.target.value).toLowerCase())) {
-			setEmailerr("Uncorrect email")
+			setEmailerr(t("auth.uncoremail"))
 		} else setEmailerr("")
 	}
 
 	function passHandler(e) {
 		setPass(e.target.value)
-		if (e.target.value.length < 7) { setPasserr("Too easy pass, please, enter more than 7 simbols") }
+		if (e.target.value.length < 7) { setPasserr(t("auth.tooeasy")) }
 		else setPasserr("")
 	}
 
@@ -78,9 +97,8 @@ function useForm() {
 
 	function equalHandler(e) {
 		setRepeat(e.target.value);
-		console.log(e.target.value !== pass)
 		if (e.target.value === pass) { setEqual('') }
-		else { setEqual("Passes not the same") }
+		else { setEqual(t("auth.notthesame")) }
 	}
 
 	function missClick(e) {
@@ -95,16 +113,15 @@ function useForm() {
 		setValidLogin(false);
 		setValidPass(false);
 		setValidEmail(false);
-		setLoginerr('err');
-		setPasserr("Pass can't be empty");
-		setEmailerr("Pass can't be empty");
-		setEqual("Pass can't be empty");
+		setLoginerr(t("auth.loginerr"));
+		setPasserr(t("auth.passerr"));
+		setEmailerr(t("auth.emailerr"));
+		setEqual(t("auth.notthesame"));
 		setButtonLoginValid(false);
 		setButtonRegistrValid(false);
 	}
 
 	function blur(e) {
-		console.log(1)
 		switch (e.target.name) {
 			case "login": setValidLogin(true)
 				break
@@ -162,8 +179,16 @@ function useForm() {
 		}
 	}, [passerr, loginerr])
 
+	useEffect(() => {
+		if (passerr || loginerr || equal) {
+			setButtonforgottenValid(false)
+		} else {
+			setButtonforgottenValid(true)
+		}
+	}, [passerr, loginerr, equal])
 
-	return { classes, eyeclasses, validLogin, validPass, error, sawPass, blur, loginHandler, submitHandler, loginerr, passerr, login, pass, passType, focus, passRef, email, validEmail, emailerr, emailHandler, registrationHandler, buttonRegistrValid, buttonLoginValid, passHandler, equalHandler, repeat, repeatEyeclasses, repeatPassType, equal }
+
+	return { classes, eyeclasses, validLogin, validPass, error, sawPass, blur, loginHandler, enterHandler, loginerr, passerr, login, pass, passType, focus, email, validEmail, emailerr, emailHandler, registrationHandler, buttonRegistrValid, buttonLoginValid, passHandler, equalHandler, repeat, repeatEyeclasses, repeatPassType, equal, forgottenHandler, buttonforgottenValid }
 }
 
 export default useForm;

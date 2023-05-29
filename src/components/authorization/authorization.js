@@ -8,7 +8,7 @@ import CenterContainer from '../centerContainer/centerContainer.js';
 import { OpenEye, CloseEye } from './Eyes.js';
 
 function Authorization() {
-	const { classes, eyeclasses, validLogin, validPass, error, sawPass, blur, loginHandler, submitHandler, buttonLoginValid, loginerr, passerr, login, pass, passType, focus, passRef, passHandler } = useForm();
+	const { classes, eyeclasses, validLogin, validPass, error, sawPass, blur, loginHandler, enterHandler, buttonLoginValid, loginerr, passerr, login, pass, passType, focus, passHandler } = useForm();
 	const { t } = useTranslation();
 
 	return (
@@ -18,7 +18,7 @@ function Authorization() {
 			<form
 				action="#"
 				method="POST"
-				onSubmit={(e) => { submitHandler(e) }}
+				onSubmit={(e) => { enterHandler(e) }}
 				className="authorization__form">
 				<div className="authorization__input">
 					<span className="authorization__text">{t("auth.login")}</span>
@@ -47,7 +47,6 @@ function Authorization() {
 					<input
 						type={passType}
 						value={pass}
-						ref={passRef}
 						placeholder={t("auth.pass")}
 						autoComplete="off"
 						name="password"
@@ -66,7 +65,7 @@ function Authorization() {
 					</li>
 					<li
 						className="authorization__link">
-						<Link to="/">
+						<Link to="/ReactStart/forgottten">
 							<span>{t("auth.forgot")}</span>
 						</Link>
 					</li>

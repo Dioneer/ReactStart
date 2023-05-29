@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthorizationPage from "../pages/AuthorizationPage";
 import MainPage from "../pages/MainPage";
 import RegistrationPage from '../pages/RegistrationPage.js';
+import ForgottenDataPage from "../pages/ForgottenDataPage";
 
 function App() {
 	return (
@@ -11,6 +12,7 @@ function App() {
 					<Route path={'/ReactStart'} exact element={<AuthorizationPage />}></Route>
 					<Route path={'/ReactStart/main'} element={<MainPage />}></Route>
 					<Route path={'/ReactStart/registr'} element={<RegistrationPage />}></Route>
+					<Route path={'/ReactStart/forgottten'} element={<ForgottenDataPage />}></Route>
 				</Routes>
 			</div>
 		</BrowserRouter>
