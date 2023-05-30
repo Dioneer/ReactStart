@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
-function useForm() {
+function useForm(initialValue) {
 	const { t } = useTranslation();
 	//for css
 	const [classes, setClasses] = useState(false);
@@ -78,7 +78,7 @@ function useForm() {
 
 	function emailHandler(e) {
 		setEmail(e.target.value)
-		const watch = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		const watch = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/;
 		if (!watch.test(String(e.target.value).toLowerCase())) {
 			setEmailerr(t("auth.uncoremail"))
 		} else setEmailerr("")
@@ -92,7 +92,7 @@ function useForm() {
 
 	function loginHandler(e) {
 		setLogin(e.target.value);
-		if (login.trim() !== '') setLoginerr('')
+		if (e.target.value.trim() !== '') setLoginerr('')
 	}
 
 	function equalHandler(e) {

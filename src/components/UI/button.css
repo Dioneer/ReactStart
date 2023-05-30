@@ -1,0 +1,10 @@
+.button{
+	@apply flex py-2.5 px-5 justify-center items-center text-base text-zinc-800 uppercase mr-1 rounded-3xl hover:shadow hover:shadow-zinc-800;
+}
+@media(max-width: 479.98px){
+	.button{ @apply text-sm;}
+}
+@media(max-width: 479.98px){
+	.button{ @apply text-xs p-2.5;}
+}
+

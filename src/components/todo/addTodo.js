@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import classnames from "classnames";
 import { useTranslation } from "react-i18next";
+import Button from '../UI/button.js';
+import Inputs from '../UI/input.js';
 
 function AddToDo({ onCreate }) {
 	const [dataValue, setDataValue] = useState('');
 	const [value, setValue] = useState('main.addTodo');
-	const [classes, setClasses] = useState([]);
+	const [classes, setClasses] = useState('');
 	const { t } = useTranslation();
 
 	function submitHandler(e) {
@@ -19,19 +20,27 @@ function AddToDo({ onCreate }) {
 	}
 
 	function focus() {
-		classes.push('active');
+		setClasses('active');
 		setValue('');
 	}
 
 	function blur() {
 		setValue('main.addTodo');
-		setClasses([]);
+		setClasses('');
 	}
 
 	function clear(e) {
 		if (!e.target.closest('.button__big')) {
 			setDataValue('');
 		} else return;
+	}
+
+	function keyBoard(e) {
+		if (e.key === "Enter") { setValue(''); setDataValue(''); }
+	}
+
+	function changeon(e) {
+		setValue(e.target.value); setDataValue(e.target.value)
 	}
 
 	useEffect(() => {
@@ -48,22 +57,8 @@ function AddToDo({ onCreate }) {
 			method="POST"
 			onSubmit={submitHandler}>
 			<div className='form__addText'>
-				<input
-					type="text"
-					data-value={dataValue}
-					value={t(value) || ''}
-					data-error="ошибка"
-					autoComplete="off"
-					name="name"
-					className={classnames("input", { active: classes[0] })}
-					onFocus={() => focus()}
-					onBlur={() => blur()}
-					onChange={(e) => { setValue(e.target.value); setDataValue(e.target.value) }}
-					onKeyUp={(e) => { if (e.key === "Enter") { setValue(''); setDataValue(''); } }}
-				/>
-				<button className='button button__big' type="submit" >
-					<span>{t("main.send")}</span>
-				</button>
+				<Inputs type={"text"} dataValue={dataValue} value={t(value) || ''} name={"name"} act={classes} focus={focus} blur={blur} onkey={keyBoard} onchange={changeon}></Inputs>
+				<Button title={t("main.send")} type={"submit"} aux={"button__big"}></Button>
 			</div>
 		</form >
 	)

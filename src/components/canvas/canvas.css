@@ -8,5 +8,5 @@
 	@apply flex justify-end;
 }
 .button-popup-canvas{
-	@apply m-1.5;
+	@apply m-1.5 font-semibold;
 }

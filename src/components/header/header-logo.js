@@ -1,4 +1,4 @@
-import logo from '../img/skunk.jpg';
+import logo from '../../img/skunk.jpg';
 
 function HeaderLogo() {
 	return (

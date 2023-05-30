@@ -20,7 +20,7 @@
 	@apply text-5xl;
 }
 .calendar__table{
-	@apply text-neutral-100 text-center;
+	@apply text-neutral-100 text-center pb-2;
 }
 .calendar__head{
 	@apply text-center py-0 px-1.5;

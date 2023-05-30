@@ -1,0 +1,3 @@
+.wrapper{
+	@apply min-h-full w-100 flex overflow-auto flex-col relative;
+}

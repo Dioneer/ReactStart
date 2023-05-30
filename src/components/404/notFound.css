@@ -1,0 +1,9 @@
+.notfound__container{
+	@apply flex flex-col min-h-screen items-center justify-center dark:bg-zinc-800;
+}
+.notfound__text{
+	@apply text-xl text-zinc-800 dark:text-amber-500;
+}
+.notfound__title{
+	@apply text-9xl text-zinc-800 dark:text-amber-500;
+}

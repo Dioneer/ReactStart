@@ -1,14 +1,15 @@
 import HeaderAuth from '../components/header/headerAuthorization.js';
 import { Fragment } from 'react';
 import Authorization from '../components/authorization/authorization.js';
+import Container from '../components/UI/container.js';
 
 function AuthorizationPage() {
 	return (
 		<Fragment>
 			<HeaderAuth></HeaderAuth>
-			<div className='container'>
+			<Container>
 				<Authorization></Authorization>
-			</div>
+			</Container>
 		</Fragment>
 	)
 

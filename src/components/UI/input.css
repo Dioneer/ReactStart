@@ -1,0 +1,6 @@
+.input{
+	@apply flex flex-auto items-center p-[5px] text-sm text-neutral-500 border border-solid border-zinc-800 mr-2.5 rounded;
+}
+.input.active{
+	@apply text-zinc-800 border border-solid border-amber-500 dark:border-amber-500;
+}

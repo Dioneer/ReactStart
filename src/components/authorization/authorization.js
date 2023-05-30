@@ -6,6 +6,7 @@ import Error from '../../components/error/error.js';
 import useForm from './useForm';
 import CenterContainer from '../centerContainer/centerContainer.js';
 import { OpenEye, CloseEye } from './Eyes.js';
+import Button from '../UI/button';
 
 function Authorization() {
 	const { classes, eyeclasses, validLogin, validPass, error, sawPass, blur, loginHandler, enterHandler, buttonLoginValid, loginerr, passerr, login, pass, passType, focus, passHandler } = useForm();
@@ -38,8 +39,8 @@ function Authorization() {
 					<div className="authorization__pass-header">
 						<span className="authorization__text">{t("auth.pass")}</span>
 						<span
-							className={classnames("authorization__eye", { active: eyeclasses })}
-							onClick={() => { sawPass(); focus() }}>
+							className={classnames("authorization__eye pass", { active: eyeclasses })}
+							onClick={(e) => { sawPass(e); focus(e) }}>
 							<CloseEye></CloseEye>
 							<OpenEye></OpenEye>
 						</span>
@@ -70,14 +71,12 @@ function Authorization() {
 						</Link>
 					</li>
 					<li className="authorization__button">
-						<button
-							className={classnames("button button__authorization", { disabled: !buttonLoginValid })}
-							type="submit">{t("auth.enter")}
-						</button>
+						<Button aux={"button__authorization"} title={t("auth.enter")} dis={!buttonLoginValid} type={"submit"}></Button>
 					</li>
 				</ul>
 			</form>
 			<Link to='/ReactStart/main'>link</Link>
+			<Link to='/ReactStart/notfound'>link</Link>
 		</CenterContainer >
 	)
 }

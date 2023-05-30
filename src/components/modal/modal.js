@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './modal.scss'
 import classnames from 'classnames';
 import { Link } from "react-router-dom";
+import Button from "../UI/button";
 
 function Modal({ children, title }) {
 	const [isOpen, setIsOpen] = useState(false)
@@ -20,12 +21,7 @@ function Modal({ children, title }) {
 
 	return (
 		<React.Fragment>
-			<button
-				className={["button button__popup", "button__popup-" + title].join(' ')}
-				type="button"
-				onClick={isOpenPopup}>
-				<span>{title}</span>
-			</button>
+			<Button title={title} click={isOpenPopup} aux={'button__popup'} type={"button"}></Button>
 			<div className={classnames("popup", { popup_show: isOpen })}>
 				<div className="popup__body"
 					onClick={(e) => { missClick(e) }}>

@@ -20,14 +20,18 @@ function Theme() {
 		}
 	}
 
+	// (window.matchMedia(('prefers-color-scheme:dark')).matches)
+
 	useEffect(() => {
-		if (window.matchMedia(('prefers-color-scheme:dark')).matches) {
+		if (window.localStorage.getItem("them") === null || window.localStorage.getItem("them") === "dark") {
 			window.localStorage.setItem("them", "dark");
 			setDark('dark');
+			document.documentElement.classList.remove('light')
 			document.documentElement.classList.add('dark');
 		} else {
 			window.localStorage.setItem("them", "light");
 			setLight('light');
+			document.documentElement.classList.remove('dark');
 			document.documentElement.classList.add('light')
 		}
 	}, [])

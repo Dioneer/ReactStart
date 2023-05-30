@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import classnames from 'classnames';
 import useForm from './useForm.js';
 import { OpenEye, CloseEye } from './Eyes.js';
+import Button from '../UI/button.js';
 
 function Registration() {
 	const { classes, eyeclasses, validLogin, validPass, error, sawPass, blur, loginHandler, buttonRegistrValid, loginerr, passerr, login, pass, passType, focus, email, validEmail, emailerr, emailHandler, registrationHandler, passHandler, equalHandler, repeat, repeatEyeclasses, repeatPassType, equal } = useForm();
@@ -91,10 +92,7 @@ function Registration() {
 					</input>
 					{(validPass && equal) && <div className='authorization__err'>{equal}</div>}
 				</div>
-				<button
-					className={classnames("button button__authorization", { disabled: !buttonRegistrValid })}
-					type="submit">{t("auth.register")}
-				</button>
+				<Button type={"submit"} aux={"button__authorization"} title={t("auth.register")} dis={!buttonRegistrValid}></Button>
 			</form>
 		</CenterContainer>
 	)

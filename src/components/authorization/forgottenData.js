@@ -4,6 +4,7 @@ import useForm from './useForm.js';
 import { OpenEye, CloseEye } from './Eyes.js';
 import { useTranslation } from "react-i18next";
 import classnames from 'classnames';
+import Button from '../UI/button.js';
 
 function ForgottenData() {
 	const { classes, eyeclasses, validLogin, validPass, error, sawPass, blur, loginHandler, buttonforgottenValid, loginerr, passerr, login, pass, passType, focus, passHandler, equalHandler, repeat, repeatEyeclasses, repeatPassType, equal, forgottenHandler } = useForm();
@@ -75,10 +76,7 @@ function ForgottenData() {
 					</input>
 					{(validPass && equal) && <div className='authorization__err'>{equal}</div>}
 				</div>
-				<button
-					className={classnames("button button__authorization", { disabled: !buttonforgottenValid })}
-					type="submit">{t("auth.register")}
-				</button>
+				<Button type={"submit"} aux={"button__authorization"} title={t("auth.enter")} dis={!buttonforgottenValid}></Button>
 			</form>
 		</CenterContainer>
 	)

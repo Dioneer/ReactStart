@@ -2,6 +2,8 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import classnames from 'classnames'
 import { useTranslation } from "react-i18next";
+import Button from '../UI/button.js';
+import Inputs from "../UI/input.js";
 
 function HeaderInput({ show }) {
 	const [value, setValue] = useState('main.search');
@@ -15,9 +17,16 @@ function HeaderInput({ show }) {
 			setSearchClass('');
 		}
 	}
+	function changeOn(e) {
+		setValue(e.target.value); setSearchClass(e.target.value)
+	}
 
 	function focus() {
 		setValue('');
+	}
+
+	function keyBoard(e) {
+		if (e.key === "Enter") { setValue(''); setSearchClass('') }
 	}
 
 	function blur() {
@@ -31,20 +40,8 @@ function HeaderInput({ show }) {
 				action="#"
 				method="POST"
 				onSubmit={submitHandler}>
-				<input
-					type="text"
-					data-value={searchClass}
-					value={t(value) || ''}
-					autoComplete="off"
-					name="search"
-					className={classnames(["input", "input__search"], { active: show })}
-					onFocus={() => focus()}
-					onBlur={() => blur()}
-					onChange={(e) => { setValue(e.target.value); setSearchClass(e.target.value) }} />
-
-				<button className='button button__search' type="submit" >
-					<span>{t("main.search")}</span>
-				</button>
+				<Inputs type={"text"} dataValue={searchClass} value={t(value) || ''} name={"search"} act={show} focus={focus} blur={blur} onchange={changeOn} onkey={keyBoard}></Inputs>
+				<Button aux={"button__search"} type={"submit"} title={t("main.search")}></Button>
 			</form >
 		</div>)
 }

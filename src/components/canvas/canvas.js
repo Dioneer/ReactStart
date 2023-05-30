@@ -3,6 +3,7 @@ import './canvas.css';
 import classnames from "classnames";
 import useCanvas from "./useCanvas";
 import { useTranslation } from "react-i18next";
+import Button from '../UI/button.js';
 
 function Canvas() {
 	const { classes, canvasRef, startDrawing, finishDrawing, onMouseMove, saveImageToLocal, clear } = useCanvas();
@@ -22,20 +23,10 @@ function Canvas() {
 				ref={canvasRef}>
 			</canvas>
 			<div className="button-block">
-				<button
-					className='button button__big button-popup-canvas'
-					type="submit"
-					onClick={clear}>
-					<span>{t("main.clear")}</span>
-				</button>
-				<button
-					className='button button__big button-popup-canvas'
-					type="submit"
-					onClick={saveImageToLocal}>
-					<span>{t("main.send")}</span>
-				</button>
+				<Button click={clear} aux={'button-popup-canvas'} title={t("main.clear")} type={"button"}></Button>
+				<Button click={saveImageToLocal} aux={'button-popup-canvas'} title={t("main.send")}></Button>
 			</div>
-		</React.Fragment>
+		</React.Fragment >
 	)
 }
 
