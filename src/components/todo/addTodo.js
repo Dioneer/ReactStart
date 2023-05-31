@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import Button from '../UI/button.js';
-import Inputs from '../UI/input.js';
+import { FullInputs } from '../UI/input.js';
 
 function AddToDo({ onCreate }) {
 	const [dataValue, setDataValue] = useState('');
@@ -48,7 +48,7 @@ function AddToDo({ onCreate }) {
 		return () => {
 			document.body.removeEventListener('click', clear)
 		}
-	})
+	}, [])
 
 	return (
 		<form
@@ -57,7 +57,7 @@ function AddToDo({ onCreate }) {
 			method="POST"
 			onSubmit={submitHandler}>
 			<div className='form__addText'>
-				<Inputs type={"text"} dataValue={dataValue} value={t(value) || ''} name={"name"} act={classes} focus={focus} blur={blur} onkey={keyBoard} onchange={changeon}></Inputs>
+				<FullInputs type={"text"} dataValue={dataValue} value={t(value) || ''} name={"name"} act={classes} focus={focus} blur={blur} onkey={keyBoard} onchange={changeon}></FullInputs>
 				<Button title={t("main.send")} type={"submit"} aux={"button__big"}></Button>
 			</div>
 		</form >

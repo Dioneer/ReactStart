@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classnames from 'classnames'
 import { useTranslation } from "react-i18next";
 import Button from '../UI/button.js';
-import Inputs from "../UI/input.js";
+import { FullInputs } from "../UI/input.js";
 
 function HeaderInput({ show }) {
 	const [value, setValue] = useState('main.search');
@@ -40,7 +40,7 @@ function HeaderInput({ show }) {
 				action="#"
 				method="POST"
 				onSubmit={submitHandler}>
-				<Inputs type={"text"} dataValue={searchClass} value={t(value) || ''} name={"search"} act={show} focus={focus} blur={blur} onchange={changeOn} onkey={keyBoard}></Inputs>
+				<FullInputs type={"text"} dataValue={searchClass} value={t(value) || ''} name={"search"} act={show} focus={focus} blur={blur} onchange={changeOn} onkey={keyBoard}></FullInputs>
 				<Button aux={"button__search"} type={"submit"} title={t("main.search")}></Button>
 			</form >
 		</div>)

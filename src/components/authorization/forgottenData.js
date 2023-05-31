@@ -5,13 +5,15 @@ import { OpenEye, CloseEye } from './Eyes.js';
 import { useTranslation } from "react-i18next";
 import classnames from 'classnames';
 import Button from '../UI/button.js';
+import { Inputs } from '../UI/input.js';
 
 function ForgottenData() {
-	const { classes, eyeclasses, validLogin, validPass, error, sawPass, blur, loginHandler, buttonforgottenValid, loginerr, passerr, login, pass, passType, focus, passHandler, equalHandler, repeat, repeatEyeclasses, repeatPassType, equal, forgottenHandler } = useForm();
+	const { value, validData, dataErr, classes, eyeclasses, error, sawPass, blur, loginHandler, buttonValid, passType, focus, passHandler, equalHandler, repeatEyeclasses, repeatPassType, forgottenHandler } = useForm();
 	const { t } = useTranslation();
 
 	return (
 		<CenterContainer>
+			< h1 className="authorization__title" > {t("auth.forgottitle")}</h1 >
 			{error && <Error error={error}></Error>}
 			<form
 				action="#"
@@ -20,17 +22,8 @@ function ForgottenData() {
 				className="authorization__form">
 				<div className="authorization__input">
 					<span className="authorization__text">{t("auth.logoremail")}</span>
-					<input
-						type="text"
-						value={login}
-						autoComplete="off"
-						placeholder={t("auth.logoremail")}
-						name="login"
-						onChange={(e) => { loginHandler(e) }}
-						onBlur={blur}
-						className={classnames("input input-auth", { active: classes })}>
-					</input>
-					{(validLogin && loginerr) && <div className='authorization__err'>{loginerr}</div>}
+					<Inputs type={"text"} value={value.login} place={t("auth.logoremail")} name={"login"} blur={blur} act={classes} aux={"input-auth"} onchange={loginHandler}></Inputs>
+					{(validData.validLogin && dataErr.loginerr) && <div className='authorization__err'>{dataErr.loginerr}</div>}
 				</div>
 				<div className="authorization__input">
 					<div className="authorization__pass-header">
@@ -42,17 +35,8 @@ function ForgottenData() {
 							<OpenEye></OpenEye>
 						</span>
 					</div>
-					<input
-						type={passType}
-						value={pass}
-						placeholder={t("auth.enterpass")}
-						autoComplete="off"
-						name="password"
-						onBlur={blur}
-						className={classnames("input input-auth", { active: classes })}
-						onChange={(e) => { passHandler(e) }}>
-					</input>
-					{(validPass && passerr) && <div className='authorization__err'>{passerr}</div>}
+					<Inputs type={passType} value={value.pass} place={t("auth.enterpass")} name={"password"} blur={blur} act={classes} aux={"input-auth"} onchange={passHandler}></Inputs>
+					{(validData.validPass && dataErr.passerr) && <div className='authorization__err'>{dataErr.passerr}</div>}
 				</div>
 				<div className="authorization__input">
 					<div className="authorization__pass-header">
@@ -64,19 +48,10 @@ function ForgottenData() {
 							<OpenEye></OpenEye>
 						</span>
 					</div>
-					<input
-						type={repeatPassType}
-						value={repeat}
-						placeholder={t("auth.repeatpass")}
-						autoComplete="off"
-						name="password"
-						onBlur={blur}
-						className={classnames("input input-auth", { active: classes })}
-						onChange={(e) => { equalHandler(e) }}>
-					</input>
-					{(validPass && equal) && <div className='authorization__err'>{equal}</div>}
+					<Inputs type={repeatPassType} value={value.repeat} place={t("auth.repeatpass")} name={"password"} blur={blur} act={classes} aux={"input-auth"} onchange={equalHandler}></Inputs>
+					{(validData.validPass && dataErr.equalerr) && <div className='authorization__err'>{dataErr.equalerr}</div>}
 				</div>
-				<Button type={"submit"} aux={"button__authorization"} title={t("auth.enter")} dis={!buttonforgottenValid}></Button>
+				<Button type={"submit"} aux={"button__authorization"} title={t("auth.enter")} dis={!buttonValid.buttonforgottenValid}></Button>
 			</form>
 		</CenterContainer>
 	)

@@ -1,6 +1,6 @@
 import './input.css'
 
-function Inputs(props) {
+export function FullInputs(props) {
 
 	const addVarProp = () => { if (props.act) { return 'active' } else return '' }
 
@@ -20,4 +20,19 @@ function Inputs(props) {
 	)
 }
 
-export default Inputs;
+export function Inputs(props) {
+
+	const addVarProp = () => { if (props.act) { return 'active' } else return '' }
+
+	return (
+		<input
+			type={props.type}
+			value={props.value}
+			placeholder={props.place}
+			autoComplete="off"
+			name={props.name}
+			className={["input", props.aux, addVarProp()].join(' ')}
+			onBlur={props.blur}
+			onChange={(e) => { props.onchange(e) }} />
+	)
+}

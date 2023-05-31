@@ -3,7 +3,7 @@ import { useAppContext } from '../context.js';
 
 function useCanvas() {
 	const { changeImages } = useAppContext();
-	const [classes, setClasses] = useState('');
+	const [classes, setClasses] = useState(false);
 	const canvasRef = useRef(null);
 	const contextRef = useRef(null);
 	const [drawing, setDrawing] = useState(false);
@@ -23,10 +23,10 @@ function useCanvas() {
 
 		const onClick = (e) => {
 			if (canvas.contains(e.target)) {
-				setClasses('active');
+				setClasses(true);
 			}
 			if (!canvas.contains(e.target)) {
-				setClasses('')
+				setClasses(false)
 			}
 		}
 		document.addEventListener('click', onClick);

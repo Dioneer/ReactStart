@@ -5,10 +5,11 @@ import classnames from 'classnames';
 import useForm from './useForm.js';
 import { OpenEye, CloseEye } from './Eyes.js';
 import Button from '../UI/button.js';
+import { Inputs } from '../UI/input.js';
 
 function Registration() {
-	const { classes, eyeclasses, validLogin, validPass, error, sawPass, blur, loginHandler, buttonRegistrValid, loginerr, passerr, login, pass, passType, focus, email, validEmail, emailerr, emailHandler, registrationHandler, passHandler, equalHandler, repeat, repeatEyeclasses, repeatPassType, equal } = useForm();
-	// console.log(buttonValid)
+	const { value, validData, dataErr, classes, eyeclasses, error, sawPass, blur, loginHandler, buttonValid, passType, focus, emailHandler, registrationHandler, passHandler, equalHandler, repeatEyeclasses, repeatPassType } = useForm();
+
 	const { t } = useTranslation();
 
 	return (
@@ -22,31 +23,13 @@ function Registration() {
 				className="authorization__form">
 				<div className="authorization__input">
 					<span className="authorization__text">{t("auth.login")}</span>
-					<input
-						type="text"
-						value={login}
-						autoComplete="off"
-						placeholder={t("auth.login")}
-						name="login"
-						onChange={(e) => { loginHandler(e) }}
-						onBlur={blur}
-						className={classnames("input input-auth", { active: classes })}>
-					</input>
-					{(validLogin && loginerr) && <div className='authorization__err'>{loginerr}</div>}
+					<Inputs type={"text"} value={value.login} place={t("auth.login")} name={"login"} blur={blur} act={classes} aux={"input-auth"} onchange={loginHandler}></Inputs>
+					{(validData.validLogin && dataErr.loginerr) && <div className='authorization__err'>{dataErr.loginerr}</div>}
 				</div>
 				<div className="authorization__input">
 					<span className="authorization__text">{t("auth.email")}</span>
-					<input
-						type="text"
-						value={email}
-						autoComplete="off"
-						placeholder={t("auth.email")}
-						name="email"
-						onBlur={blur}
-						onChange={(e) => { emailHandler(e) }}
-						className={classnames("input input-auth", { active: classes })}>
-					</input>
-					{(validEmail && emailerr) && <div className='authorization__err'>{emailerr}</div>}
+					<Inputs type={"text"} value={value.email} place={t("auth.email")} name={"email"} blur={blur} act={classes} aux={"input-auth"} onchange={emailHandler}></Inputs>
+					{(validData.validEmail && dataErr.emailerr) && <div className='authorization__err'>{dataErr.emailerr}</div>}
 				</div>
 				<div className="authorization__input">
 					<div className="authorization__pass-header">
@@ -58,17 +41,8 @@ function Registration() {
 							<OpenEye></OpenEye>
 						</span>
 					</div>
-					<input
-						type={passType}
-						value={pass}
-						placeholder={t("auth.pass")}
-						autoComplete="off"
-						name="password"
-						onBlur={blur}
-						className={classnames("input input-auth", { active: classes })}
-						onChange={(e) => { passHandler(e) }}>
-					</input>
-					{(validPass && passerr) && <div className='authorization__err'>{passerr}</div>}
+					<Inputs type={passType} value={value.pass} place={t("auth.pass")} name={"password"} blur={blur} act={classes} aux={"input-auth"} onchange={passHandler}></Inputs>
+					{(validData.validPass && dataErr.passerr) && <div className='authorization__err'>{dataErr.passerr}</div>}
 				</div>
 				<div className="authorization__input">
 					<div className="authorization__pass-header">
@@ -80,19 +54,10 @@ function Registration() {
 							<OpenEye></OpenEye>
 						</span>
 					</div>
-					<input
-						type={repeatPassType}
-						value={repeat}
-						placeholder={t("auth.repearegtpass")}
-						autoComplete="off"
-						name="password"
-						onBlur={blur}
-						className={classnames("input input-auth", { active: classes })}
-						onChange={(e) => { equalHandler(e) }}>
-					</input>
-					{(validPass && equal) && <div className='authorization__err'>{equal}</div>}
+					<Inputs type={repeatPassType} value={value.repeat} place={t("auth.repearegtpass")} name={"password"} blur={blur} act={classes} aux={"input-auth"} onchange={equalHandler}></Inputs>
+					{(validData.validPass && dataErr.equalerr) && <div className='authorization__err'>{dataErr.equalerr}</div>}
 				</div>
-				<Button type={"submit"} aux={"button__authorization"} title={t("auth.register")} dis={!buttonRegistrValid}></Button>
+				<Button type={"submit"} aux={"button__authorization"} title={t("auth.register")} dis={!buttonValid.buttonRegistrValid}></Button>
 			</form>
 		</CenterContainer>
 	)

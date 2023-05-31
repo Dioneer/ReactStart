@@ -102,6 +102,7 @@
 		"uncoremail": "Uncorrect email",
 		"tooeasy": "Too easy pass, please, enter more than 7 simbols",
 		"notthesame": "Passes not the same",
-		"emailerr": "Email can't be empty"
+		"emailerr": "Email can't be empty",
+		"forgottitle": "recover the password"
 	}
 }

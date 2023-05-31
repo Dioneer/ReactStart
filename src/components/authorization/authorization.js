@@ -6,16 +6,17 @@ import Error from '../../components/error/error.js';
 import useForm from './useForm';
 import CenterContainer from '../centerContainer/centerContainer.js';
 import { OpenEye, CloseEye } from './Eyes.js';
-import Button from '../UI/button';
+import Button from '../UI/button.js';
+import { Inputs } from '../UI/input.js';
 
 function Authorization() {
-	const { classes, eyeclasses, validLogin, validPass, error, sawPass, blur, loginHandler, enterHandler, buttonLoginValid, loginerr, passerr, login, pass, passType, focus, passHandler } = useForm();
+	const { value, buttonValid, validData, dataErr, classes, eyeclasses, error, sawPass, blur, loginHandler, enterHandler, passType, focus, passHandler } = useForm();
 	const { t } = useTranslation();
 
 	return (
 		<CenterContainer>
+			< h1 className="authorization__title" > {t("auth.invite")}</h1 >
 			{error && <Error error={error}></Error>}
-			< h1 className="authorization__title" > {t("auth.invite")}:</h1 >
 			<form
 				action="#"
 				method="POST"
@@ -23,17 +24,8 @@ function Authorization() {
 				className="authorization__form">
 				<div className="authorization__input">
 					<span className="authorization__text">{t("auth.login")}</span>
-					<input
-						type="text"
-						value={login}
-						placeholder={t("auth.login")}
-						autoComplete="off"
-						name="login"
-						onBlur={blur}
-						className={classnames("input input-auth", { active: classes })}
-						onChange={(e) => { loginHandler(e) }}>
-					</input>
-					{(validLogin && loginerr) && <div className='authorization__err'>{t("auth.loginerr")}</div>}
+					<Inputs type={"text"} value={value.login} place={t("auth.login")} name={"login"} blur={blur} act={classes} aux={"input-auth"} onchange={loginHandler}></Inputs>
+					{(validData.validLogin && dataErr.loginerr) && <div className='authorization__err'>{t("auth.loginerr")}</div>}
 				</div>
 				<div className="authorization__input">
 					<div className="authorization__pass-header">
@@ -45,17 +37,8 @@ function Authorization() {
 							<OpenEye></OpenEye>
 						</span>
 					</div>
-					<input
-						type={passType}
-						value={pass}
-						placeholder={t("auth.pass")}
-						autoComplete="off"
-						name="password"
-						onBlur={blur}
-						className={classnames("input input-auth", { active: classes })}
-						onChange={(e) => { passHandler(e) }}>
-					</input>
-					{(validPass && passerr) && <div className='authorization__err'>{passerr}</div>}
+					<Inputs type={passType} value={value.pass} place={t("auth.pass")} name={"password"} blur={blur} act={classes} aux={"input-auth"} onchange={passHandler}></Inputs>
+					{(validData.validPass && dataErr.passerr) && <div className='authorization__err'>{dataErr.passerr}</div>}
 				</div>
 				<ul className="authorization__buttons">
 					<li
@@ -71,7 +54,7 @@ function Authorization() {
 						</Link>
 					</li>
 					<li className="authorization__button">
-						<Button aux={"button__authorization"} title={t("auth.enter")} dis={!buttonLoginValid} type={"submit"}></Button>
+						<Button aux={"button__authorization"} title={t("auth.enter")} dis={!buttonValid.buttonLoginValid} type={"submit"}></Button>
 					</li>
 				</ul>
 			</form>

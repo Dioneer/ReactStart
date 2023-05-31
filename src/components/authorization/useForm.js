@@ -1,30 +1,25 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { authService } from '../../services/authorization.js';
 
-function useForm(initialValue) {
+const initvalue = { login: '', pass: '', repeat: '', email: '' };
+const initValidData = { validLogin: false, validEmail: false, validPass: false };
+const initButtonValid = { buttonLoginValid: false, buttonRegistrValid: false, buttonforgottenValid: false };
+
+function useForm() {
 	const { t } = useTranslation();
 	//for css
 	const [classes, setClasses] = useState(false);
 	const [eyeclasses, setEyeclasses] = useState(false);
 	const [repeatEyeclasses, setRepeatEyeclasses] = useState(false);
 	//fill
-	const [login, setLogin] = useState('');
-	const [pass, setPass] = useState('');
-	const [repeat, setRepeat] = useState('');
-	const [email, setEmail] = useState('');
+	const [value, setValue] = useState(initvalue);
 	//blur
-	const [validLogin, setValidLogin] = useState(false);
-	const [validEmail, setValidEmail] = useState(false);
-	const [validPass, setValidPass] = useState(false);
+	const [validData, setValidData] = useState(initValidData);
 	//text mistake
-	const [passerr, setPasserr] = useState(t("auth.passerr"));
-	const [loginerr, setLoginerr] = useState(t("auth.loginerr"));
-	const [emailerr, setEmailerr] = useState(t("auth.emailerr"));
-	const [equal, setEqual] = useState(t("auth.notthesame"));
+	const [dataErr, setDataErr] = useState({ passerr: t("auth.passerr"), loginerr: t("auth.loginerr"), emailerr: t("auth.emailerr"), equalerr: t("auth.notthesame") })
 	//button valid
-	const [buttonLoginValid, setButtonLoginValid] = useState(false);
-	const [buttonRegistrValid, setButtonRegistrValid] = useState(false);
-	const [buttonforgottenValid, setButtonforgottenValid] = useState(false);
+	const [buttonValid, setButtonValid] = useState(initButtonValid);
 	//main err
 	const [error, setError] = useState(false);
 	//change type
@@ -33,9 +28,9 @@ function useForm(initialValue) {
 
 	function enterHandler(e) {
 		e.preventDefault();
-		if (buttonLoginValid) {
+		if (buttonValid.buttonLoginValid) {
 			const address = 'https://jsonplaceholder.typicode.com/todos/';
-			const logger = [{ login: login, pass: pass, authorization: true }]
+			const logger = [{ login: value.login, pass: value.pass, authorization: true }]
 			sendBack(logger, address);
 			clear();
 		}
@@ -43,9 +38,9 @@ function useForm(initialValue) {
 
 	function forgottenHandler(e) {
 		e.preventDefault();
-		if (buttonLoginValid) {
+		if (buttonValid.buttonLoginValid) {
 			const address = 'https://jsonplaceholder.typicode.com/todos/';
-			const logger = [{ login: login, pass: pass, forgottenData: true }]
+			const logger = [{ login: value.login, pass: value.pass, forgottenData: true }]
 			sendBack(logger, address);
 			clear();
 		}
@@ -53,9 +48,9 @@ function useForm(initialValue) {
 
 	function registrationHandler(e) {
 		e.preventDefault();
-		if (buttonforgottenValid) {
+		if (buttonValid.buttonforgottenValid) {
 			const address = 'https://jsonplaceholder.typicode.com/todos/';
-			const logger = [{ login: login, pass: pass, email: email, registration: true }]
+			const logger = [{ login: value.login, pass: value.pass, email: value.email, registration: true }]
 			sendBack(logger, address);
 			clear();
 		}
@@ -64,12 +59,7 @@ function useForm(initialValue) {
 	async function sendBack(value, address) {
 		try {
 			setError(false)
-			const response = await fetch(address, {
-				body: JSON.stringify(value),
-				headers: { "Content-Type": "application/json" },
-				method: "POST",
-			})
-			const data = await response.json();
+			const data = await authService.getAuthInfo(value, address)
 			console.log(data)
 		} catch (e) {
 			setError(e.message);
@@ -77,28 +67,29 @@ function useForm(initialValue) {
 	}
 
 	function emailHandler(e) {
-		setEmail(e.target.value)
+		setValue(prev => ({ ...prev, email: e.target.value }))
 		const watch = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/;
 		if (!watch.test(String(e.target.value).toLowerCase())) {
-			setEmailerr(t("auth.uncoremail"))
-		} else setEmailerr("")
+			setDataErr(prev => ({ ...prev, emailerr: t("auth.uncoremail") }))
+		} else setDataErr(prev => ({ ...prev, emailerr: '' }))
 	}
 
 	function passHandler(e) {
-		setPass(e.target.value)
-		if (e.target.value.length < 7) { setPasserr(t("auth.tooeasy")) }
-		else setPasserr("")
+		setValue(prev => ({ ...prev, pass: e.target.value }))
+		if (e.target.value.length < 7 || e.target.value.trim() === '') {
+			setDataErr(prev => ({ ...prev, passerr: t("auth.tooeasy") }))
+		} else setDataErr(prev => ({ ...prev, passerr: '' }))
 	}
 
 	function loginHandler(e) {
-		setLogin(e.target.value);
-		if (e.target.value.trim() !== '') setLoginerr('')
+		setValue(prev => ({ ...prev, login: e.target.value }))
+		if (e.target.value.trim() !== '') setDataErr(prev => ({ ...prev, loginerr: '' }))
 	}
 
 	function equalHandler(e) {
-		setRepeat(e.target.value);
-		if (e.target.value === pass) { setEqual('') }
-		else { setEqual(t("auth.notthesame")) }
+		setValue(prev => ({ ...prev, repeat: e.target.value }))
+		if (e.target.value === value.pass) { setDataErr(prev => ({ ...prev, equalerr: '' })) }
+		else { setDataErr(prev => ({ ...prev, equalerr: t("auth.notthesame") })) }
 	}
 
 	function missClick(e) {
@@ -106,30 +97,21 @@ function useForm(initialValue) {
 	}
 
 	function clear() {
-		setLogin('');
-		setPass('');
-		setEmail('');
-		setRepeat('')
-		setValidLogin(false);
-		setValidPass(false);
-		setValidEmail(false);
-		setLoginerr(t("auth.loginerr"));
-		setPasserr(t("auth.passerr"));
-		setEmailerr(t("auth.emailerr"));
-		setEqual(t("auth.notthesame"));
-		setButtonLoginValid(false);
-		setButtonRegistrValid(false);
+		setValue(initvalue);
+		setValidData(initValidData);
+		setDataErr({ passerr: t("auth.passerr"), loginerr: t("auth.loginerr"), emailerr: t("auth.emailerr"), equalerr: t("auth.notthesame") });
+		setButtonValid(initButtonValid);
 	}
 
 	function blur(e) {
 		switch (e.target.name) {
-			case "login": setValidLogin(true)
+			case "login": setValidData(prev => ({ ...prev, validLogin: true }))
 				break
-			case "password": setValidPass(true)
+			case "password": setValidData(prev => ({ ...prev, validPass: true }))
 				break
-			case "email": setValidEmail(true)
+			case "email": setValidData(prev => ({ ...prev, validEmail: true }))
 				break
-			case "text": setValidPass(true)
+			case "text": setValidData(prev => ({ ...prev, validPass: true }))
 				break
 			default:
 		}
@@ -164,31 +146,31 @@ function useForm(initialValue) {
 	}, [])
 
 	useEffect(() => {
-		if (passerr || loginerr || emailerr || equal) {
-			setButtonRegistrValid(false)
+		if (dataErr.passerr || dataErr.loginerr || dataErr.emailerr || dataErr.equalerr) {
+			setButtonValid(prev => ({ ...prev, buttonRegistrValid: false }))
 		} else {
-			setButtonRegistrValid(true)
+			setButtonValid(prev => ({ ...prev, buttonRegistrValid: true }))
 		}
-	}, [passerr, loginerr, emailerr, equal])
+	}, [dataErr.passerr, dataErr.loginerr, dataErr.emailerr, dataErr.equalerr])
 
 	useEffect(() => {
-		if (passerr || loginerr) {
-			setButtonLoginValid(false)
+		if (dataErr.passerr || dataErr.loginerr) {
+			setButtonValid(prev => ({ ...prev, buttonLoginValid: false }))
 		} else {
-			setButtonLoginValid(true)
+			setButtonValid(prev => ({ ...prev, buttonLoginValid: true }))
 		}
-	}, [passerr, loginerr])
+	}, [dataErr.passerr, dataErr.loginerr])
 
 	useEffect(() => {
-		if (passerr || loginerr || equal) {
-			setButtonforgottenValid(false)
+		if (dataErr.passerr || dataErr.loginerr || dataErr.equalerr) {
+			setButtonValid(prev => ({ ...prev, buttonforgottenValid: false }))
 		} else {
-			setButtonforgottenValid(true)
+			setButtonValid(prev => ({ ...prev, buttonforgottenValid: true }))
 		}
-	}, [passerr, loginerr, equal])
+	}, [dataErr.passerr, dataErr.loginerr, dataErr.equalerr])
 
 
-	return { classes, eyeclasses, validLogin, validPass, error, sawPass, blur, loginHandler, enterHandler, loginerr, passerr, login, pass, passType, focus, email, validEmail, emailerr, emailHandler, registrationHandler, buttonRegistrValid, buttonLoginValid, passHandler, equalHandler, repeat, repeatEyeclasses, repeatPassType, equal, forgottenHandler, buttonforgottenValid }
+	return { classes, eyeclasses, error, sawPass, blur, loginHandler, enterHandler, passType, focus, emailHandler, registrationHandler, passHandler, equalHandler, repeatEyeclasses, repeatPassType, forgottenHandler, value, validData, dataErr, buttonValid }
 }
 
 export default useForm;

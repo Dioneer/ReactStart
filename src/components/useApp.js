@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { todoService } from "../services/addTodo.js";
 
 export function useApp() {
 	const [textContent, setTodo] = useState([]);
@@ -51,12 +52,7 @@ export function useApp() {
 	async function sendBack(value, address) {
 		try {
 			setError(false)
-			const response = await fetch(address, {
-				body: JSON.stringify(value),
-				headers: { "Content-Type": "application/json" },
-				method: "POST",
-			})
-			const data = await response.json();
+			const data = await todoService.getTodoInfo(value, address)
 			console.log(data)
 		} catch (e) {
 			setError(e.message);
@@ -70,10 +66,6 @@ export function useApp() {
 		sendBack(add, address);
 		localStorage.setItem("item", JSON.stringify(add))
 	}
-
-	// useEffect(() => {
-	// для функции на прием
-	// })
 
 	return { textContent, toggle, remove, addTodo, backEndDate, onCalendarChange, changeImages, images, commonClasses, setCommonClasses, error }
 }

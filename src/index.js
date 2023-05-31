@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import './common.css';
+import './assets/index.css';
+import './assets/common.css';
 import App from './components/App.js';
 import TodoLoader from './components/loader/loader.js'
 import reportWebVitals from './reportWebVitals';

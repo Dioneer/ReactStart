@@ -1,16 +1,16 @@
 import HeaderAuth from '../components/header/headerAuthorization.js';
-import { Fragment } from 'react';
+import Wrapper from "../components//UI/wrapper.js";
 import Registration from '../components/authorization/registration.js';
 import Container from '../components/UI/container.js';
 
 function RegistrationPage() {
 	return (
-		<Fragment>
+		<Wrapper>
 			<HeaderAuth></HeaderAuth>
 			<Container>
 				<Registration ></Registration>
 			</Container>
-		</Fragment>
+		</Wrapper>
 	)
 }
 

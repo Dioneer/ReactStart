@@ -1,8 +1,11 @@
 import NotFound from '../components/404/notFound.js';
+import Wrapper from "../components//UI/wrapper.js";
 
 function NotFoundPage() {
 	return (
-		<NotFound></NotFound>
+		<Wrapper>
+			<NotFound></NotFound>
+		</Wrapper>
 	)
 }
 

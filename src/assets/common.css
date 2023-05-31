@@ -1,11 +1,5 @@
-.wrapper{
-	@apply bg-zinc-300 dark:bg-zinc-800;
-}
 .title{
 	@apply dark:text-neutral-300 text-zinc-800;
-}
-.button{
-	@apply bg-amber-400 dark:bg-amber-500;
 }
 
 /* checkbox */
